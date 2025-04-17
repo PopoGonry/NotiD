@@ -32,7 +32,7 @@ NotiD는 이러한 공지 전달 문제를 채널 기반 통합 시스템으로 
 ### 전체 동작 과정
 
 #### User Flow Chart
-
+[![js](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/board/HNC8X32xepwT4RJmPVn19B/NotiD?t=o8CPHNd0Z5IdXhTW-1)
 ![](attachments/NotiD_User_Flow_Chart.png)
 
 ### 동작 과정 설명
