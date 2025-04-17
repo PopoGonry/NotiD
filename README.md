@@ -31,6 +31,8 @@ NotiD는 이러한 공지 전달 문제를 채널 기반 통합 시스템으로 
 
 ### 전체 동작 과정
 
+#### User Flow Chart
+
 ![](attachments/NotiD_User_Flow_Chart.png)
 
 ### 동작 과정 설명
