@@ -9,7 +9,7 @@ public class MemoryUserRepository implements UserRepositoy {
     private HashMap<String, User> userHashMap = new HashMap<>();
 
     @Override
-    public void setUserData(User user) {
+    public void addUserData(User user) {
         userHashMap.put(user.getId(), user);
     }
 
