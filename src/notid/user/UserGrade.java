@@ -1,4 +1,4 @@
-package user;
+package notid.user;
 
 public enum UserGrade {
     MASTER,

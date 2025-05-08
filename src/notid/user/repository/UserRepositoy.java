@@ -1,6 +1,6 @@
-package user.repository;
+package notid.user.repository;
 
-import user.User;
+import notid.user.User;
 
 public interface UserRepositoy {
     void setUserData(User user);
