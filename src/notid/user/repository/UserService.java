@@ -19,8 +19,8 @@ public class UserService {
         return true;
     }
 
-    void getUser() {
-
+    User getUser(String userId) {
+        return userRepositoy.getUserData(userId);
     }
 
     void updateUser() {
