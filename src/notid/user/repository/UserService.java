@@ -11,7 +11,7 @@ public class UserService {
     UserRepositoy userRepositoy = Config.getUserRepositoy();
 
     boolean createUser(String id, String password, String name, Date birthdate, String phoneNumber, UserGrade grade) {
-        // 같은 id의 유저가 있을 때, 예외
+        // id의 유저가 있을 때, 예외
         if(userRepositoy.hasUserData(id)) return false;
 
         User user = new User(id, password, name, birthdate, phoneNumber, grade);
@@ -26,14 +26,12 @@ public class UserService {
     void updateUser() {
 
     }
-    void deleteUser() {
+    boolean deleteUser(String id) {
+        // id의 유저가 없을 때, 예외
+        if(!userRepositoy.hasUserData(id)) return false;
 
+        userRepositoy.removeUserData(id);
+        return true;
     }
-
-
-
-
-
-
 
 }

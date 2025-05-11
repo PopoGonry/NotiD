@@ -22,4 +22,9 @@ public class MemoryUserRepository implements UserRepositoy {
     public boolean hasUserData(String userId) {
         return userHashMap.containsKey(userId);
     }
+
+    @Override
+    public void removeUserData(String userId) {
+        userHashMap.remove(userId);
+    }
 }
