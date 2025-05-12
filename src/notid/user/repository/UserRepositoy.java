@@ -8,3 +8,4 @@ public interface UserRepositoy {
     boolean hasUserData(String userId);
     void removeUserData(String userId);
 }
+

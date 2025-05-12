@@ -1,14 +1,15 @@
-package notid.user.repository;
+package notid.user;
 
-import notid.Config;
-import notid.user.User;
-import notid.user.UserGrade;
+import notid.user.repository.UserRepositoy;
 
-import java.io.ObjectInputFilter;
 import java.util.Date;
 
 public class UserService {
-    UserRepositoy userRepositoy = Config.getUserRepositoy();
+    UserRepositoy userRepositoy;
+
+    public UserService(UserRepositoy userRepositoy) {
+        this.userRepositoy = userRepositoy;
+    }
 
     boolean createUser(String id, String password, String name, Date birthdate, String phoneNumber, UserGrade grade) {
         // id의 유저가 있을 때, 예외
@@ -19,13 +20,18 @@ public class UserService {
         return true;
     }
 
-    User getUser(String userId) {
-        return userRepositoy.getUserData(userId);
+    boolean updateUser(String id, User newUser) {
+        // id의 유저가 없을 때, 예외
+        if(!userRepositoy.hasUserData(id)) return false;
+
+        // id와 newUser의 id가 같지 않을 때, 예외
+        if(id.equalsIgnoreCase(newUser.getId())) return false;
+
+        userRepositoy.removeUserData(id);
+        userRepositoy.addUserData(newUser);
+        return true;
     }
 
-    void updateUser() {
-
-    }
     boolean deleteUser(String id) {
         // id의 유저가 없을 때, 예외
         if(!userRepositoy.hasUserData(id)) return false;

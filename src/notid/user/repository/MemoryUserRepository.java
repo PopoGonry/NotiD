@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class MemoryUserRepository implements UserRepositoy {
 
-    private HashMap<String, User> userHashMap = new HashMap<>();
+    private final HashMap<String, User> userHashMap = new HashMap<>();
 
     @Override
     public void addUserData(User user) {
