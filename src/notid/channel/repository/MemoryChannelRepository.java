@@ -14,55 +14,56 @@ public class MemoryChannelRepository implements ChannelRepository {
 
     @Override
     public void addChannelData(Channel channel) {
+        channelHashMap.put(channel.getName(), channel);
     }
 
     @Override
     public Channel getChannelData(String channelName) {
-        return null;
+        return channelHashMap.get(channelName);
     }
 
     @Override
     public boolean hasChannelData(String channelName) {
-        return false;
+        return channelHashMap.containsKey(channelName);
     }
 
     @Override
     public void removeChannelData(String channelName) {
-
+        channelHashMap.remove(channelName);
     }
 
     @Override
-    public void addUserChannelData(String userId, Channel channel) {
-
+    public void addUserChannelData(String userId, String channelName) {
+        userChannelHashMap.get(userId).add(channelName);
     }
 
     @Override
     public boolean hasUserChannelData(String userId, String channelName) {
-        return false;
+        return userChannelHashMap.get(userId).contains(channelName);
     }
 
     @Override
     public void removeUserChannelData(String userId, String channelName) {
-
+        userChannelHashMap.get(userId).remove(channelName);
     }
 
     @Override
-    public void addUserChannelSetData(String userId, HashSet<Channel> channelSet) {
-
+    public void addUserChannelSetData(String userId, HashSet<String> channelSet) {
+        userChannelHashMap.put(userId, channelSet);
     }
 
     @Override
     public HashSet<String> getUserChannelSetData(String userId) {
-        return null;
+        return userChannelHashMap.get(userId);
     }
 
     @Override
     public boolean hasUserChannelSetData(String userId) {
-        return false;
+        return userChannelHashMap.containsKey(userId);
     }
 
     @Override
     public void removeUserChannelSetData(String userId) {
-
+        userChannelHashMap.remove(userId);
     }
 }

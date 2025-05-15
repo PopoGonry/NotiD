@@ -5,7 +5,7 @@ import notid.user.repository.UserRepositoy;
 import java.util.Date;
 
 public class UserService {
-    UserRepositoy userRepositoy;
+    private final UserRepositoy userRepositoy;
 
     public UserService(UserRepositoy userRepositoy) {
         this.userRepositoy = userRepositoy;
@@ -25,7 +25,7 @@ public class UserService {
         if(!userRepositoy.hasUserData(id)) return false;
 
         // id와 newUser의 id가 같지 않을 때, 예외
-        if(id.equalsIgnoreCase(newUser.getId())) return false;
+        if(id.equals(newUser.getId())) return false;
 
         userRepositoy.removeUserData(id);
         userRepositoy.addUserData(newUser);
