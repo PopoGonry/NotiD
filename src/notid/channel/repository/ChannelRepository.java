@@ -18,5 +18,4 @@ public interface ChannelRepository {
     HashSet<String> getUserChannelSetData(String userId);
     boolean hasUserChannelSetData(String userId);
     void removeUserChannelSetData(String userId);
-
 }

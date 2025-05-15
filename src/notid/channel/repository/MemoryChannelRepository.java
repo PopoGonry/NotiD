@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class MemoryChannelRepository implements ChannelRepository {
-    // HashMap <UserID, Channel>
-    private final HashMap<String, Channel> channelHashMap = new HashMap<>();
+    // HashMap <ChannelName, Channel>
+    private static final HashMap<String, Channel> channelHashMap = new HashMap<>();
 
     // HashMap <UserID, HashSet<ChannelName>>
-    private final HashMap<String, HashSet<String>> userChannelHashMap = new HashMap<>();
+    private static final HashMap<String, HashSet<String>> userChannelHashMap = new HashMap<>();
 
     @Override
     public void addChannelData(Channel channel) {

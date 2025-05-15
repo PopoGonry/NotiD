@@ -1,10 +1,14 @@
 package notid.channel;
 
+import java.util.HashMap;
+
 public class Channel {
     private String name;
     private String description;
     private String affiliation;
     private ChannelJoinType joinType;
+
+    private final HashMap<String, ChannelUserGrade> channelUserGradeHashMap = new HashMap<>();
 
     public Channel(String name, String description, String affiliation, ChannelJoinType joinType) {
         this.name = name;
