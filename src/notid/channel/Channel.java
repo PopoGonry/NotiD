@@ -56,6 +56,10 @@ public class Channel {
         this.joinType = joinType;
     }
 
+    public HashMap<String, ChannelUserGrade> getChannelUserGradeHashMap() {
+        return channelUserGradeHashMap;
+    }
+
     @Override
     public String toString() {
         return "Channel{" +
