@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotiD.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/Channel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelJoinType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelUserGrade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/repository/ChannelRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/channel/repository/MemoryChannelRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/notice/Notice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/notice/NoticeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/notice/repository/MemoryNoticeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/notice/repository/NoticeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/user/UserGrade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/user/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/user/repository/MemoryUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notid/user/repository/UserRepositoy.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PopoGonry&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PopoGonry/NotiD.git&quot;,
+    &quot;accountId&quot;: &quot;5f262dd7-b18b-454b-ab89-8cf783edd667&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2xiN8DO11ZSYF9ZDVdxqw1sQiEZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.'NotiD.test'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.channel'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.user'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_fail_whenUserExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenIdMismatch.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/git/NotiD/src/main/java/com/popogonry/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Gradle.'notid.channel'에 있는 테스트">
+    <configuration name="MemoryChannelRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;notid.channel.MemoryChannelRepositoryTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MemoryChannelRepositoryTest.addAndRemoveUserChannelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;notid.channel.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MemoryChannelRepositoryTest.removeUserChannelSetData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;notid.channel.MemoryChannelRepositoryTest.removeUserChannelSetData&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="'notid'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;notid.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="'notid.channel'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;notid.channel.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.'notid.channel'에 있는 테스트" />
+        <item itemvalue="Gradle.'notid'에 있는 테스트" />
+        <item itemvalue="Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData" />
+        <item itemvalue="Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest" />
+        <item itemvalue="Gradle.MemoryChannelRepositoryTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.109" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.109" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="" />
+      <created>1748416772261</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748416772261</updated>
+      <workItem from="1748416773233" duration="80000" />
+      <workItem from="1748416892033" duration="9187000" />
+      <workItem from="1748426164914" duration="8000" />
+      <workItem from="1748426180746" duration="37000" />
+      <workItem from="1748426226325" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
