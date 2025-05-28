@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotiD.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/Channel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelJoinType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/ChannelUserGrade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/repository/ChannelRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/channel/repository/MemoryChannelRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/notice/Notice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/notice/NoticeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/notice/repository/MemoryNoticeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/notice/repository/NoticeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/user/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/user/UserGrade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/user/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/user/repository/MemoryUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notid/user/repository/UserRepositoy.java" beforeDir="false" />
-    </list>
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-05-28&#10;&#10;프로젝트 gradle로 변경" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -267,11 +242,24 @@
       <workItem from="1748416892033" duration="9187000" />
       <workItem from="1748426164914" duration="8000" />
       <workItem from="1748426180746" duration="37000" />
-      <workItem from="1748426226325" duration="13000" />
+      <workItem from="1748426226325" duration="133000" />
     </task>
+    <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
+      <option name="closed" value="true" />
+      <created>1748426327429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748426327429</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2025-05-28&#10;&#10;프로젝트 gradle로 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-05-28&#10;&#10;프로젝트 gradle로 변경" />
   </component>
 </project>
