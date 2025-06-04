@@ -36,6 +36,9 @@ public class MemoryNoticeRepository implements NoticeRepository {
 
     @Override
     public void addChannelNoticeData(String channelName, long noticeId) {
+        if(!channelNoticeHashMap.containsKey(channelName)) {
+            channelNoticeHashMap.put(channelName, new HashSet<>());
+        }
         channelNoticeHashMap.get(channelName).add(noticeId);
     }
 
@@ -67,5 +70,11 @@ public class MemoryNoticeRepository implements NoticeRepository {
     @Override
     public void removeChannelNoticeSetData(String channelName) {
         channelNoticeHashMap.remove(channelName);
+    }
+
+    @Override
+    public void clearAll() {
+        noticeHashMap.clear();
+        channelNoticeHashMap.clear();
     }
 }

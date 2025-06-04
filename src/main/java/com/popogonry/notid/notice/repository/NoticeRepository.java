@@ -19,4 +19,6 @@ public interface NoticeRepository {
     HashSet<Long> getChannelNoticeSetData(String channelName);
     boolean hasChannelNoticeSetData(String channelName);
     void removeChannelNoticeSetData(String channelName);
+
+    void clearAll();
 }

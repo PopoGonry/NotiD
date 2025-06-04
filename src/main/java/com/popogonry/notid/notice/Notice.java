@@ -16,6 +16,7 @@ public class Notice {
     private Date scheduledTime;
     private Date replyDeadline;
     private List<File> attachments;
+    private String channelName;
 
 
     public Notice(long id, String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
@@ -27,6 +28,7 @@ public class Notice {
         this.scheduledTime = scheduledTime;
         this.replyDeadline = replyDeadline;
         this.attachments = attachments;
+        this.channelName = channelName;
     }
 
     public long getId() {
@@ -93,6 +95,14 @@ public class Notice {
         this.attachments = attachments;
     }
 
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
     @Override
     public String toString() {
         return "Notice{" +
@@ -104,6 +114,7 @@ public class Notice {
                 ", scheduledTime=" + scheduledTime +
                 ", replyDeadline=" + replyDeadline +
                 ", attachments=" + attachments +
+                ", channelName='" + channelName + '\'' +
                 '}';
     }
 }

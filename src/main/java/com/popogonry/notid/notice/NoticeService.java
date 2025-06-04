@@ -1,18 +1,71 @@
 package com.popogonry.notid.notice;
 
+import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.repository.NoticeRepository;
+
+import java.io.File;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class NoticeService {
 
     private final NoticeRepository noticeRepository;
+    private final AtomicLong counter = new AtomicLong(1);
+
 
     public NoticeService(NoticeRepository noticeRepository) {
         this.noticeRepository = noticeRepository;
     }
 
-    
+    public boolean createNotice(String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
+
+        long newId = counter.getAndIncrement();
+        // 똑같은 id가 존재할때,
+        if (noticeRepository.hasNoticeData(newId)) return false;
+
+        Notice notice = new Notice(newId, title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, attachments, channelName);
+        noticeRepository.addNoticeData(notice);
+        noticeRepository.addChannelNoticeData(channelName, newId);
+
+        return true;
+    }
+
+    public boolean updateNotice(long id, Notice newNotice) {
+        // 존재하지 않을때,
+        if(!noticeRepository.hasNoticeData(id)) return false;
+
+        Notice updateNotice = noticeRepository.getNoticeData(id);
+
+        // 요청 id와 저장된 notice의 id가 같지 않을 때,
+        if(newNotice.getId() != id) return false;
+
+        // newNotice의 채널명과, 저장된 notice의 채널명이 다를때,
+        if(!newNotice.getChannelName().equals(updateNotice.getChannelName())) return false;
+
+        noticeRepository.removeNoticeData(id);
+        noticeRepository.removeChannelNoticeData(updateNotice.getChannelName(), updateNotice.getId());
+
+        noticeRepository.addNoticeData(newNotice);
+        noticeRepository.addChannelNoticeData(newNotice.getChannelName(), newNotice.getId());
+
+        return true;
+    }
 
 
+    public boolean deleteNotice(long id) {
 
+        // 존재하지 않을때,
+        if(!noticeRepository.hasNoticeData(id)) return false;
 
+        Notice deleteNotice = noticeRepository.getNoticeData(id);
+
+        // 요청 id와 저장된 notice의 id가 같지 않을 때,
+        if(deleteNotice.getId() != id) return false;
+
+        noticeRepository.removeNoticeData(id);
+        noticeRepository.removeChannelNoticeData(deleteNotice.getChannelName(), deleteNotice.getId());
+
+        return true;
+    }
 }
