@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;Reply 도메인 구조">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/Notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/Notice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/Reply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/Reply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/notice/MemoryNoticeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/notice/MemoryNoticeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +260,7 @@
       <workItem from="1748508513146" duration="13000" />
       <workItem from="1749024885467" duration="7484000" />
       <workItem from="1749057664220" duration="5000" />
-      <workItem from="1749105216431" duration="1548000" />
+      <workItem from="1749105216431" duration="1877000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -339,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749105383766</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정">
+      <option name="closed" value="true" />
+      <created>1749111213996</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749111213996</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +358,7 @@
     <MESSAGE value="2025-06-04&#10;&#10;MemoryNoticeRepositoryTest 완료" />
     <MESSAGE value="2025-06-04&#10;&#10;NoticeServiceTest 완료" />
     <MESSAGE value="2025-06-05&#10;&#10;Reply 도메인 구조" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-05&#10;&#10;Reply 도메인 구조" />
+    <MESSAGE value="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정" />
   </component>
 </project>
