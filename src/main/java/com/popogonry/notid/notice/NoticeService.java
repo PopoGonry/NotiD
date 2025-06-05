@@ -1,6 +1,8 @@
 package com.popogonry.notid.notice;
 
+import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
+import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 
 import java.io.File;
@@ -11,11 +13,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public class NoticeService {
 
     private final NoticeRepository noticeRepository;
+    private final ChannelRepository channelRepository;
     private final AtomicLong counter = new AtomicLong(1);
 
 
-    public NoticeService(NoticeRepository noticeRepository) {
+    public NoticeService(NoticeRepository noticeRepository, ChannelRepository channelRepository) {
         this.noticeRepository = noticeRepository;
+        this.channelRepository = channelRepository;
     }
 
     public boolean createNotice(String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
@@ -23,8 +27,9 @@ public class NoticeService {
         long newId = counter.getAndIncrement();
         // 똑같은 id가 존재할때,
         if (noticeRepository.hasNoticeData(newId)) return false;
+        if (!channelRepository.hasChannelData(channelName)) return false;
 
-        Notice notice = new Notice(newId, title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, attachments, channelName);
+        Notice notice = new Notice(newId, title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, attachments, channelRepository.getChannelData(channelName));
         noticeRepository.addNoticeData(notice);
         noticeRepository.addChannelNoticeData(channelName, newId);
 
@@ -41,13 +46,13 @@ public class NoticeService {
         if(newNotice.getId() != id) return false;
 
         // newNotice의 채널명과, 저장된 notice의 채널명이 다를때,
-        if(!newNotice.getChannelName().equals(updateNotice.getChannelName())) return false;
+        if(!newNotice.getChannel().getName().equals(updateNotice.getChannel().getName())) return false;
 
         noticeRepository.removeNoticeData(id);
-        noticeRepository.removeChannelNoticeData(updateNotice.getChannelName(), updateNotice.getId());
+        noticeRepository.removeChannelNoticeData(updateNotice.getChannel().getName(), updateNotice.getId());
 
         noticeRepository.addNoticeData(newNotice);
-        noticeRepository.addChannelNoticeData(newNotice.getChannelName(), newNotice.getId());
+        noticeRepository.addChannelNoticeData(newNotice.getChannel().getName(), newNotice.getId());
 
         return true;
     }
@@ -64,7 +69,7 @@ public class NoticeService {
         if(deleteNotice.getId() != id) return false;
 
         noticeRepository.removeNoticeData(id);
-        noticeRepository.removeChannelNoticeData(deleteNotice.getChannelName(), deleteNotice.getId());
+        noticeRepository.removeChannelNoticeData(deleteNotice.getChannel().getName(), deleteNotice.getId());
 
         return true;
     }

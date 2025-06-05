@@ -33,5 +33,5 @@ public class Config {
 
     public NoticeRepository noticeRepository() { return new MemoryNoticeRepository(); }
 
-    public NoticeService noticeService() { return new NoticeService(noticeRepository()); }
+    public NoticeService noticeService() { return new NoticeService(noticeRepository(), channelRepository()); }
 }

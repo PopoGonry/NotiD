@@ -1,5 +1,6 @@
 package com.popogonry.notid.notice;
 
+import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.user.UserGrade;
 
@@ -16,10 +17,10 @@ public class Notice {
     private Date scheduledTime;
     private Date replyDeadline;
     private List<File> attachments;
-    private String channelName;
+    private Channel channel;
 
 
-    public Notice(long id, String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
+    public Notice(long id, String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, Channel channel) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -28,7 +29,7 @@ public class Notice {
         this.scheduledTime = scheduledTime;
         this.replyDeadline = replyDeadline;
         this.attachments = attachments;
-        this.channelName = channelName;
+        this.channel = channel;
     }
 
     public long getId() {
@@ -95,12 +96,12 @@ public class Notice {
         this.attachments = attachments;
     }
 
-    public String getChannelName() {
-        return channelName;
+    public Channel getChannel() {
+        return channel;
     }
 
-    public void setChannelName(String channelName) {
-        this.channelName = channelName;
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 
     @Override
@@ -114,7 +115,7 @@ public class Notice {
                 ", scheduledTime=" + scheduledTime +
                 ", replyDeadline=" + replyDeadline +
                 ", attachments=" + attachments +
-                ", channelName='" + channelName + '\'' +
+                ", channel=" + channel +
                 '}';
     }
 }

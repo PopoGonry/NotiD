@@ -1,6 +1,10 @@
 package notid.notice;
 
+import com.popogonry.notid.channel.Channel;
+import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelUserGrade;
+import com.popogonry.notid.channel.repository.ChannelRepository;
+import com.popogonry.notid.channel.repository.MemoryChannelRepository;
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
@@ -17,12 +21,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NoticeServiceTest {
     private NoticeService noticeService;
     private MemoryNoticeRepository noticeRepository;
+    private ChannelRepository channelRepository;
 
     @BeforeEach
     void setUp() {
         noticeRepository = new MemoryNoticeRepository();
+        channelRepository = new MemoryChannelRepository();
         noticeRepository.clearAll();
-        noticeService = new NoticeService(noticeRepository);
+        noticeService = new NoticeService(noticeRepository, channelRepository);
     }
 
     @Test
@@ -45,7 +51,7 @@ public class NoticeServiceTest {
 
     @Test
     void createNotice_fail_when_existSameId() {
-        noticeRepository.addNoticeData(new Notice(1L, "기존", "기존", true, ChannelUserGrade.NORMAL, new Date(), new Date(), null, "channelName"));
+        noticeRepository.addNoticeData(new Notice(1L, "기존", "기존", true, ChannelUserGrade.NORMAL, new Date(), new Date(), null, new Channel("name", "des", ChannelJoinType.FREE)));
 
         boolean result = noticeService.createNotice(
                 "공지 제목",
@@ -64,6 +70,7 @@ public class NoticeServiceTest {
     @Test
     void updateNotice_success() {
         // 기존 공지 생성
+        channelRepository.addChannelData(new Channel("디지털보안학과", "des", ChannelJoinType.FREE));
         noticeService.createNotice("공지 제목", "공지 내용", true, ChannelUserGrade.MANAGER, new Date(), new Date(), List.of(), "디지털보안학과");
 
         Notice updatedNotice = new Notice(
@@ -75,7 +82,7 @@ public class NoticeServiceTest {
                 new Date(),
                 new Date(),
                 List.of(new File("new.txt")),
-                "디지털보안학과"
+                new Channel("디지털보안학과", "des", ChannelJoinType.FREE)
         );
 
         boolean result = noticeService.updateNotice(1L, updatedNotice);
@@ -88,6 +95,8 @@ public class NoticeServiceTest {
 
     @Test
     void updateNotice_fail_when_wrongChannel() {
+
+        channelRepository.addChannelData(new Channel("채널A", "des", ChannelJoinType.FREE));
         noticeService.createNotice("제목", "내용", true, ChannelUserGrade.ADMIN, new Date(), new Date(), List.of(), "채널A");
 
         Notice invalidUpdate = new Notice(
@@ -99,7 +108,7 @@ public class NoticeServiceTest {
                 new Date(),
                 new Date(),
                 List.of(),
-                "채널B"
+                new Channel("채널B", "des", ChannelJoinType.FREE)
         );
 
         boolean result = noticeService.updateNotice(1L, invalidUpdate);
@@ -107,6 +116,8 @@ public class NoticeServiceTest {
     }
     @Test
     void updateNotice_fail_when_wrongId() {
+
+        channelRepository.addChannelData(new Channel("디지털보안학과", "des", ChannelJoinType.FREE));
         noticeService.createNotice("제목", "내용", true, ChannelUserGrade.ADMIN, new Date(), new Date(), List.of(), "디지털보안학과");
 
         Notice invalidUpdate = new Notice(
@@ -118,7 +129,7 @@ public class NoticeServiceTest {
                 new Date(),
                 new Date(),
                 List.of(),
-                "디지털보안학과"
+                new Channel("디지털보안학과", "des", ChannelJoinType.FREE)
         );
 
         boolean result = noticeService.updateNotice(1L, invalidUpdate);

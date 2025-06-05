@@ -99,7 +99,7 @@ public class MemoryNoticeRepositoryTest {
                 new Date(),
                 new Date(),
                 List.of(new File("dummy.txt")),
-                channelName
+                new Channel(channelName, "des", ChannelJoinType.FREE)
         );
     }
 
