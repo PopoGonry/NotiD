@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-06&#10;&#10;ReplyService 및 일부 수정">
-      <change afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/MemoryReplyRepositoryTest.java" afterDir="false" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정">
+      <change afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/ReplyServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/repository/MemoryChannelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/repository/MemoryChannelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/repository/MemoryNoticeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/repository/MemoryNoticeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/MemoryReplyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/MemoryReplyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/channel/MemoryChannelRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/channel/MemoryChannelRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/notid/Reply/MemoryReplyRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/MemoryReplyRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +83,7 @@
     "Gradle.'notid.user'에 있는 테스트.executor": "Run",
     "Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor": "Run",
     "Gradle.MemoryChannelRepositoryTest.executor": "Run",
+    "Gradle.MemoryChannelRepositoryTest.removeUserChannelSet.executor": "Run",
     "Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor": "Run",
     "Gradle.MemoryNoticeRepositoryTest.addAndGetNotice.executor": "Run",
     "Gradle.MemoryNoticeRepositoryTest.channelNoticeMappingTest.executor": "Run",
@@ -101,11 +99,14 @@
     "Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor": "Run",
     "Gradle.MemoryUserRepositoryTest.executor": "Run",
     "Gradle.NoticeServiceTest.createNotice_fail_when_existSameId.executor": "Run",
+    "Gradle.NoticeServiceTest.createNotice_success.executor": "Run",
     "Gradle.NoticeServiceTest.createNotice_정상생성.executor": "Run",
+    "Gradle.NoticeServiceTest.deleteNotice_success.executor": "Run",
     "Gradle.NoticeServiceTest.executor": "Run",
     "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongChannel.executor": "Run",
     "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongId.executor": "Run",
     "Gradle.NoticeServiceTest.updateNotice_success.executor": "Run",
+    "Gradle.ReplyServiceTest.executor": "Run",
     "Gradle.UserServiceTest.createUser_fail_whenUserExists.executor": "Run",
     "Gradle.UserServiceTest.createUser_success.executor": "Run",
     "Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor": "Run",
@@ -126,7 +127,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
+  <component name="RunManager" selected="Gradle.ReplyServiceTest">
     <configuration name="MemoryChannelRepositoryTest.removeUserChannelSet" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -151,7 +152,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MemoryReplyRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NoticeServiceTest.createNotice_success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +165,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;notid.Reply.MemoryReplyRepositoryTest&quot;" />
+            <option value="&quot;notid.notice.NoticeServiceTest.createNotice_success&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +176,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MemoryReplyRepositoryTest.addAndHasNoticeReplyData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NoticeServiceTest.deleteNotice_success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +189,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;notid.Reply.MemoryReplyRepositoryTest.addAndHasNoticeReplyData&quot;" />
+            <option value="&quot;notid.notice.NoticeServiceTest.deleteNotice_success&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -199,7 +200,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MemoryReplyRepositoryTest.removeNoticeReplyData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -212,7 +213,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;notid.Reply.MemoryReplyRepositoryTest.removeNoticeReplyData&quot;" />
+            <option value="&quot;notid.Reply.ReplyServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -247,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ReplyServiceTest" />
         <item itemvalue="Gradle.'NotiD.test'에 있는 테스트" />
+        <item itemvalue="Gradle.NoticeServiceTest.deleteNotice_success" />
+        <item itemvalue="Gradle.NoticeServiceTest.createNotice_success" />
         <item itemvalue="Gradle.MemoryChannelRepositoryTest.removeUserChannelSet" />
-        <item itemvalue="Gradle.MemoryReplyRepositoryTest" />
-        <item itemvalue="Gradle.MemoryReplyRepositoryTest.removeNoticeReplyData" />
-        <item itemvalue="Gradle.MemoryReplyRepositoryTest.addAndHasNoticeReplyData" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +280,8 @@
       <workItem from="1749024885467" duration="7484000" />
       <workItem from="1749057664220" duration="5000" />
       <workItem from="1749105216431" duration="3129000" />
-      <workItem from="1749211618800" duration="1307000" />
+      <workItem from="1749211618800" duration="2556000" />
+      <workItem from="1749214272981" duration="207000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -393,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749195288098</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정">
+      <option name="closed" value="true" />
+      <created>1749213048184</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1749213048184</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +424,7 @@
     <MESSAGE value="2025-06-06&#10;&#10;디렉토리 오류 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
+    <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
   </component>
 </project>

@@ -28,11 +28,14 @@ public class NoticeServiceTest {
         noticeRepository = new MemoryNoticeRepository();
         channelRepository = new MemoryChannelRepository();
         noticeRepository.clearAll();
+        channelRepository.clearAll();
         noticeService = new NoticeService(noticeRepository, channelRepository);
     }
 
     @Test
     void createNotice_success() {
+        channelRepository.addChannelData(new Channel("디지털보안학과", "설명", ChannelJoinType.ACCEPT));
+
         boolean result = noticeService.createNotice(
                 "공지 제목",
                 "공지 내용",
@@ -138,6 +141,8 @@ public class NoticeServiceTest {
 
     @Test
     void deleteNotice_success() {
+        channelRepository.addChannelData(new Channel("디지털보안학과", "설명", ChannelJoinType.ACCEPT));
+
         noticeService.createNotice("삭제될 제목", "삭제될 내용", true, ChannelUserGrade.ADMIN, new Date(), new Date(), List.of(), "디지털보안학과");
 
         boolean result = noticeService.deleteNotice(1L);

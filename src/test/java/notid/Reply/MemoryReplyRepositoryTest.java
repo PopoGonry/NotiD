@@ -105,5 +105,4 @@ public class MemoryReplyRepositoryTest {
 
         assertThat(repository.hasNoticeReplyData(1L, 10L)).isFalse();
     }
-
 }
