@@ -85,7 +85,7 @@ class MemoryChannelRepositoryTest {
         repository.removeUserChannelSetData("user");
 
         assertThat(repository.hasUserChannelSetData("user")).isFalse();
-        assertThat(repository.getUserChannelSetData("user")).isNull();
+        assertThat(repository.getUserChannelSetData("user")).isNotNull();
     }
 
     @Test

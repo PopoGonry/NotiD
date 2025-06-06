@@ -1,10 +1,7 @@
 package com.popogonry.notid.reply;
 
-import com.popogonry.notid.channel.repository.ChannelRepository;
-import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
-import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.io.File;
@@ -14,13 +11,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ReplyService {
     private final ReplyRepository replyRepository;
     private final NoticeRepository noticeRepository;
-    private final UserRepositoy userRepositoy;
+    private final UserRepositoy userRepository;
     private final AtomicLong counter = new AtomicLong(1);
 
     public ReplyService(ReplyRepository replyRepository, NoticeRepository noticeRepository, UserRepositoy userRepositoy) {
         this.replyRepository = replyRepository;
         this.noticeRepository = noticeRepository;
-        this.userRepositoy = userRepositoy;
+        this.userRepository = userRepositoy;
     }
 
     public boolean createReply(String title, String content, List<File> file, long noticeId, String authorId) {
@@ -30,9 +27,9 @@ public class ReplyService {
         // noticeId의 Notice가 존재하지 않을 때,
         if(!noticeRepository.hasNoticeData(noticeId)) return false;
         // authorId의 User가 존재하지 않을 때,
-        if(!userRepositoy.hasUserData(authorId)) return false;
+        if(!userRepository.hasUserData(authorId)) return false;
 
-        Reply reply = new Reply(newId, title, content, file, noticeRepository.getNoticeData(noticeId), userRepositoy.getUserData(authorId));
+        Reply reply = new Reply(newId, title, content, file, noticeRepository.getNoticeData(noticeId), userRepository.getUserData(authorId));
 
         replyRepository.addReplyData(reply);
         replyRepository.addNoticeReplyData(noticeId, newId);

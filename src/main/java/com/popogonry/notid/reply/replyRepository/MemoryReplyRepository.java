@@ -35,20 +35,19 @@ public class MemoryReplyRepository implements ReplyRepository {
 
     @Override
     public void addNoticeReplyData(long noticeId, long replyId) {
-        if(!noticeReplyHashMap.containsKey(replyId)) {
-            noticeReplyHashMap.put(replyId, new HashSet<>());
-        }
-        noticeReplyHashMap.get(replyId).add(noticeId);
+        HashSet<Long> set = noticeReplyHashMap.getOrDefault(noticeId, new HashSet<>());
+        set.add(replyId);
+        noticeReplyHashMap.put(noticeId, set);
     }
 
     @Override
     public boolean hasNoticeReplyData(long noticeId, long replyId) {
-        return noticeReplyHashMap.get(replyId).contains(noticeId);
+        return noticeReplyHashMap.getOrDefault(noticeId, new HashSet<>()).contains(replyId);
     }
 
     @Override
     public void removeNoticeReplyData(long noticeId, long replyId) {
-        noticeReplyHashMap.get(replyId).remove(noticeId);
+        noticeReplyHashMap.getOrDefault(noticeId, new HashSet<>()).remove(replyId);
     }
 
     @Override
@@ -58,7 +57,7 @@ public class MemoryReplyRepository implements ReplyRepository {
 
     @Override
     public HashSet<Long> getNoticeReplySetData(long noticeId) {
-        return noticeReplyHashMap.get(noticeId);
+        return noticeReplyHashMap.getOrDefault(noticeId, new HashSet<>());
     }
 
     @Override

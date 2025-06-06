@@ -36,20 +36,19 @@ public class MemoryNoticeRepository implements NoticeRepository {
 
     @Override
     public void addChannelNoticeData(String channelName, long noticeId) {
-        if(!channelNoticeHashMap.containsKey(channelName)) {
-            channelNoticeHashMap.put(channelName, new HashSet<>());
-        }
-        channelNoticeHashMap.get(channelName).add(noticeId);
+        HashSet<Long> set = channelNoticeHashMap.getOrDefault(channelName, new HashSet<>());
+        set.add(noticeId);
+        channelNoticeHashMap.put(channelName, set);
     }
 
     @Override
     public boolean hasChannelNoticeData(String channelName, long noticeId) {
-        return channelNoticeHashMap.get(channelName).contains(noticeId);
+        return channelNoticeHashMap.getOrDefault(channelName, new HashSet<>()).contains(noticeId);
     }
 
     @Override
     public void removeChannelNoticeData(String channelName, long noticeId) {
-        channelNoticeHashMap.get(channelName).remove(noticeId);
+        channelNoticeHashMap.getOrDefault(channelName, new HashSet<>()).remove(noticeId);
     }
 
     @Override
@@ -59,7 +58,7 @@ public class MemoryNoticeRepository implements NoticeRepository {
 
     @Override
     public HashSet<Long> getChannelNoticeSetData(String channelName) {
-        return channelNoticeHashMap.get(channelName);
+        return channelNoticeHashMap.getOrDefault(channelName, new HashSet<>());
     }
 
     @Override

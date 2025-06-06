@@ -34,20 +34,19 @@ public class MemoryChannelRepository implements ChannelRepository {
 
     @Override
     public void addUserChannelData(String userId, String channelName) {
-        if(!userChannelHashMap.containsKey(userId)) {
-            userChannelHashMap.put(userId, new HashSet<>());
-        }
-        userChannelHashMap.get(userId).add(channelName);
+        HashSet<String> set = userChannelHashMap.getOrDefault(userId, new HashSet<>());
+        set.add(channelName);
+        userChannelHashMap.put(userId, set);
     }
 
     @Override
     public boolean hasUserChannelData(String userId, String channelName) {
-        return userChannelHashMap.get(userId).contains(channelName);
+        return userChannelHashMap.getOrDefault(userId, new HashSet<>()).contains(channelName);
     }
 
     @Override
     public void removeUserChannelData(String userId, String channelName) {
-        userChannelHashMap.get(userId).remove(channelName);
+        userChannelHashMap.getOrDefault(userId, new HashSet<>()).remove(channelName);
     }
 
     @Override
@@ -57,7 +56,7 @@ public class MemoryChannelRepository implements ChannelRepository {
 
     @Override
     public HashSet<String> getUserChannelSetData(String userId) {
-        return userChannelHashMap.get(userId);
+        return userChannelHashMap.getOrDefault(userId, new HashSet<>());
     }
 
     @Override
