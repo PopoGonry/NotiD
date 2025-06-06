@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;Reply Entity 완료">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/ReplyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/ReplyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/ReplyRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/replyRepository/MemoryReplyRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-05-15&#10;&#10;Channel 도메인 어느정도 완료,&#10;&#10;gradle 생각해보기" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +23,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NotiD" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -44,6 +45,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -51,12 +53,12 @@
     &quot;assignee&quot;: &quot;PopoGonry&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PopoGonry/NotiD.git&quot;,
-    &quot;accountId&quot;: &quot;5f262dd7-b18b-454b-ab89-8cf783edd667&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PopoGonry/NotiD.git",
+    "accountId": "994dd3e3-1ea2-4120-bc5f-52d453c21eb6"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -68,47 +70,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.'NotiD.test'에 있는 테스트.executor": "Run",
-    "Gradle.'notid'에 있는 테스트.executor": "Run",
-    "Gradle.'notid.channel'에 있는 테스트.executor": "Run",
-    "Gradle.'notid.user'에 있는 테스트.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.addAndGetNotice.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.channelNoticeMappingTest.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.executor": "Run",
-    "Gradle.NoticeServiceTest.createNotice_fail_when_existSameId.executor": "Run",
-    "Gradle.NoticeServiceTest.createNotice_정상생성.executor": "Run",
-    "Gradle.NoticeServiceTest.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongChannel.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongId.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_success.executor": "Run",
-    "Gradle.UserServiceTest.createUser_fail_whenUserExists.executor": "Run",
-    "Gradle.UserServiceTest.createUser_success.executor": "Run",
-    "Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor": "Run",
-    "Gradle.UserServiceTest.executor": "Run",
-    "Gradle.UserServiceTest.updateUser_fail_whenIdMismatch.executor": "Run",
-    "Gradle.UserServiceTest.updateUser_fail_whenNotExists.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/git/NotiD/src/main/java/com/popogonry/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.'NotiD.test'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.channel'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.user'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.addAndGetNotice.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.channelNoticeMappingTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.createNotice_fail_when_existSameId.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.createNotice_정상생성.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_fail_when_wrongChannel.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_fail_when_wrongId.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_fail_whenUserExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenIdMismatch.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/git/NotiD/src/main/java/com/popogonry/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
     <configuration name="NoticeServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
