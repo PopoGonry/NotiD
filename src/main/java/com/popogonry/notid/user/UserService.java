@@ -39,5 +39,4 @@ public class UserService {
         userRepositoy.removeUserData(id);
         return true;
     }
-
 }

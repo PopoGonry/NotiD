@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-05-15&#10;&#10;Channel 도메인 어느정도 완료,&#10;&#10;gradle 생각해보기" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -353,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749111472943</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2025-06-06&#10;&#10;디렉토리 오류 수정">
+      <option name="closed" value="true" />
+      <created>1749191081139</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749191081139</updated>
+    </task>
+    <task id="LOCAL-00013" summary="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정">
+      <option name="closed" value="true" />
+      <created>1749193855774</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749193855774</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +392,8 @@
     <MESSAGE value="2025-06-05&#10;&#10;Reply 도메인 구조" />
     <MESSAGE value="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정" />
     <MESSAGE value="2025-06-05&#10;&#10;Reply Entity 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-05&#10;&#10;Reply Entity 완료" />
+    <MESSAGE value="2025-06-06&#10;&#10;디렉토리 오류 수정" />
+    <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
   </component>
 </project>

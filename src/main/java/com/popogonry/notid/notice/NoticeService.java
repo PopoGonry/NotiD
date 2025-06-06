@@ -48,7 +48,7 @@ public class NoticeService {
         // newNotice의 채널명과, 저장된 notice의 채널명이 다를때,
         if(!newNotice.getChannel().getName().equals(updateNotice.getChannel().getName())) return false;
 
-        noticeRepository.removeNoticeData(id);
+        noticeRepository.removeNoticeData(updateNotice.getId());
         noticeRepository.removeChannelNoticeData(updateNotice.getChannel().getName(), updateNotice.getId());
 
         noticeRepository.addNoticeData(newNotice);
@@ -64,9 +64,6 @@ public class NoticeService {
         if(!noticeRepository.hasNoticeData(id)) return false;
 
         Notice deleteNotice = noticeRepository.getNoticeData(id);
-
-        // 요청 id와 저장된 notice의 id가 같지 않을 때,
-        if(deleteNotice.getId() != id) return false;
 
         noticeRepository.removeNoticeData(id);
         noticeRepository.removeChannelNoticeData(deleteNotice.getChannel().getName(), deleteNotice.getId());
