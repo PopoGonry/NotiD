@@ -34,6 +34,9 @@ public class MemoryChannelRepository implements ChannelRepository {
 
     @Override
     public void addUserChannelData(String userId, String channelName) {
+        if(!userChannelHashMap.containsKey(userId)) {
+            userChannelHashMap.put(userId, new HashSet<>());
+        }
         userChannelHashMap.get(userId).add(channelName);
     }
 
