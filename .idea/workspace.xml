@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정">
-      <change afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/ReplyServiceTest.java" afterDir="false" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/Reply/MemoryReplyRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/MemoryReplyRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/notice/NoticeServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +45,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -281,7 +283,7 @@
       <workItem from="1749057664220" duration="5000" />
       <workItem from="1749105216431" duration="3129000" />
       <workItem from="1749211618800" duration="2556000" />
-      <workItem from="1749214272981" duration="207000" />
+      <workItem from="1749214272981" duration="4171000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -403,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749213048184</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정">
+      <option name="closed" value="true" />
+      <created>1749214706816</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1749214706816</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +435,7 @@
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
+    <MESSAGE value="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정" />
   </component>
 </project>
