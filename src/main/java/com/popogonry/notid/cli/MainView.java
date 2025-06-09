@@ -4,10 +4,10 @@ public interface MainView {
 
     void mainViewMain(String id);
 
-    void checkAlarm();
-    void userChannelList();
-    void userNoticeList();
-    void searchChannel();
-    void createChannel();
+    void checkAlarm(String id);
+    void userChannelList(String id);
+    void userNoticeList(String id);
+    void searchChannel(String id);
+    void createChannel(String id);
 
 }

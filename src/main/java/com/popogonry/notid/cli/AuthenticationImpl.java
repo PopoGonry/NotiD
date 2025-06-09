@@ -23,12 +23,13 @@ public class AuthenticationImpl implements Authentication {
 
     @Override
     public void authenticate() {
+        System.out.println("--- 사용자 인증 ----");
         System.out.println("1. 회원가입");
         System.out.println("2. 로그인");
         String value;
         do {
             System.out.print("선택해주세요: ");
-             value = scanner.nextLine();
+             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 2, value));
 
         int intValue = Integer.parseInt(value);
@@ -46,9 +47,9 @@ public class AuthenticationImpl implements Authentication {
     @Override
     public void login() {
         System.out.print("ID: ");
-        String id = scanner.nextLine();
+        String id = scanner.nextLine().trim();
         System.out.print("Password: ");
-        String password = scanner.nextLine();
+        String password = scanner.nextLine().trim();
 
         if(!userRepositoy.hasUserData(id)) {
             System.out.println("존재하지 않는 회원 정보입니다.");
@@ -67,36 +68,35 @@ public class AuthenticationImpl implements Authentication {
     @Override
     public void signup() {
         System.out.print("ID: ");
-        String id = scanner.nextLine();
+        String id = scanner.nextLine().trim();
         while (userRepositoy.hasUserData(id)) {
             System.out.println("이미 존재하는 ID 입니다.");
             System.out.print("ID: ");
-            id = scanner.nextLine();
+            id = scanner.nextLine().trim();
         }
 
         System.out.print("Password: ");
-        String password = scanner.nextLine();
+        String password = scanner.nextLine().trim();
         System.out.print("Confirm Password: ");
-        String confirmPassword = scanner.nextLine();
+        String confirmPassword = scanner.nextLine().trim();
 
         while (!password.equals(confirmPassword)) {
             System.out.println("비밀번호가 동일하지 않습니다.");
             System.out.print("Password: ");
-            password = scanner.nextLine();
+            password = scanner.nextLine().trim();
             System.out.print("Confirm Password: ");
-            confirmPassword = scanner.nextLine();
+            confirmPassword = scanner.nextLine().trim();
         }
 
         System.out.print("이름: ");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().trim();
 
         System.out.print("생년월일(xxxx-xx-xx): ");
-        String birthdate = scanner.nextLine();
-
+        String birthdate = scanner.nextLine().trim();
         while(!ValidationCheck.isValidBirthdate(birthdate)) {
             System.out.println("생년월일 형식이 맞지 않습니다.");
             System.out.print("생년월일(xxxx-xx-xx): ");
-            birthdate = scanner.nextLine();
+            birthdate = scanner.nextLine().trim();
         }
         Date date = null;
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -108,11 +108,11 @@ public class AuthenticationImpl implements Authentication {
         }
 
         System.out.print("휴대폰 번호(xxx-xxxx-xxxx): ");
-        String hp = scanner.nextLine();
+        String hp = scanner.nextLine().trim();
         while(!ValidationCheck.isValidPhoneNumber(hp)) {
             System.out.println("생년월일 형식이 맞지 않습니다.");
             System.out.print("휴대폰 번호(xxx-xxxx-xxxx): ");
-            hp = scanner.nextLine();
+            hp = scanner.nextLine().trim();
         }
         User user = new User(id, password, name, date, hp, UserGrade.NORMAL);
         userRepositoy.addUserData(user);
