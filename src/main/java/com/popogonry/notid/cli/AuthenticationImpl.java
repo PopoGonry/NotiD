@@ -62,7 +62,7 @@ public class AuthenticationImpl implements Authentication {
             return;
         }
         System.out.println("로그인에 성공하였습니다. Id: " + id);
-        mainView.mainViewMain(id);
+        mainView.mainViewMain(userRepositoy.getUserData(id));
     }
 
     @Override
