@@ -60,6 +60,18 @@ public class Channel {
         return channelUserGradeHashMap;
     }
 
+    public ChannelUserGrade getChannelUserGrade(String userId) {
+        return channelUserGradeHashMap.get(userId);
+    }
+
+    public void setChannelUserGrade(String userId, ChannelUserGrade channelUserGrade) {
+        channelUserGradeHashMap.put(userId, channelUserGrade);
+    }
+
+    public boolean hasChannelUserGrade(String userId) {
+        return channelUserGradeHashMap.containsKey(userId);
+    }
+
     @Override
     public String toString() {
         return "Channel{" +
