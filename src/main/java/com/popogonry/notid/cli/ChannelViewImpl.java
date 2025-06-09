@@ -108,12 +108,31 @@ public class ChannelViewImpl implements ChannelView {
         int intValue = Integer.parseInt(value);
         switch (intValue) {
             case 1:
+                channelInfo(channel);
+                break;
+
             case 2:
+                noticeList(channel);
+                break;
+
             case 3:
+                userReplyList(channel, user);
+                break;
+
             case 4:
+                createNotice(channel, user);
+                break;
+
             case 5:
+                manageUser(channel, user);
+                break;
+
             case 6:
+                updateChannel(channel, user);
+                break;
+
             case 7:
+                mainView.mainViewMain(user);
         }
 
 
@@ -135,9 +154,19 @@ public class ChannelViewImpl implements ChannelView {
         int intValue = Integer.parseInt(value);
         switch (intValue) {
             case 1:
+                channelInfo(channel);
+                break;
+
             case 2:
+                noticeList(channel);
+                break;
+
             case 3:
+                userReplyList(channel, user);
+                break;
+
             case 4:
+                mainView.mainViewMain(user);
         }
     }
 

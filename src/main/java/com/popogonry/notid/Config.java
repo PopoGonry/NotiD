@@ -3,9 +3,7 @@ package com.popogonry.notid;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
-import com.popogonry.notid.cli.Authentication;
-import com.popogonry.notid.cli.AuthenticationImpl;
-import com.popogonry.notid.cli.MainViewImpl;
+import com.popogonry.notid.cli.*;
 import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
 import com.popogonry.notid.notice.repository.NoticeRepository;
@@ -45,5 +43,11 @@ public class Config {
 
     public ReplyService replyService() { return new ReplyService(replyRepository(), noticeRepository(), userRepositoy()); }
 
-    public Authentication authentication() {return new AuthenticationImpl(userRepositoy(), new MainViewImpl());}
+    public Authentication authentication() {return new AuthenticationImpl(userRepositoy(), mainView());}
+
+    public MainView mainView() {return new MainViewImpl(userRepositoy(), channelRepository(), noticeRepository(), new NoticeViewImpl(), channelView());}
+
+    public ChannelView channelView() {
+        return new ChannelViewImpl(mainView());
+    }
 }

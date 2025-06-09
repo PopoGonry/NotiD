@@ -1,8 +1,10 @@
 package com.popogonry.notid.cli;
 
+import com.popogonry.notid.notice.Notice;
+
 public interface NoticeView {
 
-    void noticeViewMain();
+    void noticeViewMain(Notice notice);
 
     void noticeToManager();
 

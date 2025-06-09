@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;MemoryReplyRepository 일부 구현">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;Config 수정">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeViewImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/AuthenticationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/AuthenticationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -409,7 +410,63 @@
       <option name="project" value="LOCAL" />
       <updated>1749214706816</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="2025-06-05&#10;&#10;Channel 일부 수정">
+      <option name="closed" value="true" />
+      <created>1749494950078</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1749494950078</updated>
+    </task>
+    <task id="LOCAL-00018" summary="2025-06-05&#10;&#10;ChannelView 수정">
+      <option name="closed" value="true" />
+      <created>1749494967200</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749494967200</updated>
+    </task>
+    <task id="LOCAL-00019" summary="2025-06-05&#10;&#10;ChannelViewImpl 구현">
+      <option name="closed" value="true" />
+      <created>1749494978838</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1749494978838</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2025-06-05&#10;&#10;AuthenticationImpl 수정">
+      <option name="closed" value="true" />
+      <created>1749494992339</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1749494992339</updated>
+    </task>
+    <task id="LOCAL-00021" summary="2025-06-05&#10;&#10;MainView 수정">
+      <option name="closed" value="true" />
+      <created>1749495001919</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1749495001919</updated>
+    </task>
+    <task id="LOCAL-00022" summary="2025-06-05&#10;&#10;MainViewImpl 수정">
+      <option name="closed" value="true" />
+      <created>1749495042943</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749495042943</updated>
+    </task>
+    <task id="LOCAL-00023" summary="2025-06-05&#10;&#10;Config 수정">
+      <option name="closed" value="true" />
+      <created>1749495057612</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749495057612</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,6 +500,13 @@
     <MESSAGE value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;Channel 일부 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;ChannelView 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;ChannelViewImpl 구현" />
+    <MESSAGE value="2025-06-05&#10;&#10;AuthenticationImpl 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;MainView 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;MainViewImpl 수정" />
+    <MESSAGE value="2025-06-05&#10;&#10;Config 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-05&#10;&#10;Config 수정" />
   </component>
 </project>
