@@ -1,13 +1,15 @@
 package com.popogonry.notid.cli;
 
+import com.popogonry.notid.user.User;
+
 public interface MainView {
 
-    void mainViewMain(String id);
+    void mainViewMain(User user);
 
-    void checkAlarm(String id);
-    void userChannelList(String id);
-    void userNoticeList(String id);
-    void searchChannel(String id);
-    void createChannel(String id);
+    void checkAlarm(User user);
+    void userChannelList(User user);
+    void userNoticeList(User user);
+    void searchChannel(User user);
+    void createChannel(User user);
 
 }
