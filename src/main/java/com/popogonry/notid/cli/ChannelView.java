@@ -1,22 +1,25 @@
 package com.popogonry.notid.cli;
 
+import com.popogonry.notid.channel.Channel;
+import com.popogonry.notid.user.User;
+
 public interface ChannelView {
 
-    void channelViewMain();
+    void channelViewMain(Channel channel, User user);
     void joinChannel();
-    void channelToAdmin();
-    void channelToManager();
-    void channelToNormal();
+    void channelToAdmin(Channel channel, User user);
+    void channelToManager(Channel channel, User user);
+    void channelToNormal(Channel channel, User user);
 
-    void channelInfo();
+    void channelInfo(Channel channel);
 
-    void noticeList();
+    void noticeList(Channel channel);
 
-    void userReplyList();
+    void userReplyList(Channel channel, User user);
 
-    void updateChannel();
+    void updateChannel(Channel channel, User user);
 
-    void createNotice();
+    void createNotice(Channel channel, User user);
 
-    void manageUser();
+    void manageUser(Channel channel, User user);
 }
