@@ -45,7 +45,7 @@ public class NoticeServiceTest {
                 new Date(),
                 List.of(new File("file1.txt")),
                 "디지털보안학과"
-        );
+        ) != 0L;
 
         assertThat(result).isTrue();
         assertThat(noticeRepository.hasNoticeData(1L)).isTrue();
@@ -65,7 +65,7 @@ public class NoticeServiceTest {
                 new Date(),
                 List.of(new File("file1.txt")),
                 "디지털보안학과"
-        );
+        ) != 0L;
 
         assertThat(result).isFalse();
     }

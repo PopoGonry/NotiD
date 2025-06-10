@@ -7,14 +7,16 @@ import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Stack;
+import javax.xml.crypto.Data;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class ChannelView {
     private static final Scanner scanner = new Scanner(System.in);
@@ -29,6 +31,7 @@ public class ChannelView {
     private static final ReplyRepository replyRepository = config.replyRepository();
     private static final ChannelRepository channelRepository = config.channelRepository();
     private static final ChannelService channelService = config.channelService();
+    private static final NoticeService noticeService = config.noticeService();
 
 
     public void channelViewMain(Channel channel, User user) {
@@ -291,12 +294,12 @@ public class ChannelView {
 
         switch (Integer.parseInt(value)) {
             case 1:
-                System.out.print("설명을 입력하세요(미 입력시 취소): ");
+                System.out.print("설명(미 입력시 취소): ");
                 description = scanner.nextLine();
                 break;
 
             case 2:
-                System.out.print("조직을 입력하세요(미 입력시 취소, \' 삭제 \' 입력 시 삭제): ");
+                System.out.print("조직(미 입력시 취소, \' 삭제 \' 입력 시 삭제): ");
                 affiliation = scanner.nextLine();
                 if(affiliation.equals("삭제")) affiliation = "";
                 break;
@@ -304,7 +307,7 @@ public class ChannelView {
             case 3:
                 String value2;
                 do {
-                    System.out.print("가입 형식을 선택하세요 (1. 자유, 2. 수락, 미 입력시 취소): ");
+                    System.out.print("가입 형식 (1. 자유, 2. 수락, 미 입력시 취소): ");
                     value2 = scanner.nextLine();
                     if(value2.isEmpty()) break;
                 } while (!ValidationCheck.intSelectCheck(1, 2, value2));
@@ -330,6 +333,86 @@ public class ChannelView {
     }
 
     public void createNotice(Channel channel, User user) {
+        System.out.println("--- 공지 생성 ---");
+
+        System.out.print("제목: ");
+        String title = scanner.nextLine();
+        System.out.print("내용: ");
+        String content = scanner.nextLine();
+
+        boolean isReplyAllowed = false;
+        String isReplyInput;
+        do {
+            System.out.print("답장 허가 여부 (1. 허가, 2. 미허가): ");
+            isReplyInput = scanner.nextLine();
+        } while (!ValidationCheck.intSelectCheck(1, 2, isReplyInput));
+        switch (Integer.parseInt(isReplyInput)) {
+            case 1:
+                isReplyAllowed = true;
+                break;
+
+            case 2:
+                isReplyAllowed = false;
+                break;
+        }
+
+        ChannelUserGrade userGrade = ChannelUserGrade.NORMAL;
+        String userGradeInput;
+        do {
+            System.out.print("공지 접근 권한 (1. 채널 소유자, 2. 채널 관리자, 3. 일반 유저): ");
+            userGradeInput = scanner.nextLine();
+        } while (!ValidationCheck.intSelectCheck(1, 3, userGradeInput));
+        switch (Integer.parseInt(userGradeInput)) {
+            case 1:
+                userGrade = ChannelUserGrade.ADMIN;
+                break;
+
+            case 2:
+                userGrade = ChannelUserGrade.MANAGER;
+
+                break;
+
+            case 3:
+                userGrade = ChannelUserGrade.NORMAL;
+                break;
+        }
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        String scheduledTimeInput;
+         do {
+             System.out.print("공지 공개 시간(yyyy-MM-dd HH:mm, 미 입력시 바로 공개): ");
+             scheduledTimeInput = scanner.nextLine().trim();
+             if(scheduledTimeInput.isEmpty()) break;
+        } while(!ValidationCheck.isValidBirthdate(scheduledTimeInput));
+        Date scheduledTime = new Date();
+        try {
+            scheduledTime = formatter.parse(scheduledTimeInput);
+        }
+        catch(Exception e) {
+
+        }
+
+        String replyDeadlineInput;
+        do {
+            System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 제한 X): ");
+            replyDeadlineInput = scanner.nextLine().trim();
+            if(scheduledTimeInput.isEmpty()) break;
+        } while(!ValidationCheck.isValidBirthdate(replyDeadlineInput));
+        Date replyDeadline = new Date();
+        try {
+            replyDeadline = formatter.parse(replyDeadlineInput);
+        }
+        catch(Exception e) {
+
+        }
+
+//        List<File> attachments;
+        long noticeId = noticeService.createNotice(title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, Collections.emptyList(), channel.getName());
+        Notice notice = noticeRepository.getNoticeData(noticeId);
+
+        System.out.println("공지가 생성되었습니다.");
+        noticeView.noticeViewMain(notice);
 
     }
 

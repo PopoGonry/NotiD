@@ -121,7 +121,11 @@ public class MainView {
                 i++;
             }
         }
-
+        if (i == 1) {
+            System.out.println("공지가 존재하지 않습니다.");
+            mainViewMain(user);
+            return;
+        }
         String value;
         do {
             System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
@@ -132,7 +136,6 @@ public class MainView {
             mainViewMain(user);
             return;
         }
-
         Notice notice = noticeRepository.getNoticeData(noticeList.get(Integer.parseInt(value) - 1));
         noticeView.noticeViewMain(notice);
     }
@@ -191,7 +194,6 @@ public class MainView {
         channelService.joinChannel(user, channel);
 
         channel.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
-
 
         channelView.channelViewMain(channel, user);
     }

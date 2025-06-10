@@ -22,18 +22,18 @@ public class NoticeService {
         this.channelRepository = channelRepository;
     }
 
-    public boolean createNotice(String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
+    public long createNotice(String title, String content, boolean isReplyAllowed, ChannelUserGrade userGrade, Date scheduledTime, Date replyDeadline, List<File> attachments, String channelName) {
         long newId = counter.getAndIncrement();
         // 똑같은 id가 존재할때,
-        if (noticeRepository.hasNoticeData(newId)) return false;
+        if (noticeRepository.hasNoticeData(newId)) return 0L;
         // channelName의 Channel이 존재하지 않을 때,
-        if (!channelRepository.hasChannelData(channelName)) return false;
+        if (!channelRepository.hasChannelData(channelName)) return 0L;
 
         Notice notice = new Notice(newId, title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, attachments, channelRepository.getChannelData(channelName));
         noticeRepository.addNoticeData(notice);
         noticeRepository.addChannelNoticeData(channelName, newId);
 
-        return true;
+        return newId;
     }
 
     public boolean updateNotice(long id, Notice newNotice) {
