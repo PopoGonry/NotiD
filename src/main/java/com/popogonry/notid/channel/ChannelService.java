@@ -32,8 +32,10 @@ public class ChannelService {
         // 원래 채널의 이름과 새로운 채널의 이름이 다를 시,
         if(!name.equals(newChannel.getName())) return false;
 
-        channelRepository.removeChannelData(name);
-        channelRepository.addChannelData(newChannel);
+        Channel channel = channelRepository.getChannelData(name);
+        channel.setDescription(newChannel.getDescription());
+        channel.setAffiliation(newChannel.getAffiliation());
+        channel.setJoinType(newChannel.getJoinType());
 
         return true;
     }

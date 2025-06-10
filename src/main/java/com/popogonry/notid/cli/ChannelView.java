@@ -3,7 +3,9 @@ package com.popogonry.notid.cli;
 import com.popogonry.notid.Config;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
+import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
+import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
@@ -25,6 +27,8 @@ public class ChannelView {
 
     private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final ReplyRepository replyRepository = config.replyRepository();
+    private static final ChannelRepository channelRepository = config.channelRepository();
+    private static final ChannelService channelService = config.channelService();
 
 
     public void channelViewMain(Channel channel, User user) {
@@ -210,6 +214,8 @@ public class ChannelView {
             i++;
         }
 
+        System.out.println(i + ". 돌아가기");
+
         String value;
         do {
             System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
@@ -233,9 +239,7 @@ public class ChannelView {
             return;
         }
 
-
         System.out.println("--- " + channel.getName() + " 답장 리스트 ---");
-
 
         ArrayList<Long> replyIdList = new ArrayList<>();
 
@@ -247,6 +251,8 @@ public class ChannelView {
                 replyIdList.add(replyId);
             }
         }
+
+        System.out.println(i + ". 돌아가기");
 
         String value;
         do {
@@ -265,6 +271,62 @@ public class ChannelView {
 
     public void updateChannel(Channel channel, User user) {
 
+        System.out.println("--- 채널 수정 ---");
+
+        System.out.println("1. 설명 수정");
+        System.out.println("2. 조직 수정");
+        System.out.println("3. 가입 방식 수정");
+        System.out.println("4. 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 4, value));
+
+
+        String description = channel.getDescription();
+        String affiliation = channel.getAffiliation();
+        ChannelJoinType channelJoinType = channel.getJoinType();
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                System.out.print("설명을 입력하세요(미 입력시 취소): ");
+                description = scanner.nextLine();
+                break;
+
+            case 2:
+                System.out.print("조직을 입력하세요(미 입력시 취소, \' 삭제 \' 입력 시 삭제): ");
+                affiliation = scanner.nextLine();
+                if(affiliation.equals("삭제")) affiliation = "";
+                break;
+
+            case 3:
+                String value2;
+                do {
+                    System.out.print("가입 형식을 선택하세요 (1. 자유, 2. 수락, 미 입력시 취소): ");
+                    value2 = scanner.nextLine();
+                    if(value2.isEmpty()) break;
+                } while (!ValidationCheck.intSelectCheck(1, 2, value2));
+
+                if(!value2.isEmpty()) {
+                    switch (Integer.parseInt(value2)) {
+                        case 1:
+                            channelJoinType = ChannelJoinType.FREE;
+                            break;
+
+                        case 2:
+                            channelJoinType = ChannelJoinType.ACCEPT;
+                            break;
+                    }
+                }
+                break;
+        }
+        channelService.updateChannel(channel.getName(), new Channel(channel.getName(), description, affiliation, channelJoinType));
+
+        System.out.println("수정 완료되었습니다.");
+
+        channelViewMain(channel, user);
     }
 
     public void createNotice(Channel channel, User user) {

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-10&#10;&#10;ChannelView 일부 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +281,7 @@
       <workItem from="1749441854645" duration="728000" />
       <workItem from="1749445665510" duration="1171000" />
       <workItem from="1749549628140" duration="13000" />
-      <workItem from="1749549650733" duration="4771000" />
+      <workItem from="1749549650733" duration="6424000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -476,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749552581956</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="2025-06-10&#10;&#10;ChannelView 일부 구현">
+      <option name="closed" value="true" />
+      <created>1749554495084</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1749554495084</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +525,8 @@
     <MESSAGE value="2025-06-05&#10;&#10;MainViewImpl 수정" />
     <MESSAGE value="2025-06-05&#10;&#10;Config 수정" />
     <MESSAGE value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
+    <MESSAGE value="2025-06-10&#10;&#10;ChannelView 일부 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-10&#10;&#10;ChannelView 일부 구현" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
