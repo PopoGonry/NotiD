@@ -28,7 +28,7 @@ public class Config {
     }
 
     public ChannelService channelService() {
-        return new ChannelService(channelRepository());
+        return new ChannelService(channelRepository(), userRepositoy());
     }
 
     public ChannelRepository channelRepository() {
@@ -42,12 +42,4 @@ public class Config {
     public ReplyRepository replyRepository() { return new MemoryReplyRepository(); }
 
     public ReplyService replyService() { return new ReplyService(replyRepository(), noticeRepository(), userRepositoy()); }
-
-    public Authentication authentication() {return new AuthenticationImpl(userRepositoy(), mainView());}
-
-    public MainView mainView() {return new MainViewImpl(userRepositoy(), channelRepository(), noticeRepository(), new NoticeViewImpl(), channelView());}
-
-    public ChannelView channelView() {
-        return new ChannelViewImpl(mainView());
-    }
 }

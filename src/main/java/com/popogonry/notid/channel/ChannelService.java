@@ -1,12 +1,16 @@
 package com.popogonry.notid.channel;
 
 import com.popogonry.notid.channel.repository.ChannelRepository;
+import com.popogonry.notid.user.User;
+import com.popogonry.notid.user.repository.UserRepositoy;
 
 public class ChannelService {
     private final ChannelRepository channelRepository;
+    private final UserRepositoy userRepository;
 
-    public ChannelService(ChannelRepository channelRepository) {
+    public ChannelService(ChannelRepository channelRepository, UserRepositoy userRepository) {
         this.channelRepository = channelRepository;
+        this.userRepository = userRepository;
     }
 
     public boolean createChannel(String name, String description, String affiliation, ChannelJoinType joinType) {
@@ -43,4 +47,51 @@ public class ChannelService {
 
         return true;
     }
+
+    public boolean joinChannel(User user, Channel channel) {
+        // 채널이 없을 때,
+        if(!channelRepository.hasChannelData(channel.getName())) return false;
+
+        // 유저가 없을 때,
+        if(!userRepository.hasUserData(user.getId())) return false;
+
+        if (channel.getJoinType() == ChannelJoinType.ACCEPT) {
+            channel.addChannnelJoiningUser(user.getId());
+            return true;
+        }
+
+        channelRepository.addUserChannelData(user.getId(), channel.getName());
+        channel.addChannelUserGrade(user.getId(), ChannelUserGrade.NORMAL);
+
+        return true;
+    }
+
+    public boolean leaveChannel(User user, Channel channel) {
+        // 채널이 없을 때,
+        if(!channelRepository.hasChannelData(channel.getName())) return false;
+
+        // 유저가 없을 때,
+        if(!userRepository.hasUserData(user.getId())) return false;
+
+        channelRepository.removeUserChannelData(user.getId(), channel.getName());
+        channel.removeChannelUserGrade(user.getId());
+
+        return true;
+    }
+
+    public boolean acceptUserJoining(User user, Channel channel) {
+        // 채널이 없을 때,
+        if(!channelRepository.hasChannelData(channel.getName())) return false;
+
+        // 유저가 없을 때,
+        if(!userRepository.hasUserData(user.getId())) return false;
+
+        if(!channel.getChannnelJoiningUserSet().contains(user.getId())) return false;
+
+        channelRepository.addUserChannelData(user.getId(), channel.getName());
+        channel.addChannelUserGrade(user.getId(), ChannelUserGrade.NORMAL);
+
+        return true;
+    }
+
 }

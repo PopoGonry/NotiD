@@ -5,6 +5,8 @@ import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
+import com.popogonry.notid.user.repository.MemoryUserRepository;
+import com.popogonry.notid.user.repository.UserRepositoy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +20,7 @@ class ChannelServiceTest {
     @BeforeEach
     void setUp() {
         channelRepository = new MemoryChannelRepository();
-        channelService = new ChannelService(channelRepository);
+        channelService = new ChannelService(channelRepository, new MemoryUserRepository());
 
         channelRepository.clearAll();
     }

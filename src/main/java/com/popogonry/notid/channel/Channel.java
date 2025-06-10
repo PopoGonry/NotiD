@@ -1,6 +1,7 @@
 package com.popogonry.notid.channel;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Channel {
     private String name;
@@ -9,6 +10,7 @@ public class Channel {
     private ChannelJoinType joinType;
 
     private final HashMap<String, ChannelUserGrade> channelUserGradeHashMap = new HashMap<>();
+    private final HashSet<String> channnelJoiningUserSet = new HashSet<>();
 
     public Channel(String name, String description, String affiliation, ChannelJoinType joinType) {
         this.name = name;
@@ -70,6 +72,26 @@ public class Channel {
 
     public boolean hasChannelUserGrade(String userId) {
         return channelUserGradeHashMap.containsKey(userId);
+    }
+
+    public void addChannelUserGrade(String userId, ChannelUserGrade channelUserGrade) {
+        channelUserGradeHashMap.put(userId, channelUserGrade);
+    }
+
+    public void removeChannelUserGrade(String userId) {
+        channelUserGradeHashMap.remove(userId);
+    }
+
+    public HashSet<String> getChannnelJoiningUserSet() {
+        return channnelJoiningUserSet;
+    }
+
+    public void addChannnelJoiningUser(String userId) {
+        channnelJoiningUserSet.add(userId);
+    }
+
+    public void removeChannnelJoiningUser(String userId) {
+        channnelJoiningUserSet.remove(userId);
     }
 
     @Override

@@ -2,22 +2,36 @@ package com.popogonry.notid.cli;
 
 import com.popogonry.notid.notice.Notice;
 
-public interface NoticeView {
+public class NoticeView {
+    public void noticeViewMain(Notice notice) {
 
-    void noticeViewMain(Notice notice);
+    }
 
-    void noticeToManager();
+    public void noticeToManager() {
 
-    void noticeToMember();
+    }
 
-    void updateNotice();
+    public void noticeToMember() {
 
-    void userReplyList();
+    }
 
-    void deleteNotice();
+    public void updateNotice() {
 
-    void sendNoticeAlarm();
+    }
 
-    void createReply();
+    public void userReplyList() {
 
+    }
+
+    public void deleteNotice() {
+
+    }
+
+    public void sendNoticeAlarm() {
+
+    }
+
+    public void createReply() {
+
+    }
 }
