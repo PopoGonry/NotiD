@@ -1,17 +1,33 @@
 package com.popogonry.notid.cli;
 
-public interface ReplyView {
+import com.popogonry.notid.reply.Reply;
+import com.popogonry.notid.user.User;
 
-    void replyViewMain();
+public class ReplyView {
 
-    void replyToManager();
+    public void replyViewMain(Reply reply, User user) {
 
-    void replyToAuthor();
+    }
 
-    void updateReply();
+    public void replyToManager() {
 
-    void deleteReply();
+    }
 
-    void downloadFile();
+    public void replyToAuthor() {
+
+    }
+
+    public void updateReply() {
+
+    }
+
+    public void deleteReply() {
+
+    }
+
+
+    public void downloadFile() {
+
+    }
 
 }

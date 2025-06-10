@@ -3,6 +3,8 @@ package com.popogonry.notid.cli;
 import com.popogonry.notid.Config;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
+import com.popogonry.notid.channel.ChannelService;
+import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
 import com.popogonry.notid.notice.Notice;
@@ -18,6 +20,9 @@ public class MainView {
     private static final Scanner scanner = new Scanner(System.in);
 
     private static final Config config = new Config();
+
+    private static final ChannelService channelService = config.channelService();
+
 
     private static final UserRepositoy userRepositoy = config.userRepositoy();
     private static final ChannelRepository channelRepository = config.channelRepository();
@@ -95,7 +100,7 @@ public class MainView {
             return;
         }
 
-        Channel channel = channelRepository.getChannelData(userChannelList.get(i - 1));
+        Channel channel = channelRepository.getChannelData(userChannelList.get(Integer.parseInt(value) - 1));
         channelView.channelViewMain(channel, user);
     }
 
@@ -128,7 +133,7 @@ public class MainView {
             return;
         }
 
-        Notice notice = noticeRepository.getNoticeData(noticeList.get(i - 1));
+        Notice notice = noticeRepository.getNoticeData(noticeList.get(Integer.parseInt(value) - 1));
         noticeView.noticeViewMain(notice);
     }
 
@@ -178,10 +183,15 @@ public class MainView {
                 break;
         }
 
-        Channel channel = new Channel(name, description, affiliation, channelJoinType);
 
-        channelRepository.addChannelData(channel);
-        channelRepository.addUserChannelData(user.getId(), channel.getName());
+        channelService.createChannel(name, description, affiliation, channelJoinType);
+
+        Channel channel = channelRepository.getChannelData(name);
+
+        channelService.joinChannel(user, channel);
+
+        channel.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
+
 
         channelView.channelViewMain(channel, user);
     }

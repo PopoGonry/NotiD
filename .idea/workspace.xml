@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-05&#10;&#10;Config 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/AuthenticationImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelViewImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainViewImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeViewImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/channel/ChannelServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/channel/ChannelServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +130,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.popogonry.notid.Main" />
       <module name="NotiD.main" />
@@ -293,7 +282,7 @@
       <workItem from="1749441854645" duration="728000" />
       <workItem from="1749445665510" duration="1171000" />
       <workItem from="1749549628140" duration="13000" />
-      <workItem from="1749549650733" duration="2822000" />
+      <workItem from="1749549650733" duration="4771000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -479,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749495057612</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749552581956</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749552581956</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +517,8 @@
     <MESSAGE value="2025-06-05&#10;&#10;MainView 수정" />
     <MESSAGE value="2025-06-05&#10;&#10;MainViewImpl 수정" />
     <MESSAGE value="2025-06-05&#10;&#10;Config 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-05&#10;&#10;Config 수정" />
+    <MESSAGE value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
