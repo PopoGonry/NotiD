@@ -39,15 +39,16 @@ public class MainView {
         System.out.println("3. 내 공지 리스트");
         System.out.println("4. 새 채널 찾기");
         System.out.println("5. 새 채널 만들기");
+        System.out.println("6. 로그아웃");
+
 
         String value;
         do {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 5, value));
+        } while (!ValidationCheck.intSelectCheck(1, 6, value));
 
-        int intValue = Integer.parseInt(value);
-        switch (intValue) {
+        switch (Integer.parseInt(value)) {
             case 1:
                 checkAlarm(user);
                 break;
@@ -66,6 +67,10 @@ public class MainView {
 
             case 5:
                 createChannel(user);
+                break;
+
+            case 6:
+                Authentication.authenticate();
                 break;
         }
     }

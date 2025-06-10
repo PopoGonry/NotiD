@@ -12,6 +12,7 @@ import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
+import com.popogonry.notid.user.repository.UserRepositoy;
 
 import javax.xml.crypto.Data;
 import java.io.File;
@@ -30,6 +31,7 @@ public class ChannelView {
     private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final ReplyRepository replyRepository = config.replyRepository();
     private static final ChannelRepository channelRepository = config.channelRepository();
+    private static final UserRepositoy userRepositoy = config.userRepositoy();
     private static final ChannelService channelService = config.channelService();
     private static final NoticeService noticeService = config.noticeService();
 
@@ -324,6 +326,10 @@ public class ChannelView {
                     }
                 }
                 break;
+
+            case 4:
+                channelViewMain(channel, user);
+                return;
         }
         channelService.updateChannel(channel.getName(), new Channel(channel.getName(), description, affiliation, channelJoinType));
 
@@ -417,6 +423,69 @@ public class ChannelView {
     }
 
     public void manageUser(Channel channel, User user) {
+        System.out.println("--- 채널 멤버 리스트 ---");
+        int i = 1;
+        List<String> userList = new ArrayList<>(channel.getChannelUserGradeHashMap().keySet());
 
+        for (String userId : userList) {
+            String userGrade = "존재하지 않음";
+            switch (channel.getChannelUserGrade(userId)) {
+                case ChannelUserGrade.NORMAL:
+                    userGrade = "일반 유저";
+                    break;
+                case ChannelUserGrade.MANAGER:
+                    userGrade = "관리자";
+                    break;
+                case ChannelUserGrade.ADMIN:
+                    userGrade = "소유자";
+                    break;
+            }
+            System.out.println(i + ". " + userId + " : " + userGrade);
+            i++;
+        }
+        System.out.println(i + ". 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, i, value));
+
+        if (Integer.parseInt(value) == i) {
+            channelViewMain(channel, user);
+            return;
+        }
+
+        User selectUser = userRepositoy.getUserData(userList.get(Integer.parseInt(value) - 1));
+
+        if(channel.getChannelUserGrade(selectUser.getId()) == ChannelUserGrade.ADMIN) {
+            System.out.println("채널 소유자의 권한은 변경 불가능합니다.");
+            channelViewMain(channel, user);
+        }
+
+        System.out.println("--- " + selectUser.getId() + " 유저 권한 변경 ---");
+        System.out.println(selectUser.getId() + "의 현재 권한: " + channel.getChannelUserGrade(selectUser.getId()));
+        System.out.println("1. 관리자");
+        System.out.println("2. 일반유저");
+        System.out.println("3. 돌아가기");
+
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 3, value));
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                channel.setChannelUserGrade(selectUser.getId(), ChannelUserGrade.MANAGER);
+                break;
+
+            case 2:
+                channel.setChannelUserGrade(selectUser.getId(), ChannelUserGrade.NORMAL);
+                break;
+
+        }
+
+        System.out.println("변경 완료 되었습니다.");
+        channelViewMain(channel, user);
     }
 }
