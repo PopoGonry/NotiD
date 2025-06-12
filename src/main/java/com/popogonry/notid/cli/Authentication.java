@@ -3,7 +3,6 @@ package com.popogonry.notid.cli;
 import com.popogonry.notid.Config;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;
-import com.popogonry.notid.user.repository.MemoryUserRepository;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.text.SimpleDateFormat;
@@ -117,7 +116,7 @@ public class Authentication {
         try {
             date = formatter.parse(birthdate);
         }
-        catch(Exception e) {
+        catch(Exception ignored) {
 
         }
 
