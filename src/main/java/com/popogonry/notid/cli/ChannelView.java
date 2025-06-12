@@ -12,6 +12,7 @@ import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
+import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
 import javax.xml.crypto.Data;
@@ -21,6 +22,7 @@ import java.util.*;
 
 public class ChannelView {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     private static final Config config = new Config();
 
@@ -216,7 +218,7 @@ public class ChannelView {
         do {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 4, value));
+        } while (!ValidationCheck.intSelectCheck(1, 5, value));
 
         int intValue = Integer.parseInt(value);
         switch (intValue) {
@@ -264,13 +266,27 @@ public class ChannelView {
 
         System.out.println("--- " + channel.getName() + " 공지 리스트 ---");
 
-
         ArrayList<Long> channelNoticeList = new ArrayList<>(noticeRepository.getChannelNoticeSetData(channel.getName()));
 
+
         int i = 1;
+        int index = 0;
         for (Long noticeId : channelNoticeList) {
-            System.out.println(i + ". " + noticeRepository.getNoticeData(noticeId).getTitle());
-            i++;
+            Notice notice = noticeRepository.getNoticeData(noticeId);
+            if((channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.ADMIN || channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.MANAGER) && channelService.canAccessChannel(user, notice)) {
+                if(notice.getScheduledTime().after(new Date())) {
+                    System.out.println(i + ". " + notice.getTitle() + "(" + formatter.format(notice.getScheduledTime()) + " 공개 예정)");
+                }
+                else {
+                    System.out.println(i + ". " + notice.getTitle());
+                }
+                i++;
+            }
+            else if((notice.getScheduledTime().before(new Date()) && channelService.canAccessChannel(user, notice))) {
+                System.out.println(i + ". " + notice.getTitle());
+                i++;
+            }
+            index++;
         }
 
         System.out.println(i + ". 돌아가기");
@@ -286,7 +302,7 @@ public class ChannelView {
             return;
         }
 
-        Notice notice = noticeRepository.getNoticeData(channelNoticeList.get(Integer.parseInt(value) - 1));
+        Notice notice = noticeRepository.getNoticeData(channelNoticeList.get(Integer.parseInt(value) - 1 + (index - i)));
         NoticeView.noticeViewMain(notice, user);
 
     }

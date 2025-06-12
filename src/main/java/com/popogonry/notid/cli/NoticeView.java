@@ -157,7 +157,7 @@ public class NoticeView {
                 break;
 
             case 2:
-                deleteNotice(notice, user);
+                ChannelView.channelViewMain(notice.getChannel(), user);
                 break;
 
         }
@@ -251,7 +251,7 @@ public class NoticeView {
 
                 String scheduledTimeInput;
                 do {
-                    System.out.print("공지 공개 시간(yyyy-MM-dd HH:mm, 미 입력시 취소,  \' 삭제 \' 입력 시 공개): ");
+                    System.out.print("공지 공개 시간(yyyy-MM-dd HH:mm, 미 입력시 취소,  ' 삭제 ' 입력 시 공개): ");
                     scheduledTimeInput = scanner.nextLine().trim();
                     if(scheduledTimeInput.isEmpty() || scheduledTimeInput.equals("삭제")) break;
                 } while(!ValidationCheck.isValidDateAndTime(scheduledTimeInput));
@@ -267,7 +267,7 @@ public class NoticeView {
             case 6:
                 String replyDeadlineInput;
                 do {
-                    System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 취소, \' 삭제 \' 입력 시 제한 X): ");
+                    System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 취소, ' 삭제 ' 입력 시 제한 X): ");
                     replyDeadlineInput = scanner.nextLine().trim();
                     if(replyDeadlineInput.isEmpty() || replyDeadlineInput.equals("삭제")) break;
                 } while(!ValidationCheck.isValidDateAndTime(replyDeadlineInput));

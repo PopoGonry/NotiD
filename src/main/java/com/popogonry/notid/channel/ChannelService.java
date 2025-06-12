@@ -1,8 +1,11 @@
 package com.popogonry.notid.channel;
 
 import com.popogonry.notid.channel.repository.ChannelRepository;
+import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.repository.UserRepositoy;
+
+import java.util.HashSet;
 
 public class ChannelService {
     private final ChannelRepository channelRepository;
@@ -119,4 +122,35 @@ public class ChannelService {
         channel.getChannnelJoiningUserSet().add(user.getId());
         return true;
     }
+
+    public boolean canAccessChannel(User user, Notice notice) {
+
+        int userScore = 0;
+        switch(notice.getChannel().getChannelUserGrade(user.getId())) {
+            case NORMAL:
+                userScore = 1;
+
+            case MANAGER:
+                userScore = 2;
+
+            case ADMIN:
+                userScore = 3;
+        }
+
+        int serverScore = 0;
+        switch(notice.getUserGrade()) {
+            case NORMAL:
+                userScore = 1;
+
+            case MANAGER:
+                userScore = 2;
+
+            case ADMIN:
+                userScore = 3;
+        }
+
+        return userScore >= serverScore;
+
+    }
+
 }
