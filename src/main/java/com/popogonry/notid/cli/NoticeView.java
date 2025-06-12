@@ -362,7 +362,7 @@ public class NoticeView {
     }
 
     public static void sendNoticeAlarm(Notice notice, User user) {
-
+        // 추후 구현
     }
 
     public static void createReply(Notice notice, User user) {

@@ -67,8 +67,16 @@ public class Authentication {
     public static void signup() {
         System.out.print("ID: ");
         String id = scanner.nextLine().trim();
-        while (userRepositoy.hasUserData(id)) {
-            System.out.println("이미 존재하는 ID 입니다.");
+        while (true) {
+            if(userRepositoy.hasUserData(id)) {
+                System.out.println("이미 존재하는 ID 입니다.");
+            }
+            else if(id.isEmpty()) {
+                System.out.println("유효 하지 않은 값입니다.");
+            }
+            else {
+                break;
+            }
             System.out.print("ID: ");
             id = scanner.nextLine().trim();
         }
@@ -78,8 +86,16 @@ public class Authentication {
         System.out.print("Confirm Password: ");
         String confirmPassword = scanner.nextLine().trim();
 
-        while (!password.equals(confirmPassword)) {
-            System.out.println("비밀번호가 동일하지 않습니다.");
+        while (true) {
+            if(!password.equals(confirmPassword)) {
+                System.out.println("비밀번호가 동일하지 않습니다.");
+            }
+            else if(password.isEmpty()) {
+                System.out.println("유효 하지 않은 값입니다.");
+            }
+            else {
+                break;
+            }
             System.out.print("Password: ");
             password = scanner.nextLine().trim();
             System.out.print("Confirm Password: ");
