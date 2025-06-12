@@ -40,19 +40,22 @@ public class NoticeService {
         // 존재하지 않을때,
         if(!noticeRepository.hasNoticeData(id)) return false;
 
-        Notice updateNotice = noticeRepository.getNoticeData(id);
 
         // 요청 id와 저장된 notice의 id가 같지 않을 때,
         if(newNotice.getId() != id) return false;
 
+        Notice notice = noticeRepository.getNoticeData(id);
+
         // newNotice의 채널명과, 저장된 notice의 채널명이 다를때,
-        if(!newNotice.getChannel().getName().equals(updateNotice.getChannel().getName())) return false;
+        if(!newNotice.getChannel().getName().equals(notice.getChannel().getName())) return false;
 
-        noticeRepository.removeNoticeData(updateNotice.getId());
-        noticeRepository.removeChannelNoticeData(updateNotice.getChannel().getName(), updateNotice.getId());
-
-        noticeRepository.addNoticeData(newNotice);
-        noticeRepository.addChannelNoticeData(newNotice.getChannel().getName(), newNotice.getId());
+        notice.setTitle(newNotice.getTitle());
+        notice.setContent(newNotice.getContent());
+        notice.setUserGrade(newNotice.getUserGrade());
+        notice.setAttachments(newNotice.getAttachments());
+        notice.setReplyAllowed(newNotice.isReplyAllowed());
+        notice.setScheduledTime(newNotice.getScheduledTime());
+        notice.setReplyDeadline(newNotice.getReplyDeadline());
 
         return true;
     }

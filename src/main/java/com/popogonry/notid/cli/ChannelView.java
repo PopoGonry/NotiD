@@ -343,7 +343,7 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 4, value));
 
-
+        String temp;
         String description = channel.getDescription();
         String affiliation = channel.getAffiliation();
         ChannelJoinType channelJoinType = channel.getJoinType();
@@ -351,12 +351,14 @@ public class ChannelView {
         switch (Integer.parseInt(value)) {
             case 1:
                 System.out.print("설명(미 입력시 취소): ");
-                description = scanner.nextLine();
+                temp = scanner.nextLine();
+                if(!temp.isEmpty()) description = temp;
                 break;
 
             case 2:
                 System.out.print("조직(미 입력시 취소, \' 삭제 \' 입력 시 삭제): ");
-                affiliation = scanner.nextLine();
+                temp = scanner.nextLine();
+                if(!temp.isEmpty()) affiliation = temp;
                 if(affiliation.equals("삭제")) affiliation = "";
                 break;
 
@@ -457,7 +459,7 @@ public class ChannelView {
         do {
             System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 제한 X): ");
             replyDeadlineInput = scanner.nextLine().trim();
-            if(scheduledTimeInput.isEmpty()) break;
+            if(replyDeadlineInput.isEmpty()) break;
         } while(!ValidationCheck.isValidDateAndTime(replyDeadlineInput));
         Date replyDeadline = new Date();
         try {
