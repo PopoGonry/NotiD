@@ -1,24 +1,32 @@
 package com.popogonry.notid.cli;
 
+import com.popogonry.notid.Config;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
+import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
+import com.popogonry.notid.reply.ReplyService;
 import com.popogonry.notid.reply.replyRepository.MemoryReplyRepository;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
+import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class NoticeView {
     private static final Scanner scanner = new Scanner(System.in);
     private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-    private static final ReplyRepository replyRepository = new MemoryReplyRepository();
+    private static final Config config = new Config();
+
+    private static final NoticeRepository noticeRepository = config.noticeRepository();
+
+    private static final ReplyService replyService = config.replyService();
+    private static final ReplyRepository replyRepository = config.replyRepository();
 
 
     public static void noticeViewMain(Notice notice, User user) {
@@ -173,6 +181,22 @@ public class NoticeView {
     }
 
     public static void createReply(Notice notice, User user) {
+        System.out.println("--- 답장 작성 ---");
+        System.out.print("제목: ");
+        String title = scanner.nextLine();
 
+        System.out.print("내용: ");
+        String content = scanner.nextLine();
+
+        long replyId = replyService.createReply(title, content, null, notice.getId(), user.getId());
+
+        if(replyId != 0L) {
+            System.out.println("답장이 작성되었습니다.");
+            ReplyView.replyViewMain(replyRepository.getReplyData(replyId), user);
+        }
+        else {
+            System.out.println("답장 작성 중 문제가 발생했습니다.");
+            noticeViewMain(notice, user);
+        }
     }
 }
