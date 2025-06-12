@@ -95,5 +95,28 @@ public class ChannelService {
 
         return true;
     }
+    public boolean declineUserJoining(User user, Channel channel) {
+        // 채널이 없을 때,
+        if(!channelRepository.hasChannelData(channel.getName())) return false;
 
+        // 유저가 없을 때,
+        if(!userRepository.hasUserData(user.getId())) return false;
+
+        if(!channel.getChannnelJoiningUserSet().contains(user.getId())) return false;
+
+        channel.getChannnelJoiningUserSet().remove(user.getId());
+
+        return true;
+    }
+
+    public boolean requestUserJoining(User user, Channel channel) {
+        // 채널이 없을 때,
+        if(!channelRepository.hasChannelData(channel.getName())) return false;
+
+        // 이미 가입 신청 중 일때,
+        if(channel.getChannnelJoiningUserSet().contains(user.getId())) return false;
+
+        channel.getChannnelJoiningUserSet().add(user.getId());
+        return true;
+    }
 }
