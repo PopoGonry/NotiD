@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-12&#10;&#10;NoticeView noticeToMember 기능 구현">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/notid/Reply/ReplyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/notid/Reply/ReplyServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +129,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.popogonry.notid.Main" />
       <module name="NotiD.main" />
@@ -289,7 +284,7 @@
       <workItem from="1749549650733" duration="10239000" />
       <workItem from="1749573193349" duration="1803000" />
       <workItem from="1749710187390" duration="5961000" />
-      <workItem from="1749728507953" duration="3737000" />
+      <workItem from="1749728507953" duration="7453000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -539,7 +534,47 @@
       <option name="project" value="LOCAL" />
       <updated>1749716177841</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="2025-06-12&#10;&#10;Authentication 프로그램 종료 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749732590695</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732590695</updated>
+    </task>
+    <task id="LOCAL-00033" summary="2025-06-12&#10;&#10;ChannelService&#10;채널 가입 신청, 가입 신청 거절 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749732630391</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732630391</updated>
+    </task>
+    <task id="LOCAL-00034" summary="2025-06-12&#10;&#10;ChannelView 채널 가입 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749732651982</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732651982</updated>
+    </task>
+    <task id="LOCAL-00035" summary="2025-06-12&#10;&#10;일부 수정 사항 수정&#10;Main에 테스트를 위한 값 추가">
+      <option name="closed" value="true" />
+      <created>1749732733676</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732733676</updated>
+    </task>
+    <task id="LOCAL-00036" summary="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749732758448</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732758448</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,11 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-04&#10;&#10;MemoryNoticeRepositoryTest 완료" />
-    <MESSAGE value="2025-06-04&#10;&#10;NoticeServiceTest 완료" />
-    <MESSAGE value="2025-06-05&#10;&#10;Reply 도메인 구조" />
-    <MESSAGE value="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정" />
-    <MESSAGE value="2025-06-05&#10;&#10;Reply Entity 완료" />
     <MESSAGE value="2025-06-06&#10;&#10;디렉토리 오류 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
@@ -582,7 +612,12 @@
     <MESSAGE value="2025-06-11&#10;&#10;ChannelView.manageUser 채널 유저 권한 관리 구현&#10;MainView.mainViewMain 로그아웃 기능 구현" />
     <MESSAGE value="2025-06-11&#10;&#10;CLI 정적화 리팩터링&#10;&#10;회원가입 로그인, 유효성 검사, &quot;&quot; 값 이슈" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView noticeToMember 기능 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-12&#10;&#10;NoticeView noticeToMember 기능 구현" />
+    <MESSAGE value="2025-06-12&#10;&#10;Authentication 프로그램 종료 기능 추가" />
+    <MESSAGE value="2025-06-12&#10;&#10;ChannelService&#10;채널 가입 신청, 가입 신청 거절 기능 추가" />
+    <MESSAGE value="2025-06-12&#10;&#10;ChannelView 채널 가입 기능 추가" />
+    <MESSAGE value="2025-06-12&#10;&#10;일부 수정 사항 수정&#10;Main에 테스트를 위한 값 추가" />
+    <MESSAGE value="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

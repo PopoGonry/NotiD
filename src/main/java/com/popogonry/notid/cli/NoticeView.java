@@ -2,8 +2,10 @@ package com.popogonry.notid.cli;
 
 import com.popogonry.notid.Config;
 import com.popogonry.notid.channel.Channel;
+import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
@@ -11,6 +13,7 @@ import com.popogonry.notid.reply.ReplyService;
 import com.popogonry.notid.reply.replyRepository.MemoryReplyRepository;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
+import com.popogonry.notid.user.UserGrade;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 import java.io.File;
@@ -23,6 +26,7 @@ public class NoticeView {
 
     private static final Config config = new Config();
 
+    private static final NoticeService noticeService = config.noticeService();
     private static final NoticeRepository noticeRepository = config.noticeRepository();
 
     private static final ReplyService replyService = config.replyService();
@@ -66,6 +70,7 @@ public class NoticeView {
             grade = "채널 소유자";
         }
         System.out.println("공지 접근 권한: " + grade);
+        System.out.println("답장 허가 여부: " + notice.isReplyAllowed());
 
         System.out.println("내용: " + notice.getContent());
 
@@ -165,7 +170,135 @@ public class NoticeView {
     }
 
     public static void updateNotice(Notice notice, User user) {
+        System.out.println("--- 공지 수정 ---");
 
+        System.out.println("1. 제목 수정");
+        System.out.println("2. 내용 수정");
+        System.out.println("3. 답장 허가 여부 수정");
+        System.out.println("4. 공지 접근 권한 수정");
+        System.out.println("5. 공지 공개 시간 수정");
+        System.out.println("6. 답장 제한 시간 수정");
+        System.out.println("7. 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 7, value));
+
+        String title = notice.getTitle();
+        String content = notice.getContent();
+        boolean isReplyAllowed = notice.isReplyAllowed();
+        ChannelUserGrade userGrade = notice.getUserGrade();
+        Date scheduledTime = notice.getScheduledTime();
+        Date replyDeadline = notice.getReplyDeadline();
+
+        String temp;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                System.out.print("제목(미 입력시 취소): ");
+                temp = scanner.nextLine();
+                if(!temp.isEmpty()) title = temp;
+                break;
+
+            case 2:
+                System.out.print("내용(미 입력시 취소): ");
+                temp = scanner.nextLine();
+                if(!temp.isEmpty()) content = temp;
+                break;
+
+            case 3:
+                do {
+                    System.out.print("답장 허가 여부 (1. 허가, 2. 미허가, 미 입력시 취소): ");
+                    temp = scanner.nextLine();
+                    if(temp.isEmpty()) break;
+                } while (!ValidationCheck.intSelectCheck(1, 2, temp));
+
+                if(!temp.isEmpty()) {
+                    switch (Integer.parseInt(temp)) {
+                        case 1:
+                            isReplyAllowed = true;
+                            break;
+
+                        case 2:
+                            isReplyAllowed = false;
+                            break;
+                    }
+                }
+                break;
+
+            case 4:
+                do {
+                    System.out.print("공지 접근 권한 (1. 채널 소유자, 2. 채널 관리자, 3. 일반 유저, 미 입력시 취소): ");
+                    temp = scanner.nextLine();
+                    if(temp.isEmpty()) break;
+                } while (!ValidationCheck.intSelectCheck(1, 3, temp));
+
+                if(!temp.isEmpty()) {
+                    switch (Integer.parseInt(temp)) {
+                        case 1:
+                            userGrade = ChannelUserGrade.ADMIN;
+                            break;
+
+                        case 2:
+                            userGrade = ChannelUserGrade.MANAGER;
+                            break;
+
+                        case 3:
+                            userGrade = ChannelUserGrade.NORMAL;
+                            break;
+                    }
+                }
+                break;
+
+            case 5:
+
+                String scheduledTimeInput;
+                do {
+                    System.out.print("공지 공개 시간(yyyy-MM-dd HH:mm, 미 입력시 취소,  \' 삭제 \' 입력 시 공개): ");
+                    scheduledTimeInput = scanner.nextLine().trim();
+                    if(scheduledTimeInput.isEmpty() || scheduledTimeInput.equals("삭제")) break;
+                } while(!ValidationCheck.isValidDateAndTime(scheduledTimeInput));
+                if(scheduledTimeInput.equals("삭제")) scheduledTime = new Date();
+                try {
+                    scheduledTime = formatter.parse(scheduledTimeInput);
+                }
+                catch(Exception e) {
+
+                }
+                break;
+
+            case 6:
+                String replyDeadlineInput;
+                do {
+                    System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 취소, \' 삭제 \' 입력 시 제한 X): ");
+                    replyDeadlineInput = scanner.nextLine().trim();
+                    if(replyDeadlineInput.isEmpty() || replyDeadlineInput.equals("삭제")) break;
+                } while(!ValidationCheck.isValidDateAndTime(replyDeadlineInput));
+                if(replyDeadlineInput.equals("삭제")) replyDeadline = new Date();
+                try {
+                    replyDeadline = formatter.parse(replyDeadlineInput);
+                }
+                catch(Exception e) {
+
+                }
+                break;
+
+            case 7:
+                noticeViewMain(notice, user);
+                return;
+
+        }
+        Notice notice1 = new Notice(notice.getId(), title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, null, notice.getChannel());
+        noticeService.updateNotice(notice.getId(), notice1);
+
+        System.out.println(notice1);
+
+        System.out.println("수정 완료되었습니다.");
+
+        noticeViewMain(notice, user);
     }
 
     public static void userReplyList(Notice notice, User user) {
