@@ -19,8 +19,10 @@ public class ValidationCheck {
     public static boolean isValidBirthdate(String input) {
         return input != null && input.matches("^\\d{4}-\\d{2}-\\d{2}$");
     }
+    public static boolean isValidDateAndTime(String input) {
+        return input != null && input.matches("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}$");
+    }
 
-    // 휴대폰 번호 형식: 3자리-4자리-4자리
     public static boolean isValidPhoneNumber(String input) {
         return input != null && input.matches("^\\d{3}-\\d{4}-\\d{4}$");
     }

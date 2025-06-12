@@ -3,12 +3,22 @@ package com.popogonry.notid.cli;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.reply.Reply;
+import com.popogonry.notid.reply.replyRepository.MemoryReplyRepository;
+import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
 
+import javax.print.attribute.standard.DateTimeAtCompleted;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class NoticeView {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    private static final ReplyRepository replyRepository = new MemoryReplyRepository();
 
 
     public static void noticeViewMain(Notice notice, User user) {
@@ -20,17 +30,24 @@ public class NoticeView {
 
         ChannelUserGrade channelUserGrade = channel.getChannelUserGrade(user.getId());
         if (channelUserGrade == ChannelUserGrade.NORMAL) {
-            noticeToManager(notice, user);
-        } else if (channelUserGrade == ChannelUserGrade.MANAGER || channelUserGrade == ChannelUserGrade.ADMIN) {
             noticeToMember(notice, user);
+        } else if (channelUserGrade == ChannelUserGrade.MANAGER || channelUserGrade == ChannelUserGrade.ADMIN) {
+            noticeToManager(notice, user);
         }
     }
 
     public static void noticeToManager(Notice notice, User user) {
-        System.out.println("--- " + notice.getTitle() + " ---");
+        System.out.println("--- 공지 관리자 메뉴 ---");
+
+        System.out.println("제목: " + notice.getTitle());
         System.out.println("채널: " + notice.getChannel().getName());
-        System.out.println("공지 공개 시간: " + notice.getScheduledTime());
-        System.out.println("답장 제한 시간: " + notice.getReplyDeadline());
+
+        if(notice.getScheduledTime().after(new Date())) {
+            System.out.println("공지 공개 시간: " + formatter.format(notice.getScheduledTime()));
+        }
+        if(notice.getReplyDeadline().after(new Date())) {
+            System.out.println("답장 제한 시간: " + formatter.format(notice.getReplyDeadline()));
+        }
 
         String grade = "";
         if (notice.getUserGrade() == ChannelUserGrade.NORMAL) {
@@ -84,7 +101,59 @@ public class NoticeView {
     }
 
     public static void noticeToMember(Notice notice, User user) {
+        System.out.println("--- 공지 메뉴 ---");
 
+        System.out.println("제목: " + notice.getTitle());
+        System.out.println("채널: " + notice.getChannel().getName());
+
+        if(notice.getReplyDeadline().after(new Date())) {
+            System.out.println("답장 제한 시간: " + formatter.format(notice.getReplyDeadline()));
+        }
+
+        System.out.println("내용: " + notice.getContent());
+
+        System.out.println();
+
+        boolean hasReply = false;
+        Reply reply = null;
+        HashSet<Long> noticeReplySetData = replyRepository.getNoticeReplySetData(notice.getId());
+        for (Long replyId : noticeReplySetData) {
+            Reply replyData = replyRepository.getReplyData(replyId);
+            if(replyData.getAuthor().equals(user)) {
+                reply = replyData;
+                hasReply = true;
+                break;
+            }
+        }
+
+        if(hasReply) {
+            System.out.println("1. 답장 보기");
+        }
+        else {
+            System.out.println("1. 답장 작성");
+        }
+
+
+        System.out.println("2. 돌아가기");
+
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 2, value));
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                if(hasReply) ReplyView.replyViewMain(reply, user);
+                else createReply(notice, user);
+                break;
+
+            case 2:
+                deleteNotice(notice, user);
+                break;
+
+        }
     }
 
     public static void updateNotice(Notice notice, User user) {

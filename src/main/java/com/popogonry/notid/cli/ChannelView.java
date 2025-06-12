@@ -386,7 +386,7 @@ public class ChannelView {
              System.out.print("공지 공개 시간(yyyy-MM-dd HH:mm, 미 입력시 바로 공개): ");
              scheduledTimeInput = scanner.nextLine().trim();
              if(scheduledTimeInput.isEmpty()) break;
-        } while(!ValidationCheck.isValidBirthdate(scheduledTimeInput));
+        } while(!ValidationCheck.isValidDateAndTime(scheduledTimeInput));
         Date scheduledTime = new Date();
         try {
             scheduledTime = formatter.parse(scheduledTimeInput);
@@ -400,7 +400,7 @@ public class ChannelView {
             System.out.print("답장 제한 시간(yyyy-MM-dd HH:mm, 미 입력시 제한 X): ");
             replyDeadlineInput = scanner.nextLine().trim();
             if(scheduledTimeInput.isEmpty()) break;
-        } while(!ValidationCheck.isValidBirthdate(replyDeadlineInput));
+        } while(!ValidationCheck.isValidDateAndTime(replyDeadlineInput));
         Date replyDeadline = new Date();
         try {
             replyDeadline = formatter.parse(replyDeadlineInput);
