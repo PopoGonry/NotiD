@@ -47,7 +47,56 @@ public class ChannelView {
         }
     }
 
-    public void joinChannel() {
+    public static void joinChannel(Channel channel, User user) {
+        System.out.println("--- " + channel.getName() + " 채널 상세 정보 ---");
+        System.out.println("- 채널 이름: " + channel.getName());
+        System.out.println("- 채널 설명: " + channel.getDescription());
+        if(!channel.getAffiliation().isEmpty() && channel.getAffiliation() != null)
+            System.out.println("- 채널 조직: " + channel.getAffiliation());
+        System.out.println("- 가입 방식: " + ((channel.getJoinType() == ChannelJoinType.ACCEPT) ? "신청 가입" : "자유 가입"));
+
+        System.out.println();
+
+        if(channel.getJoinType() == ChannelJoinType.ACCEPT) {
+            System.out.println("1. 가입 신청");
+        }
+        else {
+            System.out.println("1. 즉시 가입");
+        }
+
+        System.out.println("2. 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 2, value));
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                if (channel.getJoinType() == ChannelJoinType.ACCEPT) {
+                    if(channelService.requestUserJoining(user, channel)) {
+                        System.out.println("가입 신청 완료되었습니다.");
+                        channelViewMain(channel, user);
+                        return;
+                    }
+                    else {
+                        System.out.println("이미 신청 중인 채널입니다.");
+                        MainView.mainViewMain(user);
+                        return;
+                    }
+                } else {
+                    channelService.joinChannel(user, channel);
+                    System.out.println("가입 완료되었습니다.");
+                    channelViewMain(channel, user);
+                }
+                break;
+
+            case 2:
+                MainView.mainViewMain(user);
+                break;
+        }
+
 
     }
 
@@ -68,8 +117,7 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 8, value));
 
-        int intValue = Integer.parseInt(value);
-        switch (intValue) {
+        switch (Integer.parseInt(value)) {
             case 1:
                 channelInfo(channel, user);
                 break;
@@ -110,7 +158,8 @@ public class ChannelView {
         System.out.println("4. 공지 생성");
         System.out.println("5. 유저 관리");
         System.out.println("6. 채널 수정");
-        System.out.println("7. 돌아가기");
+        System.out.println("7. 채널 나가기");
+        System.out.println("8. 돌아가기");
 
         String value;
         do {
@@ -145,7 +194,11 @@ public class ChannelView {
                 break;
 
             case 7:
+                channelService.leaveChannel(user, channel);
+
+            case 8:
                 MainView.mainViewMain(user);
+                break;
         }
 
 
@@ -156,7 +209,8 @@ public class ChannelView {
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
         System.out.println("3. 내 답장 리스트");
-        System.out.println("4. 돌아가기");
+        System.out.println("4. 채널 나가기");
+        System.out.println("5. 돌아가기");
 
         String value;
         do {
@@ -179,7 +233,11 @@ public class ChannelView {
                 break;
 
             case 4:
+                channelService.leaveChannel(user, channel);
+
+            case 5:
                 MainView.mainViewMain(user);
+                break;
         }
     }
 
@@ -198,7 +256,7 @@ public class ChannelView {
 
     public static void noticeList(Channel channel, User user) {
 
-        if (!noticeRepository.hasChannelNoticeSetData(channel.getName())) {
+        if (!noticeRepository.hasChannelNoticeSetData(channel.getName()) || noticeRepository.getChannelNoticeSetData(channel.getName()).isEmpty()) {
             System.out.println("채널에 공지가 없습니다.");
             channelViewMain(channel, user);
             return;
@@ -234,7 +292,7 @@ public class ChannelView {
     }
 
     public static void userReplyList(Channel channel, User user) {
-        if (!noticeRepository.hasChannelNoticeSetData(channel.getName())) {
+        if (!noticeRepository.hasChannelNoticeSetData(channel.getName()) || noticeRepository.getChannelNoticeSetData(channel.getName()).isEmpty()) {
             System.out.println("채널에 공지가 없습니다.");
             channelViewMain(channel, user);
             return;
