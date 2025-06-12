@@ -338,7 +338,27 @@ public class NoticeView {
     }
 
     public static void deleteNotice(Notice notice, User user) {
+        System.out.println("--- " + notice.getTitle() + "공지 삭제 ---");
+        System.out.println("1. 삭제하기");
+        System.out.println("2. 돌아가기");
 
+        String temp;
+        do {
+            System.out.print("선택해주세요: ");
+            temp = scanner.nextLine();
+        } while (!ValidationCheck.intSelectCheck(1, 2, temp));
+
+        switch (Integer.parseInt(temp)) {
+            case 1:
+                noticeService.deleteNotice(notice.getId());
+                System.out.println("공지를 삭제 하였습니다.");
+                ChannelView.channelViewMain(notice.getChannel(), user);
+                break;
+
+            case 2:
+                noticeViewMain(notice, user);
+                break;
+        }
     }
 
     public static void sendNoticeAlarm(Notice notice, User user) {
