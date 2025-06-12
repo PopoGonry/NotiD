@@ -21,11 +21,12 @@ public class Authentication {
         System.out.println("--- 사용자 인증 ----");
         System.out.println("1. 회원가입");
         System.out.println("2. 로그인");
+        System.out.println("3. 프로그램 종료");
         String value;
         do {
             System.out.print("선택해주세요: ");
              value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 2, value));
+        } while (!ValidationCheck.intSelectCheck(1, 3, value));
 
         int intValue = Integer.parseInt(value);
         switch (intValue) {
@@ -35,6 +36,10 @@ public class Authentication {
 
             case 2:
                 login();
+                break;
+
+            case 3:
+                System.out.println("프로그램을 종료합니다.");
                 break;
         }
     }
