@@ -5,28 +5,28 @@ import com.popogonry.notid.user.User;
 
 public class ReplyView {
 
-    public void replyViewMain(Reply reply, User user) {
+    public static void replyViewMain(Reply reply, User user) {
 
     }
 
-    public void replyToManager() {
+    public static void replyToManager() {
 
     }
 
-    public void replyToAuthor() {
+    public static void replyToAuthor() {
 
     }
 
-    public void updateReply() {
+    public static void updateReply() {
 
     }
 
-    public void deleteReply() {
+    public static void deleteReply() {
 
     }
 
 
-    public void downloadFile() {
+    public static void downloadFile() {
 
     }
 

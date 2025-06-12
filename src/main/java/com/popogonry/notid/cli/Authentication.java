@@ -16,7 +16,6 @@ public class Authentication {
     private static final Config config = new Config();
 
     private static final UserRepositoy userRepositoy = config.userRepositoy();
-    private static final MainView mainView = new MainView();
 
     public static void authenticate() {
         System.out.println("--- 사용자 인증 ----");
@@ -57,7 +56,7 @@ public class Authentication {
             return;
         }
         System.out.println("로그인에 성공하였습니다. Id: " + id);
-        mainView.mainViewMain(userRepositoy.getUserData(id));
+        MainView.mainViewMain(userRepositoy.getUserData(id));
     }
 
     public static void signup() {

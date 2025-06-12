@@ -23,15 +23,11 @@ public class MainView {
 
     private static final ChannelService channelService = config.channelService();
 
-
     private static final UserRepositoy userRepositoy = config.userRepositoy();
     private static final ChannelRepository channelRepository = config.channelRepository();
     private static final NoticeRepository noticeRepository = config.noticeRepository();
 
-    private static final NoticeView noticeView = new NoticeView();
-    private static final ChannelView channelView= new ChannelView();
-
-    public void mainViewMain(User user) {
+    public static void mainViewMain(User user) {
         System.out.println("--- 메인 화면 ---");
 
         System.out.println("1. 알람 확인");
@@ -75,11 +71,11 @@ public class MainView {
         }
     }
 
-    public void checkAlarm(User user) {
+    public static void checkAlarm(User user) {
 
     }
 
-    public void userChannelList(User user) {
+    public static void userChannelList(User user) {
         if (!channelRepository.hasUserChannelSetData(user.getId())) {
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
@@ -106,10 +102,10 @@ public class MainView {
         }
 
         Channel channel = channelRepository.getChannelData(userChannelList.get(Integer.parseInt(value) - 1));
-        channelView.channelViewMain(channel, user);
+        ChannelView.channelViewMain(channel, user);
     }
 
-    public void userNoticeList(User user) {
+    public static void userNoticeList(User user) {
         if (!channelRepository.hasUserChannelSetData(user.getId())) {
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
@@ -142,10 +138,10 @@ public class MainView {
             return;
         }
         Notice notice = noticeRepository.getNoticeData(noticeList.get(Integer.parseInt(value) - 1));
-        noticeView.noticeViewMain(notice);
+        NoticeView.noticeViewMain(notice, user);
     }
 
-    public void searchChannel(User user) {
+    public static void searchChannel(User user) {
         System.out.print("채널 이름을 입력하세요: ");
         String keyword = scanner.nextLine();
 
@@ -155,10 +151,10 @@ public class MainView {
             return;
         }
         Channel channel = channelRepository.getChannelData(keyword);
-        channelView.channelViewMain(channel, user);
+        ChannelView.channelViewMain(channel, user);
     }
 
-    public void createChannel(User user) {
+    public static void createChannel(User user) {
         System.out.print("이름을 입력하세요: ");
         String name = scanner.nextLine();
 
@@ -200,6 +196,6 @@ public class MainView {
 
         channel.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
 
-        channelView.channelViewMain(channel, user);
+        ChannelView.channelViewMain(channel, user);
     }
 }

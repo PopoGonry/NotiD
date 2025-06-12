@@ -24,10 +24,6 @@ public class ChannelView {
 
     private static final Config config = new Config();
 
-    private static final MainView mainView = new MainView();
-    private static final NoticeView noticeView = new NoticeView();
-    private static final ReplyView replyView = new ReplyView();
-
     private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final ReplyRepository replyRepository = config.replyRepository();
     private static final ChannelRepository channelRepository = config.channelRepository();
@@ -36,7 +32,7 @@ public class ChannelView {
     private static final NoticeService noticeService = config.noticeService();
 
 
-    public void channelViewMain(Channel channel, User user) {
+    public static void channelViewMain(Channel channel, User user) {
         if (!channel.hasChannelUserGrade(user.getId())) {
             System.out.println(user.getId() + " 유저는 채널에 존재하지 않습니다.");
         }
@@ -55,7 +51,7 @@ public class ChannelView {
 
     }
 
-    public void channelToAdmin(Channel channel, User user) {
+    public static void channelToAdmin(Channel channel, User user) {
         System.out.println("--- " + channel.getName() + " 채널 소유자 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -101,12 +97,12 @@ public class ChannelView {
             case 7:
                 // 채널 삭제
             case 8:
-                mainView.mainViewMain(user);
+                MainView.mainViewMain(user);
         }
 
     }
 
-    public void channelToManager(Channel channel, User user) {
+    public static void channelToManager(Channel channel, User user) {
         System.out.println("--- " + channel.getName() + " 채널 관리자 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -149,13 +145,13 @@ public class ChannelView {
                 break;
 
             case 7:
-                mainView.mainViewMain(user);
+                MainView.mainViewMain(user);
         }
 
 
     }
 
-    public void channelToNormal(Channel channel, User user) {
+    public static void channelToNormal(Channel channel, User user) {
         System.out.println("--- " + channel.getName() + " 채널 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -183,11 +179,11 @@ public class ChannelView {
                 break;
 
             case 4:
-                mainView.mainViewMain(user);
+                MainView.mainViewMain(user);
         }
     }
 
-    public void channelInfo(Channel channel, User user) {
+    public static void channelInfo(Channel channel, User user) {
 
         System.out.println("--- " + channel.getName() + " 채널 상세 정보 ---");
         System.out.println("- 채널 이름: " + channel.getName());
@@ -200,7 +196,7 @@ public class ChannelView {
         channelViewMain(channel, user);
     }
 
-    public void noticeList(Channel channel, User user) {
+    public static void noticeList(Channel channel, User user) {
 
         if (!noticeRepository.hasChannelNoticeSetData(channel.getName())) {
             System.out.println("채널에 공지가 없습니다.");
@@ -233,11 +229,11 @@ public class ChannelView {
         }
 
         Notice notice = noticeRepository.getNoticeData(channelNoticeList.get(Integer.parseInt(value) - 1));
-        noticeView.noticeViewMain(notice);
+        NoticeView.noticeViewMain(notice, user);
 
     }
 
-    public void userReplyList(Channel channel, User user) {
+    public static void userReplyList(Channel channel, User user) {
         if (!noticeRepository.hasChannelNoticeSetData(channel.getName())) {
             System.out.println("채널에 공지가 없습니다.");
             channelViewMain(channel, user);
@@ -271,10 +267,10 @@ public class ChannelView {
         }
 
         Reply reply = replyRepository.getReplyData(replyIdList.get(Integer.parseInt(value) - 1));
-        replyView.replyViewMain(reply, user);
+        ReplyView.replyViewMain(reply, user);
     }
 
-    public void updateChannel(Channel channel, User user) {
+    public static void updateChannel(Channel channel, User user) {
 
         System.out.println("--- 채널 수정 ---");
 
@@ -338,7 +334,7 @@ public class ChannelView {
         channelViewMain(channel, user);
     }
 
-    public void createNotice(Channel channel, User user) {
+    public static void createNotice(Channel channel, User user) {
         System.out.println("--- 공지 생성 ---");
 
         System.out.print("제목: ");
@@ -418,11 +414,11 @@ public class ChannelView {
         Notice notice = noticeRepository.getNoticeData(noticeId);
 
         System.out.println("공지가 생성되었습니다.");
-        noticeView.noticeViewMain(notice);
+        NoticeView.noticeViewMain(notice, user);
 
     }
 
-    public void manageUser(Channel channel, User user) {
+    public static void manageUser(Channel channel, User user) {
         System.out.println("--- 채널 멤버 리스트 ---");
         int i = 1;
         List<String> userList = new ArrayList<>(channel.getChannelUserGradeHashMap().keySet());
