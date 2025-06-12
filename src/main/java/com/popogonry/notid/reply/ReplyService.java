@@ -20,21 +20,21 @@ public class ReplyService {
         this.userRepository = userRepositoy;
     }
 
-    public boolean createReply(String title, String content, List<File> file, long noticeId, String authorId) {
+    public long createReply(String title, String content, List<File> file, long noticeId, String authorId) {
         long newId = counter.getAndIncrement();
         // 이미 존재하는 id 일때,
-        if(replyRepository.hasReplyData(newId)) return false;
+        if(replyRepository.hasReplyData(newId)) return 0L;
         // noticeId의 Notice가 존재하지 않을 때,
-        if(!noticeRepository.hasNoticeData(noticeId)) return false;
+        if(!noticeRepository.hasNoticeData(noticeId)) return 0L;
         // authorId의 User가 존재하지 않을 때,
-        if(!userRepository.hasUserData(authorId)) return false;
+        if(!userRepository.hasUserData(authorId)) return 0L;
 
         Reply reply = new Reply(newId, title, content, file, noticeRepository.getNoticeData(noticeId), userRepository.getUserData(authorId));
 
         replyRepository.addReplyData(reply);
         replyRepository.addNoticeReplyData(noticeId, newId);
 
-        return true;
+        return newId;
     }
 
     public boolean updateReply(long id, Reply newReply) {

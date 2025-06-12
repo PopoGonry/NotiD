@@ -23,17 +23,22 @@ public class Main {
 
         UserService userService = config.userService();
         userService.createUser("admin", "admin", "admin", new Date(), "010-3727-0770", UserGrade.MASTER);
+        userService.createUser("zxc", "zxc", "zxc", new Date(), "010-3727-0770", UserGrade.NORMAL);
 
         UserRepositoy userRepositoy = config.userRepositoy();
         ChannelRepository channelRepository = config.channelRepository();
 
         ChannelService channelService = config.channelService();
-        channelService.createChannel("channel", "des", "", ChannelJoinType.FREE);
+        channelService.createChannel("channel1", "des", "", ChannelJoinType.FREE);
+        channelService.createChannel("channel2", "des", "", ChannelJoinType.ACCEPT);
 
         User user = userRepositoy.getUserData("admin");
-        Channel channel = channelRepository.getChannelData("channel");
-        channelService.joinChannel(user, channel);
-        channel.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
+        Channel channel1 = channelRepository.getChannelData("channel1");
+        Channel channel2 = channelRepository.getChannelData("channel1");
+        channelService.joinChannel(user, channel1);
+        channelService.joinChannel(user, channel2);
+        channel1.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
+        channel2.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
 
 
 

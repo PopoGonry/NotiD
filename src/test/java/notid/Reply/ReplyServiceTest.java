@@ -44,7 +44,7 @@ public class ReplyServiceTest {
 
     @Test
     void createReply_success() {
-        boolean result = replyService.createReply("제목", "내용", List.of(), 1L, "user1");
+        boolean result = replyService.createReply("제목", "내용", List.of(), 1L, "user1")!= 0L;
         assertThat(result).isTrue();
         assertThat(replyRepository.hasReplyData(1L)).isTrue();
         assertThat(replyRepository.hasNoticeReplyData(1L, 1L)).isTrue();
@@ -52,8 +52,8 @@ public class ReplyServiceTest {
 
     @Test
     void createReply_fail_whenUserOrNoticeMissing() {
-        boolean result1 = replyService.createReply("제목", "내용", List.of(), 999L, "user1"); // 잘못된 공지
-        boolean result2 = replyService.createReply("제목", "내용", List.of(), 1L, "noUser"); // 잘못된 유저
+        boolean result1 = replyService.createReply("제목", "내용", List.of(), 999L, "user1") != 0L; // 잘못된 공지
+        boolean result2 = replyService.createReply("제목", "내용", List.of(), 1L, "noUser")!= 0L; // 잘못된 유저
         assertThat(result1).isFalse();
         assertThat(result2).isFalse();
     }

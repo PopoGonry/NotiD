@@ -76,7 +76,7 @@ public class MainView {
     }
 
     public static void userChannelList(User user) {
-        if (!channelRepository.hasUserChannelSetData(user.getId())) {
+        if (!channelRepository.hasUserChannelSetData(user.getId()) || channelRepository.getUserChannelSetData(user.getId()).isEmpty()) {
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
             return;
@@ -106,7 +106,7 @@ public class MainView {
     }
 
     public static void userNoticeList(User user) {
-        if (!channelRepository.hasUserChannelSetData(user.getId())) {
+        if (!channelRepository.hasUserChannelSetData(user.getId()) || channelRepository.getUserChannelSetData(user.getId()).isEmpty()) {
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
             return;
@@ -150,8 +150,15 @@ public class MainView {
             mainViewMain(user);
             return;
         }
+
         Channel channel = channelRepository.getChannelData(keyword);
-        ChannelView.channelViewMain(channel, user);
+
+        if(channel.getChannelUserGrade(user.getId()) == null) {
+            ChannelView.joinChannel(channel, user);
+        }
+        else {
+            ChannelView.channelViewMain(channel, user);
+        }
     }
 
     public static void createChannel(User user) {
