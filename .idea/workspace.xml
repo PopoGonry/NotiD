@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-12&#10;&#10;NoticeView&#10;공지 수정 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +283,7 @@
       <workItem from="1749549650733" duration="10239000" />
       <workItem from="1749573193349" duration="1803000" />
       <workItem from="1749710187390" duration="5961000" />
-      <workItem from="1749728507953" duration="7453000" />
+      <workItem from="1749728507953" duration="9764000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -574,7 +573,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749732758448</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="2025-06-12&#10;&#10;ChannelView 코드 정리&#10;NoticeService updateNotice 방식 변경">
+      <option name="closed" value="true" />
+      <created>1749736281469</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1749736281469</updated>
+    </task>
+    <task id="LOCAL-00038" summary="2025-06-12&#10;&#10;NoticeView&#10;공지 수정 기능 추가">
+      <option name="closed" value="true" />
+      <created>1749736309651</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1749736309651</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,8 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-06&#10;&#10;디렉토리 오류 수정" />
-    <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepository 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyService 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;MemoryReplyRepositoryTest 구현 및 일부 수정" />
     <MESSAGE value="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정" />
@@ -617,7 +630,9 @@
     <MESSAGE value="2025-06-12&#10;&#10;ChannelView 채널 가입 기능 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;일부 수정 사항 수정&#10;Main에 테스트를 위한 값 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가" />
+    <MESSAGE value="2025-06-12&#10;&#10;ChannelView 코드 정리&#10;NoticeService updateNotice 방식 변경" />
+    <MESSAGE value="2025-06-12&#10;&#10;NoticeView&#10;공지 수정 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-12&#10;&#10;NoticeView&#10;공지 수정 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

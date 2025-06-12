@@ -302,6 +302,38 @@ public class NoticeView {
     }
 
     public static void userReplyList(Notice notice, User user) {
+        if(!replyRepository.hasNoticeReplySetData(notice.getId()) || replyRepository.getNoticeReplySetData(notice.getId()).isEmpty()) {
+            System.out.println("공지에 답장이 없습니다.");
+            noticeViewMain(notice, user);
+            return;
+        }
+
+        System.out.println("--- " + notice.getTitle() + " 답장 ");
+
+
+        ArrayList<Long> replyIdList = new ArrayList<>(replyRepository.getNoticeReplySetData(notice.getId()));
+
+        int i = 1;
+        for (Long replyId : replyIdList) {
+                System.out.println(i + ". " + replyRepository.getReplyData(replyId).getTitle() + "(" + user.getId() + ")");
+                i++;
+        }
+
+        System.out.println(i + ". 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, i, value));
+
+        if (Integer.parseInt(value) == i) {
+            noticeViewMain(notice, user);
+            return;
+        }
+
+        Reply reply = replyRepository.getReplyData(replyIdList.get(Integer.parseInt(value) - 1));
+        ReplyView.replyViewMain(reply, user);
 
     }
 

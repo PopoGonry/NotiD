@@ -305,9 +305,12 @@ public class ChannelView {
         int i = 1;
         for (Long noticeId : noticeRepository.getChannelNoticeSetData(channel.getName())) {
             for (Long replyId : replyRepository.getNoticeReplySetData(noticeId)) {
-                System.out.println(i + ". " + replyRepository.getReplyData(replyId).getTitle());
-                i++;
-                replyIdList.add(replyId);
+                Reply replyData = replyRepository.getReplyData(replyId);
+                if(replyData.getAuthor().equals(user)) {
+                    System.out.println(i + ". " + replyData.getTitle());
+                    i++;
+                    replyIdList.add(replyId);
+                }
             }
         }
 
