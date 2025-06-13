@@ -273,17 +273,18 @@ public class ChannelView {
         int index = 0;
         for (Long noticeId : channelNoticeList) {
             Notice notice = noticeRepository.getNoticeData(noticeId);
-            if((channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.ADMIN || channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.MANAGER) && channelService.canAccessChannel(user, notice)) {
-                if(notice.getScheduledTime().after(new Date())) {
-                    System.out.println(i + ". " + notice.getTitle() + "(" + formatter.format(notice.getScheduledTime()) + " 공개 예정)");
+            if(channelService.canAccessChannel(user, notice)) {
+                if((channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.ADMIN || channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.MANAGER)) {
+                    if(notice.getScheduledTime().after(new Date())) {
+                        System.out.println(i + ". " + notice.getTitle() + "(" + formatter.format(notice.getScheduledTime()) + " 공개 예정)");
+                    }
+                    else {
+                        System.out.println(i + ". " + notice.getTitle());
+                    }
                 }
-                else {
+                else if(notice.getScheduledTime().before(new Date())) {
                     System.out.println(i + ". " + notice.getTitle());
                 }
-                i++;
-            }
-            else if((notice.getScheduledTime().before(new Date()) && channelService.canAccessChannel(user, notice))) {
-                System.out.println(i + ". " + notice.getTitle());
                 i++;
             }
             index++;
@@ -302,7 +303,7 @@ public class ChannelView {
             return;
         }
 
-        Notice notice = noticeRepository.getNoticeData(channelNoticeList.get(Integer.parseInt(value) - 1 + (index - i)));
+        Notice notice = noticeRepository.getNoticeData(channelNoticeList.get(Integer.parseInt(value) + (index - i)));
         NoticeView.noticeViewMain(notice, user);
 
     }

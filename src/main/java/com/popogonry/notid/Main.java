@@ -11,6 +11,7 @@ import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.UserService;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
+import javax.swing.*;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -39,9 +40,6 @@ public class Main {
         channelService.joinChannel(user, channel2);
         channel1.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
         channel2.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
-
-
-
 
         Authentication.authenticate();
     }

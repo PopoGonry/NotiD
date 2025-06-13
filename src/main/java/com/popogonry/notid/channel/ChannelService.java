@@ -129,24 +129,30 @@ public class ChannelService {
         switch(notice.getChannel().getChannelUserGrade(user.getId())) {
             case NORMAL:
                 userScore = 1;
+                break;
 
             case MANAGER:
                 userScore = 2;
+                break;
 
             case ADMIN:
                 userScore = 3;
+                break;
         }
 
         int serverScore = 0;
         switch(notice.getUserGrade()) {
             case NORMAL:
-                userScore = 1;
+                serverScore = 1;
+                break;
 
             case MANAGER:
-                userScore = 2;
+                serverScore = 2;
+                break;
 
             case ADMIN:
-                userScore = 3;
+                serverScore = 3;
+                break;
         }
 
         return userScore >= serverScore;
