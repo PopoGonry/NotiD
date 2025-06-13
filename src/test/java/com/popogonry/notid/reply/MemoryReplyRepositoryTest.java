@@ -1,10 +1,9 @@
-package com.popogonry.notid.Reply;
+package com.popogonry.notid.reply;
 
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
-import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.replyRepository.MemoryReplyRepository;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;

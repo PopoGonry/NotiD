@@ -1,17 +1,8 @@
 package com.popogonry.notid;
 
-import com.popogonry.notid.channel.Channel;
-import com.popogonry.notid.channel.ChannelJoinType;
-import com.popogonry.notid.channel.ChannelService;
-import com.popogonry.notid.channel.ChannelUserGrade;
-import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.cli.Authentication;
-import com.popogonry.notid.notice.NoticeService;
-import com.popogonry.notid.reply.ReplyService;
-import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.UserService;
-import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;

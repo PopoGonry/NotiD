@@ -1,6 +1,5 @@
 package com.popogonry.notid.notice.repository;
 
-import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.notice.Notice;
 
 import java.util.HashSet;

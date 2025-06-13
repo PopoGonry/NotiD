@@ -1,6 +1,5 @@
 package com.popogonry.notid.reply.replyRepository;
 
-import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.reply.Reply;
 
 import java.util.HashSet;

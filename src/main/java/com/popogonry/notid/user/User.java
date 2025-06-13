@@ -1,7 +1,6 @@
 package com.popogonry.notid.user;
 
 import java.util.Date;
-import java.util.HashSet;
 
 public class User {
     private String id;

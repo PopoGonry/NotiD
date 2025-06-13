@@ -1,9 +1,7 @@
-package com.popogonry.notid.Reply;
+package com.popogonry.notid.reply;
 
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
-import com.popogonry.notid.reply.Reply;
-import com.popogonry.notid.reply.ReplyService;
 import com.popogonry.notid.reply.replyRepository.MemoryReplyRepository;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;

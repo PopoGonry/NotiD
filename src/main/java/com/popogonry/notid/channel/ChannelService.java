@@ -5,8 +5,6 @@ import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
-import java.util.HashSet;
-
 public class ChannelService {
     private final ChannelRepository channelRepository;
     private final UserRepositoy userRepository;

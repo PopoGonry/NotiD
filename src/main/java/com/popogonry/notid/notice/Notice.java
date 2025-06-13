@@ -2,7 +2,6 @@ package com.popogonry.notid.notice;
 
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
-import com.popogonry.notid.user.UserGrade;
 
 import java.io.File;
 import java.util.Date;

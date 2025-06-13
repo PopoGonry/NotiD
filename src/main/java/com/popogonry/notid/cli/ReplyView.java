@@ -179,9 +179,4 @@ public class ReplyView {
         }
     }
 
-
-//    public static void downloadFile(Reply reply, User user) {
-//
-//    }
-
 }
