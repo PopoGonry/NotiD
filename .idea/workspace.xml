@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;콘솔 지우기 기능 추가 및 적용&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/Alarm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/AlarmService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/AlarmRepository.java" afterDir="false" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;Alarm 도메인 구현 및 구조 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/MemoryAlarmRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/AlarmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/AlarmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/AlarmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/AlarmRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,15 +283,7 @@
       <workItem from="1749747597616" duration="3703000" />
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
-      <workItem from="1749798199600" duration="10412000" />
-    </task>
-    <task id="LOCAL-00006" summary="2025-06-04&#10;&#10;Notice Service 완료">
-      <option name="closed" value="true" />
-      <created>1749032253056</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1749032253056</updated>
+      <workItem from="1749798199600" duration="11901000" />
     </task>
     <task id="LOCAL-00007" summary="2025-06-04&#10;&#10;MemoryNoticeRepositoryTest 완료">
       <option name="closed" value="true" />
@@ -675,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749813375038</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="2025-06-13&#10;&#10;Alarm 도메인 구현 및 구조 추가">
+      <option name="closed" value="true" />
+      <created>1749813819863</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1749813819863</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-11&#10;&#10;ChannelView.manageUser 채널 유저 권한 관리 구현&#10;MainView.mainViewMain 로그아웃 기능 구현" />
     <MESSAGE value="2025-06-11&#10;&#10;CLI 정적화 리팩터링&#10;&#10;회원가입 로그인, 유효성 검사, &quot;&quot; 값 이슈" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView noticeToMember 기능 구현" />
     <MESSAGE value="2025-06-12&#10;&#10;Authentication 프로그램 종료 기능 추가" />
@@ -718,7 +719,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 추가" />
     <MESSAGE value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 버그 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;콘솔 지우기 기능 추가 및 적용&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;콘솔 지우기 기능 추가 및 적용&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화" />
+    <MESSAGE value="2025-06-13&#10;&#10;Alarm 도메인 구현 및 구조 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;Alarm 도메인 구현 및 구조 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
