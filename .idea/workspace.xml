@@ -296,15 +296,8 @@
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
       <workItem from="1749798199600" duration="19252000" />
-      <workItem from="1749823035927" duration="118000" />
-    </task>
-    <task id="LOCAL-00019" summary="2025-06-05&#10;&#10;ChannelViewImpl 구현">
-      <option name="closed" value="true" />
-      <created>1749494978838</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1749494978838</updated>
+      <workItem from="1749823035927" duration="289000" />
+      <workItem from="1749823356436" duration="8000" />
     </task>
     <task id="LOCAL-00020" summary="2025-06-05&#10;&#10;AuthenticationImpl 수정">
       <option name="closed" value="true" />
@@ -690,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749823083834</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="2025-06-13&#10;&#10;README.md 사진 변경 시도">
+      <option name="closed" value="true" />
+      <created>1749823156282</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1749823156282</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
