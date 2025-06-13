@@ -14,11 +14,12 @@ import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.repository.MemoryUserRepository;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MainView {
     private static final Scanner scanner = new Scanner(System.in);
-
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static final Config config = new Config();
 
     private static final ChannelService channelService = config.channelService();
@@ -89,10 +90,11 @@ public class MainView {
             System.out.println(i + ". " + userChannel);
             i++;
         }
+        System.out.println(i + ". 돌아가기");
 
         String value;
         do {
-            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
@@ -117,9 +119,23 @@ public class MainView {
         int i = 1;
         for (String userChannel : channelRepository.getUserChannelSetData(user.getId())) {
             for (Long channelNotice : noticeRepository.getChannelNoticeSetData(userChannel)) {
-                System.out.println(i + ". " + noticeRepository.getNoticeData(channelNotice).getTitle());
-                noticeList.add(channelNotice);
-                i++;
+                Notice notice = noticeRepository.getNoticeData(channelNotice);
+                Channel channel = channelRepository.getChannelData(userChannel);
+                if(channelService.canAccessChannel(user, notice)) {
+                    if((channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.ADMIN || channel.getChannelUserGrade(user.getId()) == ChannelUserGrade.MANAGER)) {
+                        if(notice.getScheduledTime().after(new Date())) {
+                            System.out.println(i + ". " + notice.getTitle() + "(" + formatter.format(notice.getScheduledTime()) + " 공개 예정)");
+                        }
+                        else {
+                            System.out.println(i + ". " + notice.getTitle());
+                        }
+                    }
+                    else if(notice.getScheduledTime().before(new Date())) {
+                        System.out.println(i + ". " + notice.getTitle());
+                    }
+                    i++;
+                    noticeList.add(channelNotice);
+                }
             }
         }
         if (i == 1) {
@@ -127,9 +143,12 @@ public class MainView {
             mainViewMain(user);
             return;
         }
+
+        System.out.println(i + ". 돌아가기");
+
         String value;
         do {
-            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
@@ -182,12 +201,12 @@ public class MainView {
             description = scanner.nextLine();
         } while (description.isEmpty());
 
-        System.out.print("조직을 입력하세요(미입력 가능): ");
+        System.out.print("조직(미입력 가능): ");
         String affiliation = scanner.nextLine();
 
         String value;
         do {
-            System.out.print("가입 형식을 선택하세요 (1. 자유, 2. 수락): ");
+            System.out.print("가입 형식(1. 자유, 2. 수락): ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 2, value));
 
