@@ -162,8 +162,13 @@ public class MainView {
     }
 
     public static void createChannel(User user) {
-        System.out.print("이름을 입력하세요: ");
-        String name = scanner.nextLine();
+
+        String name;
+        do {
+            System.out.print("이름: ");
+            name = scanner.nextLine();
+        } while (name.isEmpty());
+
 
         if (channelRepository.hasChannelData(name)) {
             System.out.println("이미 존재하는 채널 이름입니다.");
@@ -171,8 +176,12 @@ public class MainView {
             return;
         }
 
-        System.out.print("설명을 입력하세요: ");
-        String description = scanner.nextLine();
+        String description;
+        do {
+            System.out.print("설명: ");
+            description = scanner.nextLine();
+        } while (description.isEmpty());
+
         System.out.print("조직을 입력하세요(미입력 가능): ");
         String affiliation = scanner.nextLine();
 
