@@ -1,4 +1,4 @@
-package notid.Reply;
+package com.popogonry.notid.Reply;
 
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;

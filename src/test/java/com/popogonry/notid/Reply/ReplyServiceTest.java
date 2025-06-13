@@ -1,4 +1,4 @@
-package notid.Reply;
+package com.popogonry.notid.Reply;
 
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
@@ -33,6 +33,7 @@ public class ReplyServiceTest {
         replyRepository.clearAll();
         noticeRepository.clearAll();
         userRepository.clear();
+        replyService.resetCounter();
 
         // 테스트용 유저/공지 등록
         User user = new User("user1", "pw", "이름", new Date(), "01012345678", UserGrade.NORMAL);

@@ -67,5 +67,8 @@ public class ReplyService {
         return true;
     }
 
+    public void resetCounter() {
+        counter.set(1);
+    }
 
 }

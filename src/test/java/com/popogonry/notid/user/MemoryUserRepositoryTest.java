@@ -1,4 +1,4 @@
-package notid.user;
+package com.popogonry.notid.user;
 
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;

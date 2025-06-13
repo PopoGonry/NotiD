@@ -1,4 +1,4 @@
-package notid.notice;
+package com.popogonry.notid.notice;
 
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
@@ -30,6 +30,7 @@ public class NoticeServiceTest {
         noticeRepository.clearAll();
         channelRepository.clearAll();
         noticeService = new NoticeService(noticeRepository, channelRepository);
+        noticeService.resetCounter();
     }
 
     @Test

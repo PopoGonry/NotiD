@@ -1,4 +1,4 @@
-package notid.channel;
+package com.popogonry.notid.channel;
 
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
