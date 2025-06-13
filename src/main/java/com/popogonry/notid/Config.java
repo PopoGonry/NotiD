@@ -1,5 +1,8 @@
 package com.popogonry.notid;
 
+import com.popogonry.notid.alarm.AlarmService;
+import com.popogonry.notid.alarm.repository.AlarmRepository;
+import com.popogonry.notid.alarm.repository.MemoryAlarmRepository;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
@@ -42,4 +45,8 @@ public class Config {
     public ReplyRepository replyRepository() { return new MemoryReplyRepository(); }
 
     public ReplyService replyService() { return new ReplyService(replyRepository(), noticeRepository(), userRepositoy()); }
+
+    public AlarmRepository alarmRepository() { return new MemoryAlarmRepository(); }
+
+    public AlarmService alarmService() { return new AlarmService(alarmRepository(), userRepositoy());}
 }
