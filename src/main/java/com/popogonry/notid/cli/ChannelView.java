@@ -80,7 +80,7 @@ public class ChannelView {
                 if (channel.getJoinType() == ChannelJoinType.ACCEPT) {
                     if(channelService.requestUserJoining(user, channel)) {
                         System.out.println("가입 신청 완료되었습니다.");
-                        channelViewMain(channel, user);
+                        MainView.mainViewMain(user);
                         return;
                     }
                     else {
@@ -111,15 +111,16 @@ public class ChannelView {
         System.out.println("3. 내 답장 리스트");
         System.out.println("4. 공지 생성");
         System.out.println("5. 유저 관리");
-        System.out.println("6. 채널 수정");
-        System.out.println("7. 채널 삭제");
-        System.out.println("8. 돌아가기");
+        System.out.println("6. 가입 신청 관리");
+        System.out.println("7. 채널 수정");
+        System.out.println("8. 채널 삭제");
+        System.out.println("9. 돌아가기");
 
         String value;
         do {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 8, value));
+        } while (!ValidationCheck.intSelectCheck(1, 9, value));
 
         switch (Integer.parseInt(value)) {
             case 1:
@@ -143,12 +144,17 @@ public class ChannelView {
                 break;
 
             case 6:
-                updateChannel(channel, user);
+                joiningUserManage(channel, user);
                 break;
 
             case 7:
-                // 채널 삭제
+                updateChannel(channel, user);
+                break;
+
             case 8:
+                // 채널 삭제
+
+            case 9:
                 MainView.mainViewMain(user);
         }
 
@@ -162,15 +168,16 @@ public class ChannelView {
         System.out.println("3. 내 답장 리스트");
         System.out.println("4. 공지 생성");
         System.out.println("5. 유저 관리");
-        System.out.println("6. 채널 수정");
-        System.out.println("7. 채널 나가기");
-        System.out.println("8. 돌아가기");
+        System.out.println("6. 가입 신청 관리");
+        System.out.println("7. 채널 수정");
+        System.out.println("8. 채널 나가기");
+        System.out.println("9. 돌아가기");
 
         String value;
         do {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 7, value));
+        } while (!ValidationCheck.intSelectCheck(1, 9, value));
 
         int intValue = Integer.parseInt(value);
         switch (intValue) {
@@ -191,17 +198,21 @@ public class ChannelView {
                 break;
 
             case 5:
-                manageUser(channel, user);
+                joiningUserManage(channel, user);
                 break;
 
             case 6:
-                updateChannel(channel, user);
+                manageUser(channel, user);
                 break;
 
             case 7:
-                channelService.leaveChannel(user, channel);
+                updateChannel(channel, user);
+                break;
 
             case 8:
+                channelService.leaveChannel(user, channel);
+
+            case 9:
                 MainView.mainViewMain(user);
                 break;
         }
@@ -590,4 +601,69 @@ public class ChannelView {
         System.out.println("변경 완료 되었습니다.");
         channelViewMain(channel, user);
     }
+
+    public static void joiningUserManage(Channel channel, User user) {
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 가입 신청 리스트 ---");
+
+        List<String> userList = new ArrayList<>(channel.getChannnelJoiningUserSet());
+        if (userList.isEmpty()) {
+            channelViewMain(channel, user);
+            System.out.println("채널 가입 신청자가 없습니다.");
+            return;
+        }
+
+        int i = 1;
+        for (String userId : userList) {
+            User joingingUser = userRepositoy.getUserData(userId);
+            System.out.println(i + ". " + userId + ", 이름: " + joingingUser.getName() + ", 생년월일: " + formatter.format(user.getBirthdate()) + ", 전화번호: " + joingingUser.getPhoneNumber());
+        }
+
+        System.out.println(i + ". 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, i, value));
+
+        if (Integer.parseInt(value) == i) {
+            channelViewMain(channel, user);
+            return;
+        }
+
+        User selectUser = userRepositoy.getUserData(userList.get(Integer.parseInt(value) - 1));
+
+        System.out.println("--- " + user.getName() + " 유저 ---");
+
+        System.out.println("- ID: " + selectUser.getId());
+        System.out.println("- 이름: " + selectUser.getName());
+        System.out.println("- 생년월일: " + selectUser.getBirthdate());
+        System.out.println("- 전화번호: " + selectUser.getPhoneNumber());
+
+        System.out.println("--- 채널 가입 관리 메뉴 ---");
+        System.out.println("1. 수락하기");
+        System.out.println("2. 거절하기");
+        System.out.println("3. 돌아가기");
+
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, 3, value));
+
+        switch (Integer.parseInt(value)) {
+            case 1:
+                channelService.acceptUserJoining(user, channel);
+                System.out.println(user.getId() + " 유저의 가입을 수락하였습니다.");
+                break;
+
+            case 2:
+                channelService.declineUserJoining(user, channel);
+                System.out.println(user.getId() + " 유저의 가입을 거절하였습니다.");
+                break;
+        }
+        channelViewMain(channel, user);
+    }
+
 }
