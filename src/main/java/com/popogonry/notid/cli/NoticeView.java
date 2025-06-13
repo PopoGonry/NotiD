@@ -133,15 +133,18 @@ public class NoticeView {
             }
         }
 
-        if(hasReply) {
-            System.out.println("1. 답장 보기");
+        if(notice.isReplyAllowed()) {
+            if(hasReply) {
+                System.out.println("1. 답장 보기");
+            }
+            else {
+                System.out.println("1. 답장 작성");
+            }
+            System.out.println("2. 돌아가기");
         }
         else {
-            System.out.println("1. 답장 작성");
+            System.out.println("1. 돌아가기");
         }
-
-
-        System.out.println("2. 돌아가기");
 
 
         String value;
@@ -152,12 +155,19 @@ public class NoticeView {
 
         switch (Integer.parseInt(value)) {
             case 1:
-                if(hasReply) ReplyView.replyViewMain(reply, user);
-                else createReply(notice, user);
+                if(notice.isReplyAllowed()) {
+                    if(hasReply) ReplyView.replyViewMain(reply, user);
+                    else createReply(notice, user);
+                }
+                else {
+                    ChannelView.channelViewMain(notice.getChannel(), user);
+                }
                 break;
 
             case 2:
-                ChannelView.channelViewMain(notice.getChannel(), user);
+                if(notice.isReplyAllowed()) {
+                    ChannelView.channelViewMain(notice.getChannel(), user);
+                }
                 break;
 
         }
