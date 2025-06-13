@@ -93,6 +93,8 @@ public class ChannelService {
 
         if(!channel.getChannnelJoiningUserSet().contains(user.getId())) return false;
 
+        channel.getChannnelJoiningUserSet().remove(user.getId());
+
         channelRepository.addUserChannelData(user.getId(), channel.getName());
         channel.addChannelUserGrade(user.getId(), ChannelUserGrade.NORMAL);
 

@@ -20,6 +20,7 @@ import java.util.*;
 public class ChannelView {
     private static final Scanner scanner = new Scanner(System.in);
     private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static final SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
 
     private static final Config config = new Config();
 
@@ -609,15 +610,16 @@ public class ChannelView {
 
         List<String> userList = new ArrayList<>(channel.getChannnelJoiningUserSet());
         if (userList.isEmpty()) {
-            channelViewMain(channel, user);
             System.out.println("채널 가입 신청자가 없습니다.");
+            channelViewMain(channel, user);
             return;
         }
 
         int i = 1;
         for (String userId : userList) {
             User joingingUser = userRepositoy.getUserData(userId);
-            System.out.println(i + ". " + userId + ", 이름: " + joingingUser.getName() + ", 생년월일: " + formatter.format(user.getBirthdate()) + ", 전화번호: " + joingingUser.getPhoneNumber());
+            System.out.println(i + ". " + userId + ", 이름: " + joingingUser.getName() + ", 생년월일: " + formatter2.format(user.getBirthdate()) + ", 전화번호: " + joingingUser.getPhoneNumber());
+            i++;
         }
 
         System.out.println(i + ". 돌아가기");
@@ -635,11 +637,11 @@ public class ChannelView {
 
         User selectUser = userRepositoy.getUserData(userList.get(Integer.parseInt(value) - 1));
 
-        System.out.println("--- " + user.getName() + " 유저 ---");
+        System.out.println("--- " + selectUser.getName() + " 유저 ---");
 
         System.out.println("- ID: " + selectUser.getId());
         System.out.println("- 이름: " + selectUser.getName());
-        System.out.println("- 생년월일: " + selectUser.getBirthdate());
+        System.out.println("- 생년월일: " + formatter2.format(selectUser.getBirthdate()));
         System.out.println("- 전화번호: " + selectUser.getPhoneNumber());
 
         System.out.println("--- 채널 가입 관리 메뉴 ---");
@@ -654,13 +656,13 @@ public class ChannelView {
 
         switch (Integer.parseInt(value)) {
             case 1:
-                channelService.acceptUserJoining(user, channel);
-                System.out.println(user.getId() + " 유저의 가입을 수락하였습니다.");
+                System.out.println(channelService.acceptUserJoining(selectUser, channel));
+                System.out.println(selectUser.getId() + " 유저의 가입을 수락하였습니다.");
                 break;
 
             case 2:
-                channelService.declineUserJoining(user, channel);
-                System.out.println(user.getId() + " 유저의 가입을 거절하였습니다.");
+                System.out.println(channelService.declineUserJoining(selectUser, channel));
+                System.out.println(selectUser.getId() + " 유저의 가입을 거절하였습니다.");
                 break;
         }
         channelViewMain(channel, user);

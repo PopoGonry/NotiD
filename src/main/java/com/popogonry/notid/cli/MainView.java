@@ -80,6 +80,7 @@ public class MainView {
         }
 
         ArrayList<String> userChannelList = new ArrayList<>(channelRepository.getUserChannelSetData(user.getId()));
+        System.out.println(userChannelList);
 
         int i = 1;
         for (String userChannel : userChannelList) {

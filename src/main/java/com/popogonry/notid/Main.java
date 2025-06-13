@@ -37,7 +37,7 @@ public class Main {
 
         User user = userRepositoy.getUserData("admin");
         Channel channel1 = channelRepository.getChannelData("channel1");
-        Channel channel2 = channelRepository.getChannelData("channel1");
+        Channel channel2 = channelRepository.getChannelData("channel2");
         channelService.joinChannel(user, channel1);
         channelService.joinChannel(user, channel2);
         channel1.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
