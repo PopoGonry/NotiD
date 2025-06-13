@@ -1,6 +1,7 @@
 package com.popogonry.notid.cli;
 
 import com.popogonry.notid.Config;
+import com.popogonry.notid.alarm.AlarmService;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
@@ -22,6 +23,7 @@ public class NoticeView {
 
     private static final NoticeService noticeService = config.noticeService();
     private static final NoticeRepository noticeRepository = config.noticeRepository();
+    private static final AlarmService alarmService = config.alarmService();
 
     private static final ReplyService replyService = config.replyService();
     private static final ReplyRepository replyRepository = config.replyRepository();
@@ -79,15 +81,14 @@ public class NoticeView {
         System.out.println("1. 공지 수정");
         System.out.println("2. 공지 삭제");
         System.out.println("3. 답장 리스트");
-        System.out.println("4. 공지 알림 보내기");
-        System.out.println("5. 돌아가기");
+        System.out.println("4. 돌아가기");
 
 
         String value;
         do {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
-        } while (!ValidationCheck.intSelectCheck(1, 5, value));
+        } while (!ValidationCheck.intSelectCheck(1, 4, value));
         Common.clear();
 
         switch (Integer.parseInt(value)) {
@@ -104,10 +105,6 @@ public class NoticeView {
                 break;
 
             case 4:
-                sendNoticeAlarm(notice, user);
-                break;
-
-            case 5:
                 ChannelView.channelViewMain(notice.getChannel(), user);
                 break;
 
@@ -302,6 +299,9 @@ public class NoticeView {
         noticeService.updateNotice(notice.getId(), notice1);
 
         Common.clear();
+        Channel channel = notice.getChannel();
+        alarmService.sendAlarmNoticeToChannelUsers(notice, "'" + channel.getName() + "' 채널에 '" + notice.getTitle() + "' 공지가 수정되었습니다!");
+
         System.out.println("수정 완료되었습니다.");
 
         noticeViewMain(notice, user);
@@ -317,14 +317,15 @@ public class NoticeView {
             return;
         }
 
-        System.out.println("--- " + notice.getTitle() + " 공지 답장 리스트");
+        System.out.println("--- " + notice.getTitle() + " 공지 답장 리스트 ---");
 
 
         ArrayList<Long> replyIdList = new ArrayList<>(replyRepository.getNoticeReplySetData(notice.getId()));
 
         int i = 1;
         for (Long replyId : replyIdList) {
-                System.out.println(i + ". " + replyRepository.getReplyData(replyId).getTitle() + "(" + user.getId() + ")");
+                Reply reply = replyRepository.getReplyData(replyId);
+                System.out.println(i + ". " + reply.getTitle() + "(" + reply.getAuthor().getId() + ")");
                 i++;
         }
 
@@ -373,10 +374,6 @@ public class NoticeView {
         }
     }
 
-    public static void sendNoticeAlarm(Notice notice, User user) {
-        // 추후 구현
-    }
-
     public static void createReply(Notice notice, User user) {
         noticeInfo(notice);
 
@@ -392,7 +389,10 @@ public class NoticeView {
         Common.clear();
         if(replyId != 0L) {
             System.out.println("답장이 작성되었습니다.");
+            Channel channel = notice.getChannel();
+            alarmService.sendAlarmToChannelManagers(channel, "'" + channel.getName() + "' 채널의 '" + notice.getTitle() + "' 공지에 '" + user.getName() + "'님이 답장을 작성하였습니다!");
             ReplyView.replyViewMain(replyRepository.getReplyData(replyId), user);
+
         }
         else {
             System.out.println("답장 작성 중 문제가 발생했습니다.");

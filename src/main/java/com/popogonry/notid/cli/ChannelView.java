@@ -1,6 +1,7 @@
 package com.popogonry.notid.cli;
 
 import com.popogonry.notid.Config;
+import com.popogonry.notid.alarm.AlarmService;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelService;
@@ -27,8 +28,10 @@ public class ChannelView {
     private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final ReplyRepository replyRepository = config.replyRepository();
     private static final UserRepositoy userRepositoy = config.userRepositoy();
+
     private static final ChannelService channelService = config.channelService();
     private static final NoticeService noticeService = config.noticeService();
+    private static final AlarmService alarmService = config.alarmService();
 
 
     public static void channelViewMain(Channel channel, User user) {
@@ -83,6 +86,7 @@ public class ChannelView {
                 if (channel.getJoinType() == ChannelJoinType.ACCEPT) {
                     if(channelService.requestUserJoining(user, channel)) {
                         System.out.println("가입 신청 완료되었습니다.");
+                        alarmService.sendAlarmToChannelManagers(channel, "'" + user.getName() + "'님이 '" + channel.getName() + "' 채널에 가입을 신청하였습니다!");
                         MainView.mainViewMain(user);
                         return;
                     }
@@ -94,6 +98,7 @@ public class ChannelView {
                 } else {
                     channelService.joinChannel(user, channel);
                     System.out.println("가입 완료되었습니다.");
+                    alarmService.sendAlarmToChannelManagers(channel, "'" + user.getName() + "'님이 '" + channel.getName() + "' 채널에 가입하였습니다!");
                     channelViewMain(channel, user);
                 }
                 break;
@@ -540,10 +545,9 @@ public class ChannelView {
         Notice notice = noticeRepository.getNoticeData(noticeId);
 
         Common.clear();
-
+        alarmService.sendAlarmNoticeToChannelUsers(notice, "'" + channel.getName() + "' 채널에 '" + notice.getTitle() + "' 공지가 새로 올라왔습니다!");
         System.out.println("공지가 생성되었습니다.");
         NoticeView.noticeViewMain(notice, user);
-
     }
 
     public static void manageUser(Channel channel, User user) {
@@ -602,6 +606,8 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 3, value));
 
+        Common.clear();
+
         switch (Integer.parseInt(value)) {
             case 1:
                 channel.setChannelUserGrade(selectUser.getId(), ChannelUserGrade.MANAGER);
@@ -611,10 +617,13 @@ public class ChannelView {
                 channel.setChannelUserGrade(selectUser.getId(), ChannelUserGrade.NORMAL);
                 break;
 
+            case 3:
+                channelViewMain(channel, user);
+                return;
         }
 
-        Common.clear();
 
+        alarmService.createAlarm(selectUser.getId(), "'" + channel.getName() + "' 채널의 '" + selectUser.getName() + "'님의 권한이 변경되었습니다!");
         System.out.println("변경 완료 되었습니다.");
         channelViewMain(channel, user);
     }
@@ -676,11 +685,15 @@ public class ChannelView {
             case 1:
                 System.out.println(channelService.acceptUserJoining(selectUser, channel));
                 System.out.println(selectUser.getId() + " 유저의 가입을 수락하였습니다.");
+                alarmService.createAlarm(selectUser.getId(), "'" + channel.getName() + "' 채널의 '" + selectUser.getName() + "'님의 가입이 수락되었습니다!");
+
                 break;
 
             case 2:
                 System.out.println(channelService.declineUserJoining(selectUser, channel));
                 System.out.println(selectUser.getId() + " 유저의 가입을 거절하였습니다.");
+                alarmService.createAlarm(selectUser.getId(), "'" + channel.getName() + "' 채널의 '" + selectUser.getName() + "'님의 가입이 거절되었습니다!");
+
                 break;
         }
         channelViewMain(channel, user);

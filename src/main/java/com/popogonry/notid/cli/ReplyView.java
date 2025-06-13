@@ -1,6 +1,7 @@
 package com.popogonry.notid.cli;
 
 import com.popogonry.notid.Config;
+import com.popogonry.notid.alarm.AlarmService;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
@@ -18,7 +19,7 @@ public class ReplyView {
     private static final Config config = new Config();
 
     private static final ReplyService replyService = config.replyService();
-
+    private static final AlarmService alarmService = config.alarmService();
 
 
     public static void replyViewMain(Reply reply, User user) {
@@ -63,7 +64,7 @@ public class ReplyView {
 
         switch (Integer.parseInt(value)) {
             case 1:
-                updateReply(reply, user);
+                deleteReply(reply, user);
                 break;
 
             case 2:
@@ -98,7 +99,7 @@ public class ReplyView {
                 break;
 
             case 3:
-                replyViewMain(reply, user);
+                NoticeView.noticeViewMain(reply.getNotice(), user);
                 break;
 
         }
@@ -144,6 +145,9 @@ public class ReplyView {
 
         Common.clear();
         System.out.println("수정 완료되었습니다.");
+        Channel channel = reply.getNotice().getChannel();
+        Notice notice = reply.getNotice();
+        alarmService.sendAlarmToChannelManagers(channel, "'" + channel.getName() + "' 채널의 '" + notice.getTitle() + "' 공지에 '" + user.getName() + "'님이 답장을 수정하였습니다!");
 
         replyViewMain(reply, user);
 

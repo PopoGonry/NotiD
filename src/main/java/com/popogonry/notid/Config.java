@@ -48,5 +48,5 @@ public class Config {
 
     public AlarmRepository alarmRepository() { return new MemoryAlarmRepository(); }
 
-    public AlarmService alarmService() { return new AlarmService(alarmRepository(), userRepositoy());}
+    public AlarmService alarmService() { return new AlarmService(alarmRepository(), userRepositoy(), channelService() ,replyRepository());}
 }

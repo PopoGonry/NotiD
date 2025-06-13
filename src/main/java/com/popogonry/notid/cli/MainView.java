@@ -1,6 +1,9 @@
 package com.popogonry.notid.cli;
 
 import com.popogonry.notid.Config;
+import com.popogonry.notid.alarm.Alarm;
+import com.popogonry.notid.alarm.AlarmService;
+import com.popogonry.notid.alarm.repository.AlarmRepository;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelService;
@@ -20,11 +23,18 @@ public class MainView {
     private static final Config config = new Config();
 
     private static final ChannelService channelService = config.channelService();
+    private static final AlarmService alarmService = config.alarmService();
 
+    private static final AlarmRepository alarmRepository = config.alarmRepository();
     private static final ChannelRepository channelRepository = config.channelRepository();
     private static final NoticeRepository noticeRepository = config.noticeRepository();
 
     public static void mainViewMain(User user) {
+
+        if(!alarmRepository.getUserAlarmListData(user.getId()).isEmpty()) {
+            System.out.println("알림이 존재합니다!");
+        }
+
 
         System.out.println("--- 메인 화면 ---");
 
@@ -71,7 +81,43 @@ public class MainView {
     }
 
     public static void checkAlarm(User user) {
+        System.out.println("--- " + user.getName() + " 알림 리스트 ---");
 
+        List<Long> userAlarmList = alarmRepository.getUserAlarmListData(user.getId());
+
+        if(userAlarmList.isEmpty()) {
+            Common.clear();
+            System.out.println("알림이 존재하지 않습니다.");
+            mainViewMain(user);
+            return;
+
+        }
+
+        int i = 1;
+        for (Long alarmId : userAlarmList) {
+            Alarm alarm = alarmRepository.getAlarmData(alarmId);
+            System.out.println(i + ". " + alarm.getContent() + " (" + formatter.format(alarm.getSendDate()) + ")");
+            i++;
+        }
+
+        System.out.println(i + ". 돌아가기");
+
+        String value;
+        do {
+            System.out.print("선택해주세요: ");
+            value = scanner.nextLine().trim();
+        } while (!ValidationCheck.intSelectCheck(1, i, value));
+
+        Common.clear();
+
+        if (Integer.parseInt(value) == i) {
+            mainViewMain(user);
+            return;
+        }
+
+        alarmService.deleteAlarm(userAlarmList.get(Integer.parseInt(value) - 1));
+        System.out.println("알림을 확인하였습니다.");
+        checkAlarm(user);
     }
 
     public static void userChannelList(User user) {
