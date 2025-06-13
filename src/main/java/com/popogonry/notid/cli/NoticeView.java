@@ -42,17 +42,17 @@ public class NoticeView {
         }
     }
 
-    public static void noticeToManager(Notice notice, User user) {
-        System.out.println("--- 공지 관리자 메뉴 ---");
+    public static void noticeInfo(Notice notice) {
+        System.out.println("--- " + notice.getChannel().getName() + " 공지 ---");
 
-        System.out.println("제목: " + notice.getTitle());
-        System.out.println("채널: " + notice.getChannel().getName());
+        System.out.println("- 제목: " + notice.getTitle());
+        System.out.println("- 채널: " + notice.getChannel().getName());
 
         if(notice.getScheduledTime().after(new Date())) {
-            System.out.println("공지 공개 시간: " + formatter.format(notice.getScheduledTime()));
+            System.out.println("- 공지 공개 시간: " + formatter.format(notice.getScheduledTime()));
         }
         if(notice.getReplyDeadline().after(new Date())) {
-            System.out.println("답장 제한 시간: " + formatter.format(notice.getReplyDeadline()));
+            System.out.println("- 답장 제한 시간: " + formatter.format(notice.getReplyDeadline()));
         }
 
         String grade = "";
@@ -63,12 +63,17 @@ public class NoticeView {
         } else if (notice.getUserGrade() == ChannelUserGrade.ADMIN) {
             grade = "채널 소유자";
         }
-        System.out.println("공지 접근 권한: " + grade);
-        System.out.println("답장 허가 여부: " + notice.isReplyAllowed());
+        System.out.println("- 공지 접근 권한: " + grade);
+        System.out.println("- 답장 허가 여부: " + notice.isReplyAllowed());
 
-        System.out.println("내용: " + notice.getContent());
+        System.out.println("- 내용: " + notice.getContent());
+    }
 
-        System.out.println();
+
+    public static void noticeToManager(Notice notice, User user) {
+        noticeInfo(notice);
+
+        System.out.println("--- " + notice.getTitle() + " 공지 관리자 메뉴 ---");
 
         System.out.println("1. 공지 수정");
         System.out.println("2. 공지 삭제");
@@ -108,18 +113,9 @@ public class NoticeView {
     }
 
     public static void noticeToMember(Notice notice, User user) {
-        System.out.println("--- 공지 메뉴 ---");
+        noticeInfo(notice);
 
-        System.out.println("제목: " + notice.getTitle());
-        System.out.println("채널: " + notice.getChannel().getName());
-
-        if(notice.getReplyDeadline().after(new Date())) {
-            System.out.println("답장 제한 시간: " + formatter.format(notice.getReplyDeadline()));
-        }
-
-        System.out.println("내용: " + notice.getContent());
-
-        System.out.println();
+        System.out.println("--- " + notice.getTitle() + " 공지 메뉴 ---");
 
         boolean hasReply = false;
         Reply reply = null;
@@ -174,7 +170,10 @@ public class NoticeView {
     }
 
     public static void updateNotice(Notice notice, User user) {
-        System.out.println("--- 공지 수정 ---");
+
+        noticeInfo(notice);
+
+        System.out.println("--- " + notice.getTitle() + " 공지 수정 ---");
 
         System.out.println("1. 제목 수정");
         System.out.println("2. 내용 수정");
@@ -305,13 +304,15 @@ public class NoticeView {
     }
 
     public static void userReplyList(Notice notice, User user) {
+        noticeInfo(notice);
+
         if(!replyRepository.hasNoticeReplySetData(notice.getId()) || replyRepository.getNoticeReplySetData(notice.getId()).isEmpty()) {
             System.out.println("공지에 답장이 없습니다.");
             noticeViewMain(notice, user);
             return;
         }
 
-        System.out.println("--- " + notice.getTitle() + " 답장 ");
+        System.out.println("--- " + notice.getTitle() + " 공지 답장 리스트");
 
 
         ArrayList<Long> replyIdList = new ArrayList<>(replyRepository.getNoticeReplySetData(notice.getId()));
@@ -341,7 +342,9 @@ public class NoticeView {
     }
 
     public static void deleteNotice(Notice notice, User user) {
-        System.out.println("--- " + notice.getTitle() + "공지 삭제 ---");
+        noticeInfo(notice);
+
+        System.out.println("--- " + notice.getTitle() + " 공지 삭제 ---");
         System.out.println("1. 삭제하기");
         System.out.println("2. 돌아가기");
 
@@ -369,7 +372,9 @@ public class NoticeView {
     }
 
     public static void createReply(Notice notice, User user) {
-        System.out.println("--- 답장 작성 ---");
+        noticeInfo(notice);
+
+        System.out.println("--- " + notice.getTitle() + " 공지 답장 작성 ---");
         System.out.print("제목: ");
         String title = scanner.nextLine();
 

@@ -4,6 +4,7 @@ import com.popogonry.notid.Config;
 import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.ReplyService;
 import com.popogonry.notid.user.User;
@@ -37,17 +38,18 @@ public class ReplyView {
     }
 
     public static void replyInfo(Reply reply) {
-        System.out.println("제목: " + reply.getTitle());
-        System.out.println("내용: " + reply.getContent());
-        System.out.println("작성자: " + reply.getAuthor());
-        System.out.println("공지: " + reply.getNotice().getChannel().getName() + "/" + reply.getNotice().getTitle());
+        System.out.println("--- " + reply.getNotice().getTitle() + " 답장 ---");
+        System.out.println("- 제목: " + reply.getTitle());
+        System.out.println("- 내용: " + reply.getContent());
+        System.out.println("- 작성자: " + reply.getAuthor());
+        System.out.println("- 공지: " + reply.getNotice().getChannel().getName() + "/" + reply.getNotice().getTitle());
     }
 
 
     public static void replyToManager(Reply reply, User user) {
-        System.out.println("--- " + reply.getNotice().getTitle() + " 답장 관리자 메뉴 ---");
         replyInfo(reply);
 
+        System.out.println("--- " + reply.getNotice().getTitle() + " 답장 관리자 메뉴 ---");
         System.out.println("1. 답장 삭제");
         System.out.println("2. 돌아가기");
 
@@ -70,9 +72,9 @@ public class ReplyView {
     }
 
     public static void replyToAuthor(Reply reply, User user) {
-        System.out.println("--- " + reply.getNotice().getTitle() + " 답장 메뉴 ---");
         replyInfo(reply);
 
+        System.out.println("--- " + reply.getNotice().getTitle() + " 답장 메뉴 ---");
         System.out.println("1. 답장 수정");
         System.out.println("2. 답장 삭제");
         System.out.println("3. 돌아가기");
@@ -104,7 +106,7 @@ public class ReplyView {
 
         replyInfo(reply);
 
-        System.out.println("--- 답장 수정 메뉴 ---");
+        System.out.println("--- " + reply.getTitle() + " 답장 수정 메뉴 ---");
         System.out.println("1. 제목 수정");
         System.out.println("2. 내용 수정");
 
@@ -144,7 +146,28 @@ public class ReplyView {
     }
 
     public static void deleteReply(Reply reply, User user) {
+        replyInfo(reply);
+        System.out.println("--- " + reply.getTitle() + " 공지 삭제 ---");
+        System.out.println("1. 삭제하기");
+        System.out.println("2. 돌아가기");
 
+        String temp;
+        do {
+            System.out.print("선택해주세요: ");
+            temp = scanner.nextLine();
+        } while (!ValidationCheck.intSelectCheck(1, 2, temp));
+
+        switch (Integer.parseInt(temp)) {
+            case 1:
+                replyService.deleteReply(reply.getId());
+                System.out.println("공지를 삭제 하였습니다.");
+                NoticeView.noticeViewMain(reply.getNotice(), user);
+                break;
+
+            case 2:
+                replyViewMain(reply, user);
+                break;
+        }
     }
 
 

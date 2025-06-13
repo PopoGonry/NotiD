@@ -6,6 +6,8 @@ import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.cli.Authentication;
+import com.popogonry.notid.notice.Notice;
+import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.UserService;
@@ -40,6 +42,11 @@ public class Main {
         channelService.joinChannel(user, channel2);
         channel1.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
         channel2.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
+
+        NoticeService noticeService = config.noticeService();
+        noticeService.createNotice("제목", "내용", false, ChannelUserGrade.NORMAL, new Date(), new Date(), null, channel1.getName());
+
+
 
         Authentication.authenticate();
     }

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;일부 문장 수정">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;ReplyView deleteReply 기능 제외 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +135,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="AuthenticationFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.popogonry.notid.gui.AuthenticationFrame" />
       <module name="NotiD.main" />
@@ -284,15 +283,7 @@
       <workItem from="1749747597616" duration="3703000" />
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
-      <workItem from="1749798199600" duration="1610000" />
-    </task>
-    <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
-      <option name="closed" value="true" />
-      <created>1748426327429</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1748426327429</updated>
+      <workItem from="1749798199600" duration="3333000" />
     </task>
     <task id="LOCAL-00002" summary="2025-05-28&#10;&#10;MemoryUserRepository Test 코드 작성">
       <option name="closed" value="true" />
@@ -678,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749786815169</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="2025-06-13&#10;&#10;ReplyView deleteReply 기능 제외 추가">
+      <option name="closed" value="true" />
+      <created>1749799914285</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1749799914285</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView 일부 구현" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView.updateChannel 구현 및 테스트 완료" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView.createNotice 구현 및 테스트 완료" />
@@ -721,7 +719,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;채널 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가" />
     <MESSAGE value="2025-06-13&#10;&#10;일부 문장 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;일부 문장 수정" />
+    <MESSAGE value="2025-06-13&#10;&#10;ReplyView deleteReply 기능 제외 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;ReplyView deleteReply 기능 제외 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

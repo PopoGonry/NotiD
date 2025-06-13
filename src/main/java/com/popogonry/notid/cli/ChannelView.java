@@ -45,15 +45,20 @@ public class ChannelView {
         }
     }
 
-    public static void joinChannel(Channel channel, User user) {
-        System.out.println("--- " + channel.getName() + " 채널 상세 정보 ---");
+    public static void channelInfo(Channel channel) {
+        System.out.println("--- 채널 ---");
         System.out.println("- 채널 이름: " + channel.getName());
         System.out.println("- 채널 설명: " + channel.getDescription());
         if(!channel.getAffiliation().isEmpty() && channel.getAffiliation() != null)
             System.out.println("- 채널 조직: " + channel.getAffiliation());
         System.out.println("- 가입 방식: " + ((channel.getJoinType() == ChannelJoinType.ACCEPT) ? "신청 가입" : "자유 가입"));
+    }
 
-        System.out.println();
+
+    public static void joinChannel(Channel channel, User user) {
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 가입 메뉴 ---");
 
         if(channel.getJoinType() == ChannelJoinType.ACCEPT) {
             System.out.println("1. 가입 신청");
@@ -99,6 +104,7 @@ public class ChannelView {
     }
 
     public static void channelToAdmin(Channel channel, User user) {
+        channelInfo(channel);
         System.out.println("--- " + channel.getName() + " 채널 소유자 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -149,6 +155,7 @@ public class ChannelView {
     }
 
     public static void channelToManager(Channel channel, User user) {
+        channelInfo(channel);
         System.out.println("--- " + channel.getName() + " 채널 관리자 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -203,6 +210,7 @@ public class ChannelView {
     }
 
     public static void channelToNormal(Channel channel, User user) {
+        channelInfo(channel);
         System.out.println("--- " + channel.getName() + " 채널 메뉴 ---");
         System.out.println("1. 채널 상세 정보");
         System.out.println("2. 공지 리스트");
@@ -241,12 +249,9 @@ public class ChannelView {
 
     public static void channelInfo(Channel channel, User user) {
 
-        System.out.println("--- " + channel.getName() + " 채널 상세 정보 ---");
-        System.out.println("- 채널 이름: " + channel.getName());
-        System.out.println("- 채널 설명: " + channel.getDescription());
-        if(!channel.getAffiliation().isEmpty() && channel.getAffiliation() != null)
-            System.out.println("- 채널 조직: " + channel.getAffiliation());
-        System.out.println("- 가입 방식: " + ((channel.getJoinType() == ChannelJoinType.ACCEPT) ? "신청 가입" : "자유 가입"));
+        channelInfo(channel);
+        System.out.println("- 채널 인원 수: " + channel.getChannelUserGradeHashMap().size() + "명");
+        System.out.println("- 채널 공지 수: " + noticeRepository.getChannelNoticeSetData(channel.getName()).size() + "개");
 
         System.out.println();
         channelViewMain(channel, user);
@@ -260,7 +265,9 @@ public class ChannelView {
             return;
         }
 
-        System.out.println("--- " + channel.getName() + " 공지 리스트 ---");
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 공지 리스트 ---");
 
         ArrayList<Long> channelNoticeList = new ArrayList<>(noticeRepository.getChannelNoticeSetData(channel.getName()));
 
@@ -311,7 +318,9 @@ public class ChannelView {
             return;
         }
 
-        System.out.println("--- " + channel.getName() + " 답장 리스트 ---");
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 답장 리스트 ---");
 
         ArrayList<Long> replyIdList = new ArrayList<>();
 
@@ -325,6 +334,12 @@ public class ChannelView {
                     replyIdList.add(replyId);
                 }
             }
+        }
+
+        if(i == 1) {
+            System.out.println("채널에 답장이 없습니다.");
+            channelViewMain(channel, user);
+            return;
         }
 
         System.out.println(i + ". 돌아가기");
@@ -345,8 +360,9 @@ public class ChannelView {
     }
 
     public static void updateChannel(Channel channel, User user) {
+        channelInfo(channel);
 
-        System.out.println("--- 채널 수정 ---");
+        System.out.println("--- " + channel.getName() + " 채널 수정 ---");
 
         System.out.println("1. 설명 수정");
         System.out.println("2. 조직 수정");
@@ -411,7 +427,10 @@ public class ChannelView {
     }
 
     public static void createNotice(Channel channel, User user) {
-        System.out.println("--- 공지 생성 ---");
+
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 공지 작성 ---");
 
         String title;
         do {
@@ -503,7 +522,10 @@ public class ChannelView {
     }
 
     public static void manageUser(Channel channel, User user) {
-        System.out.println("--- 채널 멤버 리스트 ---");
+        channelInfo(channel);
+
+        System.out.println("--- " + channel.getName() + " 채널 멤버 리스트 ---");
+
         int i = 1;
         List<String> userList = new ArrayList<>(channel.getChannelUserGradeHashMap().keySet());
 
