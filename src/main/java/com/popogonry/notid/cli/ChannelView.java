@@ -294,7 +294,7 @@ public class ChannelView {
 
         String value;
         do {
-            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
@@ -335,7 +335,7 @@ public class ChannelView {
 
         String value;
         do {
-            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
@@ -531,7 +531,7 @@ public class ChannelView {
 
         String value;
         do {
-            System.out.print("선택해주세요 (돌아가기 : " + i + "): ");
+            System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 

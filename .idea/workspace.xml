@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;채널 생성 시, 값이 비어 있어도 넘어가는 오류 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +278,7 @@
       <workItem from="1749710187390" duration="5961000" />
       <workItem from="1749728507953" duration="9868000" />
       <workItem from="1749747597616" duration="3703000" />
-      <workItem from="1749782721774" duration="3714000" />
+      <workItem from="1749782721774" duration="3880000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -656,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749786319607</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가">
+      <option name="closed" value="true" />
+      <created>1749786733426</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1749786733426</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-05&#10;&#10;MainViewImpl 수정" />
     <MESSAGE value="2025-06-05&#10;&#10;Config 수정" />
     <MESSAGE value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView 일부 구현" />
@@ -699,7 +706,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;답장 미허가 상태에도 답장 작성 가능한 오류 해결" />
     <MESSAGE value="2025-06-13&#10;&#10;공지 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;채널 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;채널 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
+    <MESSAGE value="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
