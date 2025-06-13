@@ -6,7 +6,6 @@ import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.NoticeService;
-import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.ReplyService;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;

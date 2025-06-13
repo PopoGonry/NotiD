@@ -39,7 +39,6 @@ public class AlarmService {
         alarmRepository.addAlarmData(alarm);
         alarmRepository.addUserAlarmData(userId, newId);
 
-        return;
     }
 
     public void deleteAlarm(long alarmId) {
@@ -51,7 +50,6 @@ public class AlarmService {
         alarmRepository.removeAlarmData(alarm.getId());
         alarmRepository.removeUserAlarmData(alarm.getUser().getId(), alarm.getId());
 
-        return;
     }
 
     public void sendAlarmNoticeToChannelUsers(Notice notice, String message) {

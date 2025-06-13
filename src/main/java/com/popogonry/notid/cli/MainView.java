@@ -75,7 +75,7 @@ public class MainView {
 
             case 6:
                 Authentication.authenticate();
-                break;
+                  break;
         }
     }
 
@@ -281,8 +281,7 @@ public class MainView {
 
         Channel channel = channelRepository.getChannelData(name);
 
-        channelService.joinChannel(user, channel);
-
+        channelRepository.addUserChannelData(user.getId(), channel.getName());
         channel.addChannelUserGrade(user.getId(), ChannelUserGrade.ADMIN);
 
         ChannelView.channelViewMain(channel, user);
