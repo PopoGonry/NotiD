@@ -1,9 +1,6 @@
 package com.popogonry.notid.user;
 
-import com.popogonry.notid.user.User;
-import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.repository.MemoryUserRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

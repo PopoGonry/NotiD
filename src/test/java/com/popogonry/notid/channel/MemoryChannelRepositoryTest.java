@@ -1,8 +1,5 @@
 package com.popogonry.notid.channel;
 
-import com.popogonry.notid.channel.Channel;
-import com.popogonry.notid.channel.ChannelJoinType;
-import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

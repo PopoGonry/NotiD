@@ -6,7 +6,6 @@ import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
-import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.NoticeRepository;
@@ -483,10 +482,6 @@ public class ChannelView {
             case 1:
                 isReplyAllowed = true;
                 break;
-
-            case 2:
-                isReplyAllowed = false;
-                break;
         }
 
         ChannelUserGrade userGrade = ChannelUserGrade.NORMAL;
@@ -503,10 +498,6 @@ public class ChannelView {
             case 2:
                 userGrade = ChannelUserGrade.MANAGER;
 
-                break;
-
-            case 3:
-                userGrade = ChannelUserGrade.NORMAL;
                 break;
         }
 

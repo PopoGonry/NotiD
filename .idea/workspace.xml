@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화로 테스트 코드 일부 수정&#10;테스트 코드 디렉토리 리팩토링">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;CLI 알림 기능 적용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/AlarmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/AlarmService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/AlarmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/AlarmRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/MemoryAlarmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/alarm/repository/MemoryAlarmRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/channel/ChannelServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/channel/ChannelServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/channel/MemoryChannelRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/channel/MemoryChannelRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/notice/MemoryNoticeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/notice/MemoryNoticeRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/user/MemoryUserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/user/MemoryUserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/user/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/popogonry/notid/user/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,23 +301,7 @@
       <workItem from="1749747597616" duration="3703000" />
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
-      <workItem from="1749798199600" duration="16490000" />
-    </task>
-    <task id="LOCAL-00010" summary="2025-06-05&#10;&#10;Notice Entity 일부 변경에 따른 수정">
-      <option name="closed" value="true" />
-      <created>1749111213996</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1749111213996</updated>
-    </task>
-    <task id="LOCAL-00011" summary="2025-06-05&#10;&#10;Reply Entity 완료">
-      <option name="closed" value="true" />
-      <created>1749111472943</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1749111472943</updated>
+      <workItem from="1749798199600" duration="16628000" />
     </task>
     <task id="LOCAL-00012" summary="2025-06-06&#10;&#10;디렉토리 오류 수정">
       <option name="closed" value="true" />
@@ -692,7 +679,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749815961223</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="2025-06-13&#10;&#10;AlarmService 기능 구현">
+      <option name="closed" value="true" />
+      <created>1749819956374</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1749819956374</updated>
+    </task>
+    <task id="LOCAL-00060" summary="2025-06-13&#10;&#10;CLI 알림 기능 적용">
+      <option name="closed" value="true" />
+      <created>1749819967682</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1749819967682</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,8 +713,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-12&#10;&#10;ChannelService&#10;채널 가입 신청, 가입 신청 거절 기능 추가" />
-    <MESSAGE value="2025-06-12&#10;&#10;ChannelView 채널 가입 기능 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;일부 수정 사항 수정&#10;Main에 테스트를 위한 값 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView createReply&#10;답장 작성 기능 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;ChannelView 코드 정리&#10;NoticeService updateNotice 방식 변경" />
@@ -735,7 +736,9 @@
     <MESSAGE value="2025-06-13&#10;&#10;AlarmRepository 수정 및 MemoryAlarmRepository 구현" />
     <MESSAGE value="2025-06-13&#10;&#10;AlarmService 생성자를 통한 의존성 주입 및 createAlarm 메소드(Alarm 생성 기능) 구현" />
     <MESSAGE value="2025-06-13&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화로 테스트 코드 일부 수정&#10;테스트 코드 디렉토리 리팩토링" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;NoticeService, ReplyService Id 생성 객체 정적화로 테스트 코드 일부 수정&#10;테스트 코드 디렉토리 리팩토링" />
+    <MESSAGE value="2025-06-13&#10;&#10;AlarmService 기능 구현" />
+    <MESSAGE value="2025-06-13&#10;&#10;CLI 알림 기능 적용" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;CLI 알림 기능 적용" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

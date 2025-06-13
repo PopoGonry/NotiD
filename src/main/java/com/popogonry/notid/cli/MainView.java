@@ -12,7 +12,6 @@ import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.Notice;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.user.User;
-import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

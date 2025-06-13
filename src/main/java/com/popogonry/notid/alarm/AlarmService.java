@@ -5,14 +5,9 @@ import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.notice.Notice;
-import com.popogonry.notid.reply.Reply;
-import com.popogonry.notid.reply.ReplyService;
-import com.popogonry.notid.reply.replyRepository.ReplyRepository;
-import com.popogonry.notid.user.User;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -21,44 +16,42 @@ public class AlarmService {
     private final AlarmRepository alarmRepository;
     private final UserRepositoy userRepositoy;
     private final ChannelService channelService;
-    private final ReplyRepository replyRepository;
 
-    public AlarmService(AlarmRepository alarmRepository, UserRepositoy userRepositoy, ChannelService channelService, ReplyRepository replyRepository) {
+    public AlarmService(AlarmRepository alarmRepository, UserRepositoy userRepositoy, ChannelService channelService) {
         this.alarmRepository = alarmRepository;
         this.userRepositoy = userRepositoy;
         this.channelService = channelService;
-        this.replyRepository = replyRepository;
     }
 
     private static final AtomicLong counter = new AtomicLong(1);
 
-    public long createAlarm(String userId, String message) {
+    public void createAlarm(String userId, String message) {
         long newId = counter.getAndIncrement();
 
         // 똑같은 id가 존재한다면,
-        if(alarmRepository.hasAlarmData(newId)) return 0L;
+        if(alarmRepository.hasAlarmData(newId)) return;
 
         // userId의 User 가 존재하지 않는다면
-        if(!userRepositoy.hasUserData(userId)) return 0L;
+        if(!userRepositoy.hasUserData(userId)) return;
 
 
         Alarm alarm = new Alarm(newId, userRepositoy.getUserData(userId), message, new Date());
         alarmRepository.addAlarmData(alarm);
         alarmRepository.addUserAlarmData(userId, newId);
 
-        return newId;
+        return;
     }
 
-    public boolean deleteAlarm(long alarmId) {
+    public void deleteAlarm(long alarmId) {
         // id가 존재하지 않는다면
-        if(!alarmRepository.hasAlarmData(alarmId)) return false;
+        if(!alarmRepository.hasAlarmData(alarmId)) return;
 
         Alarm alarm = alarmRepository.getAlarmData(alarmId);
 
         alarmRepository.removeAlarmData(alarm.getId());
         alarmRepository.removeUserAlarmData(alarm.getUser().getId(), alarm.getId());
 
-        return true;
+        return;
     }
 
     public void sendAlarmNoticeToChannelUsers(Notice notice, String message) {

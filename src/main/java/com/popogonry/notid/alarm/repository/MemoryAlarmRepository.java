@@ -1,11 +1,9 @@
 package com.popogonry.notid.alarm.repository;
 
 import com.popogonry.notid.alarm.Alarm;
-import com.popogonry.notid.user.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class MemoryAlarmRepository implements AlarmRepository {

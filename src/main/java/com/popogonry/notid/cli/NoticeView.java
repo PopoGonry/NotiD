@@ -22,7 +22,6 @@ public class NoticeView {
     private static final Config config = new Config();
 
     private static final NoticeService noticeService = config.noticeService();
-    private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final AlarmService alarmService = config.alarmService();
 
     private static final ReplyService replyService = config.replyService();

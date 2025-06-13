@@ -1,12 +1,8 @@
 package com.popogonry.notid.channel;
 
-import com.popogonry.notid.channel.Channel;
-import com.popogonry.notid.channel.ChannelJoinType;
-import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
 import com.popogonry.notid.user.repository.MemoryUserRepository;
-import com.popogonry.notid.user.repository.UserRepositoy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

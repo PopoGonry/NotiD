@@ -2,7 +2,6 @@ package com.popogonry.notid.alarm.repository;
 
 import com.popogonry.notid.alarm.Alarm;
 
-import java.util.HashSet;
 import java.util.List;
 
 public interface AlarmRepository {

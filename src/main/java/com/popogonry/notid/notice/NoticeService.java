@@ -1,6 +1,5 @@
 package com.popogonry.notid.notice;
 
-import com.popogonry.notid.channel.Channel;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.notice.repository.NoticeRepository;

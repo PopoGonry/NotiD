@@ -5,10 +5,7 @@ import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
 import com.popogonry.notid.channel.repository.MemoryChannelRepository;
-import com.popogonry.notid.notice.Notice;
-import com.popogonry.notid.notice.NoticeService;
 import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
-import com.popogonry.notid.user.UserGrade;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,8 +1,5 @@
 package com.popogonry.notid.user;
 
-import com.popogonry.notid.user.User;
-import com.popogonry.notid.user.UserGrade;
-import com.popogonry.notid.user.UserService;
 import com.popogonry.notid.user.repository.MemoryUserRepository;
 import com.popogonry.notid.user.repository.UserRepositoy;
 import org.junit.jupiter.api.BeforeEach;
