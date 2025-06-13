@@ -26,6 +26,7 @@ public class ReplyView {
         Channel channel = reply.getNotice().getChannel();
 
         if (!channel.hasChannelUserGrade(user.getId())) {
+            Common.clear();
             System.out.println(user.getId() + " 유저는 채널에 존재하지 않습니다.");
         }
 
@@ -41,7 +42,7 @@ public class ReplyView {
         System.out.println("--- " + reply.getNotice().getTitle() + " 답장 ---");
         System.out.println("- 제목: " + reply.getTitle());
         System.out.println("- 내용: " + reply.getContent());
-        System.out.println("- 작성자: " + reply.getAuthor());
+        System.out.println("- 작성자: " + reply.getAuthor().getId() + " " + reply.getAuthor().getName());
         System.out.println("- 공지: " + reply.getNotice().getChannel().getName() + "/" + reply.getNotice().getTitle());
     }
 
@@ -58,6 +59,7 @@ public class ReplyView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 2, value));
+        Common.clear();
 
         switch (Integer.parseInt(value)) {
             case 1:
@@ -84,6 +86,7 @@ public class ReplyView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 3, value));
+        Common.clear();
 
         switch (Integer.parseInt(value)) {
             case 1:
@@ -139,6 +142,7 @@ public class ReplyView {
         Reply updateReply = new Reply(reply.getId(), title, content, reply.getFile(), reply.getNotice(), reply.getAuthor());
         replyService.updateReply(reply.getId(), updateReply);
 
+        Common.clear();
         System.out.println("수정 완료되었습니다.");
 
         replyViewMain(reply, user);
@@ -147,7 +151,7 @@ public class ReplyView {
 
     public static void deleteReply(Reply reply, User user) {
         replyInfo(reply);
-        System.out.println("--- " + reply.getTitle() + " 공지 삭제 ---");
+        System.out.println("--- " + reply.getTitle() + " 답장 삭제 ---");
         System.out.println("1. 삭제하기");
         System.out.println("2. 돌아가기");
 
@@ -156,6 +160,8 @@ public class ReplyView {
             System.out.print("선택해주세요: ");
             temp = scanner.nextLine();
         } while (!ValidationCheck.intSelectCheck(1, 2, temp));
+
+        Common.clear();
 
         switch (Integer.parseInt(temp)) {
             case 1:

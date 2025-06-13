@@ -14,7 +14,7 @@ public class NoticeService {
 
     private final NoticeRepository noticeRepository;
     private final ChannelRepository channelRepository;
-    private final AtomicLong counter = new AtomicLong(1);
+    private static final AtomicLong counter = new AtomicLong(1);
 
 
     public NoticeService(NoticeRepository noticeRepository, ChannelRepository channelRepository) {

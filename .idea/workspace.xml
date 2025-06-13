@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 추가">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 버그 수정">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Common.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/channel/ChannelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/notice/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,15 +287,7 @@
       <workItem from="1749747597616" duration="3703000" />
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
-      <workItem from="1749798199600" duration="5716000" />
-    </task>
-    <task id="LOCAL-00004" summary="2025-05-28&#10;&#10;MemoryChannelRepository Test 코드 작성">
-      <option name="closed" value="true" />
-      <created>1748426396789</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1748426396789</updated>
+      <workItem from="1749798199600" duration="9906000" />
     </task>
     <task id="LOCAL-00005" summary="2025-05-28&#10;&#10;ChannelService Test 코드 작성">
       <option name="closed" value="true" />
@@ -677,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749802699257</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 버그 수정">
+      <option name="closed" value="true" />
+      <created>1749803996760</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1749803996760</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +699,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-10&#10;&#10;ChannelView.createNotice 구현 및 테스트 완료" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView.manageUser 채널 유저 권한 관리 구현&#10;MainView.mainViewMain 로그아웃 기능 구현" />
     <MESSAGE value="2025-06-11&#10;&#10;ChannelView.manageUser 채널 유저 권한 관리 구현&#10;MainView.mainViewMain 로그아웃 기능 구현" />
     <MESSAGE value="2025-06-11&#10;&#10;CLI 정적화 리팩터링&#10;&#10;회원가입 로그인, 유효성 검사, &quot;&quot; 값 이슈" />
@@ -720,7 +723,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;ReplyView deleteReply 기능 제외 추가" />
     <MESSAGE value="2025-06-13&#10;&#10;전체적 정리" />
     <MESSAGE value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 추가" />
+    <MESSAGE value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;채널 가입 신청 수락 거절 기능 버그 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

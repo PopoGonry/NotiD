@@ -25,6 +25,7 @@ public class MainView {
     private static final NoticeRepository noticeRepository = config.noticeRepository();
 
     public static void mainViewMain(User user) {
+
         System.out.println("--- 메인 화면 ---");
 
         System.out.println("1. 알람 확인");
@@ -41,6 +42,7 @@ public class MainView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 6, value));
 
+        Common.clear();
         switch (Integer.parseInt(value)) {
             case 1:
                 checkAlarm(user);
@@ -74,13 +76,15 @@ public class MainView {
 
     public static void userChannelList(User user) {
         if (!channelRepository.hasUserChannelSetData(user.getId()) || channelRepository.getUserChannelSetData(user.getId()).isEmpty()) {
+            Common.clear();
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
             return;
         }
 
+        System.out.println("--- " + user.getName() + " 채널 리스트 ---");
+
         ArrayList<String> userChannelList = new ArrayList<>(channelRepository.getUserChannelSetData(user.getId()));
-        System.out.println(userChannelList);
 
         int i = 1;
         for (String userChannel : userChannelList) {
@@ -95,6 +99,8 @@ public class MainView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
+        Common.clear();
+
         if (Integer.parseInt(value) == i) {
             mainViewMain(user);
             return;
@@ -106,10 +112,13 @@ public class MainView {
 
     public static void userNoticeList(User user) {
         if (!channelRepository.hasUserChannelSetData(user.getId()) || channelRepository.getUserChannelSetData(user.getId()).isEmpty()) {
+            Common.clear();
             System.out.println("가입한 채널이 없습니다.");
             mainViewMain(user);
             return;
         }
+
+        System.out.println("--- " + user.getName() + " 공지 리스트 ---");
 
         List<Long> noticeList = new ArrayList<>();
 
@@ -136,6 +145,7 @@ public class MainView {
             }
         }
         if (i == 1) {
+            Common.clear();
             System.out.println("공지가 존재하지 않습니다.");
             mainViewMain(user);
             return;
@@ -149,6 +159,7 @@ public class MainView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
+        Common.clear();
         if (Integer.parseInt(value) == i) {
             mainViewMain(user);
             return;
@@ -160,7 +171,7 @@ public class MainView {
     public static void searchChannel(User user) {
         System.out.print("채널 이름을 입력하세요: ");
         String keyword = scanner.nextLine();
-
+        Common.clear();
         if (!channelRepository.hasChannelData(keyword)) {
             System.out.println("존재하지 않는 채널입니다.");
             mainViewMain(user);
@@ -219,6 +230,7 @@ public class MainView {
                 break;
         }
 
+        Common.clear();
 
         channelService.createChannel(name, description, affiliation, channelJoinType);
 

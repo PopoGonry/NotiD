@@ -12,7 +12,7 @@ public class ReplyService {
     private final ReplyRepository replyRepository;
     private final NoticeRepository noticeRepository;
     private final UserRepositoy userRepository;
-    private final AtomicLong counter = new AtomicLong(1);
+    private static final AtomicLong counter = new AtomicLong(1);
 
     public ReplyService(ReplyRepository replyRepository, NoticeRepository noticeRepository, UserRepositoy userRepositoy) {
         this.replyRepository = replyRepository;

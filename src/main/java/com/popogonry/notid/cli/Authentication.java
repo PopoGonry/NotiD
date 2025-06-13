@@ -28,6 +28,7 @@ public class Authentication {
         } while (!ValidationCheck.intSelectCheck(1, 3, value));
 
         int intValue = Integer.parseInt(value);
+        Common.clear();
         switch (intValue) {
             case 1:
                 signup();
@@ -44,26 +45,31 @@ public class Authentication {
     }
 
     public static void login() {
+        System.out.println("--- 로그인 ---");
         System.out.print("ID: ");
         String id = scanner.nextLine().trim();
         System.out.print("Password: ");
         String password = scanner.nextLine().trim();
-
         if(!userRepositoy.hasUserData(id)) {
+            Common.clear();
             System.out.println("존재하지 않는 회원 정보입니다.");
             authenticate();
             return;
         }
         if(!userRepositoy.getUserData(id).getPassword().equals(password)) {
+            Common.clear();
             System.out.println("비밀번호가 틀렸습니다.");
             authenticate();
             return;
         }
+        Common.clear();
         System.out.println("로그인에 성공하였습니다. Id: " + id);
         MainView.mainViewMain(userRepositoy.getUserData(id));
     }
 
     public static void signup() {
+
+        System.out.println("--- 회원가입 ---");
         System.out.print("ID: ");
         String id = scanner.nextLine().trim();
         while (true) {
@@ -129,6 +135,7 @@ public class Authentication {
         }
         User user = new User(id, password, name, date, hp, UserGrade.NORMAL);
         userRepositoy.addUserData(user);
+        Common.clear();
         System.out.println("회원가입 완료되었습니다.");
         authenticate();
     }

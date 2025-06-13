@@ -33,6 +33,7 @@ public class ChannelView {
 
     public static void channelViewMain(Channel channel, User user) {
         if (!channel.hasChannelUserGrade(user.getId())) {
+            Common.clear();
             System.out.println(user.getId() + " 유저는 채널에 존재하지 않습니다.");
         }
 
@@ -76,6 +77,7 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 2, value));
 
+        Common.clear();
         switch (Integer.parseInt(value)) {
             case 1:
                 if (channel.getJoinType() == ChannelJoinType.ACCEPT) {
@@ -123,6 +125,7 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 9, value));
 
+        Common.clear();
         switch (Integer.parseInt(value)) {
             case 1:
                 channelInfo(channel, user);
@@ -179,7 +182,7 @@ public class ChannelView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 9, value));
-
+        Common.clear();
         int intValue = Integer.parseInt(value);
         switch (intValue) {
             case 1:
@@ -235,7 +238,7 @@ public class ChannelView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 5, value));
-
+        Common.clear();
         int intValue = Integer.parseInt(value);
         switch (intValue) {
             case 1:
@@ -260,7 +263,7 @@ public class ChannelView {
     }
 
     public static void channelInfo(Channel channel, User user) {
-
+        Common.clear();
         channelInfo(channel);
         System.out.println("- 채널 인원 수: " + channel.getChannelUserGradeHashMap().size() + "명");
         System.out.println("- 채널 공지 수: " + noticeRepository.getChannelNoticeSetData(channel.getName()).size() + "개");
@@ -272,6 +275,7 @@ public class ChannelView {
     public static void noticeList(Channel channel, User user) {
 
         if (!noticeRepository.hasChannelNoticeSetData(channel.getName()) || noticeRepository.getChannelNoticeSetData(channel.getName()).isEmpty()) {
+            Common.clear();
             System.out.println("채널에 공지가 없습니다.");
             channelViewMain(channel, user);
             return;
@@ -313,6 +317,8 @@ public class ChannelView {
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
 
+        Common.clear();
+
         if (Integer.parseInt(value) == i) {
             channelViewMain(channel, user);
             return;
@@ -325,6 +331,7 @@ public class ChannelView {
 
     public static void userReplyList(Channel channel, User user) {
         if (!noticeRepository.hasChannelNoticeSetData(channel.getName()) || noticeRepository.getChannelNoticeSetData(channel.getName()).isEmpty()) {
+            Common.clear();
             System.out.println("채널에 공지가 없습니다.");
             channelViewMain(channel, user);
             return;
@@ -349,6 +356,7 @@ public class ChannelView {
         }
 
         if(i == 1) {
+            Common.clear();
             System.out.println("채널에 답장이 없습니다.");
             channelViewMain(channel, user);
             return;
@@ -361,6 +369,8 @@ public class ChannelView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, i, value));
+
+        Common.clear();
 
         if (Integer.parseInt(value) == i) {
             channelViewMain(channel, user);
@@ -433,6 +443,7 @@ public class ChannelView {
         }
         channelService.updateChannel(channel.getName(), new Channel(channel.getName(), description, affiliation, channelJoinType));
 
+        Common.clear();
         System.out.println("수정 완료되었습니다.");
 
         channelViewMain(channel, user);
@@ -528,6 +539,8 @@ public class ChannelView {
         long noticeId = noticeService.createNotice(title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, Collections.emptyList(), channel.getName());
         Notice notice = noticeRepository.getNoticeData(noticeId);
 
+        Common.clear();
+
         System.out.println("공지가 생성되었습니다.");
         NoticeView.noticeViewMain(notice, user);
 
@@ -573,6 +586,7 @@ public class ChannelView {
         User selectUser = userRepositoy.getUserData(userList.get(Integer.parseInt(value) - 1));
 
         if(channel.getChannelUserGrade(selectUser.getId()) == ChannelUserGrade.ADMIN) {
+            Common.clear();
             System.out.println("채널 소유자의 권한은 변경 불가능합니다.");
             channelViewMain(channel, user);
         }
@@ -599,6 +613,8 @@ public class ChannelView {
 
         }
 
+        Common.clear();
+
         System.out.println("변경 완료 되었습니다.");
         channelViewMain(channel, user);
     }
@@ -610,6 +626,7 @@ public class ChannelView {
 
         List<String> userList = new ArrayList<>(channel.getChannnelJoiningUserSet());
         if (userList.isEmpty()) {
+            Common.clear();
             System.out.println("채널 가입 신청자가 없습니다.");
             channelViewMain(channel, user);
             return;
@@ -653,6 +670,7 @@ public class ChannelView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 3, value));
+        Common.clear();
 
         switch (Integer.parseInt(value)) {
             case 1:

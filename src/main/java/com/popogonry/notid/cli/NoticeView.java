@@ -31,6 +31,7 @@ public class NoticeView {
         Channel channel = notice.getChannel();
 
         if (!channel.hasChannelUserGrade(user.getId())) {
+            Common.clear();
             System.out.println(user.getId() + " 유저는 채널에 존재하지 않습니다.");
         }
 
@@ -87,6 +88,7 @@ public class NoticeView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 5, value));
+        Common.clear();
 
         switch (Integer.parseInt(value)) {
             case 1:
@@ -148,6 +150,8 @@ public class NoticeView {
             System.out.print("선택해주세요: ");
             value = scanner.nextLine().trim();
         } while (!ValidationCheck.intSelectCheck(1, 2, value));
+
+        Common.clear();
 
         switch (Integer.parseInt(value)) {
             case 1:
@@ -297,7 +301,7 @@ public class NoticeView {
         Notice notice1 = new Notice(notice.getId(), title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, null, notice.getChannel());
         noticeService.updateNotice(notice.getId(), notice1);
 
-
+        Common.clear();
         System.out.println("수정 완료되었습니다.");
 
         noticeViewMain(notice, user);
@@ -307,6 +311,7 @@ public class NoticeView {
         noticeInfo(notice);
 
         if(!replyRepository.hasNoticeReplySetData(notice.getId()) || replyRepository.getNoticeReplySetData(notice.getId()).isEmpty()) {
+            Common.clear();
             System.out.println("공지에 답장이 없습니다.");
             noticeViewMain(notice, user);
             return;
@@ -353,6 +358,7 @@ public class NoticeView {
             System.out.print("선택해주세요: ");
             temp = scanner.nextLine();
         } while (!ValidationCheck.intSelectCheck(1, 2, temp));
+        Common.clear();
 
         switch (Integer.parseInt(temp)) {
             case 1:
@@ -383,6 +389,7 @@ public class NoticeView {
 
         long replyId = replyService.createReply(title, content, null, notice.getId(), user.getId());
 
+        Common.clear();
         if(replyId != 0L) {
             System.out.println("답장이 작성되었습니다.");
             ReplyView.replyViewMain(replyRepository.getReplyData(replyId), user);
