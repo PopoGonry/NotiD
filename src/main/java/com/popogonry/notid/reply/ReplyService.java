@@ -50,11 +50,8 @@ public class ReplyService {
         // newReply의 authorId와 저장된 authorId가 같지 않을 때,
         if(!updateReply.getAuthor().getId().equals(newReply.getAuthor().getId())) return false;
 
-        replyRepository.removeReplyData(updateReply.getId());
-        replyRepository.removeNoticeReplyData(updateReply.getNotice().getId(), updateReply.getId());
-
-        replyRepository.addReplyData(newReply);
-        replyRepository.addNoticeReplyData(newReply.getNotice().getId(), newReply.getId());
+        updateReply.setTitle(newReply.getTitle());
+        updateReply.setContent(newReply.getContent());
 
         return true;
     }

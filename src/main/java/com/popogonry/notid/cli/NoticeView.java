@@ -298,7 +298,6 @@ public class NoticeView {
         Notice notice1 = new Notice(notice.getId(), title, content, isReplyAllowed, userGrade, scheduledTime, replyDeadline, null, notice.getChannel());
         noticeService.updateNotice(notice.getId(), notice1);
 
-        System.out.println(notice1);
 
         System.out.println("수정 완료되었습니다.");
 

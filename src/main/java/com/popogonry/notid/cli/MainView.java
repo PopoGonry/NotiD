@@ -6,12 +6,9 @@ import com.popogonry.notid.channel.ChannelJoinType;
 import com.popogonry.notid.channel.ChannelService;
 import com.popogonry.notid.channel.ChannelUserGrade;
 import com.popogonry.notid.channel.repository.ChannelRepository;
-import com.popogonry.notid.channel.repository.MemoryChannelRepository;
 import com.popogonry.notid.notice.Notice;
-import com.popogonry.notid.notice.repository.MemoryNoticeRepository;
 import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.user.User;
-import com.popogonry.notid.user.repository.MemoryUserRepository;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
 import java.text.SimpleDateFormat;
@@ -24,7 +21,6 @@ public class MainView {
 
     private static final ChannelService channelService = config.channelService();
 
-    private static final UserRepositoy userRepositoy = config.userRepositoy();
     private static final ChannelRepository channelRepository = config.channelRepository();
     private static final NoticeRepository noticeRepository = config.noticeRepository();
 

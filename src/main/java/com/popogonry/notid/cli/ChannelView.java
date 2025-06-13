@@ -12,11 +12,8 @@ import com.popogonry.notid.notice.repository.NoticeRepository;
 import com.popogonry.notid.reply.Reply;
 import com.popogonry.notid.reply.replyRepository.ReplyRepository;
 import com.popogonry.notid.user.User;
-import com.popogonry.notid.user.UserGrade;
 import com.popogonry.notid.user.repository.UserRepositoy;
 
-import javax.xml.crypto.Data;
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -28,7 +25,6 @@ public class ChannelView {
 
     private static final NoticeRepository noticeRepository = config.noticeRepository();
     private static final ReplyRepository replyRepository = config.replyRepository();
-    private static final ChannelRepository channelRepository = config.channelRepository();
     private static final UserRepositoy userRepositoy = config.userRepositoy();
     private static final ChannelService channelService = config.channelService();
     private static final NoticeService noticeService = config.noticeService();
@@ -376,7 +372,7 @@ public class ChannelView {
                 break;
 
             case 2:
-                System.out.print("조직(미 입력시 취소, \' 삭제 \' 입력 시 삭제): ");
+                System.out.print("조직(미 입력시 취소, ' 삭제 ' 입력 시 삭제): ");
                 temp = scanner.nextLine();
                 if(!temp.isEmpty()) affiliation = temp;
                 if(affiliation.equals("삭제")) affiliation = "";

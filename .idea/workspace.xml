@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;일부 문장 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ChannelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/NoticeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/cli/ReplyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/popogonry/notid/reply/ReplyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,64 +79,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.'NotiD.test'에 있는 테스트.executor": "Run",
-    "Gradle.'notid'에 있는 테스트.executor": "Run",
-    "Gradle.'notid.channel'에 있는 테스트.executor": "Run",
-    "Gradle.'notid.user'에 있는 테스트.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.removeUserChannelSet.executor": "Run",
-    "Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.addAndGetNotice.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.channelNoticeMappingTest.executor": "Run",
-    "Gradle.MemoryNoticeRepositoryTest.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.addAndGetReply.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.addAndHasNoticeReplyData.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.addNoticeReplyData.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.hasReplyData.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.removeNoticeReplyData.executor": "Run",
-    "Gradle.MemoryReplyRepositoryTest.removeReplyData.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor": "Run",
-    "Gradle.MemoryUserRepositoryTest.executor": "Run",
-    "Gradle.NotiD [:com.popogonry.notid.Main.main()].executor": "Run",
-    "Gradle.NotiD [:com.popogonry.notid.cli.AuthenticationFrame.main()].executor": "Run",
-    "Gradle.NotiD [:com.popogonry.notid.gui.AuthenticationFrame.main()].executor": "Run",
-    "Gradle.NoticeServiceTest.createNotice_fail_when_existSameId.executor": "Run",
-    "Gradle.NoticeServiceTest.createNotice_success.executor": "Run",
-    "Gradle.NoticeServiceTest.createNotice_정상생성.executor": "Run",
-    "Gradle.NoticeServiceTest.deleteNotice_success.executor": "Run",
-    "Gradle.NoticeServiceTest.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongChannel.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_fail_when_wrongId.executor": "Run",
-    "Gradle.NoticeServiceTest.updateNotice_success.executor": "Run",
-    "Gradle.ReplyServiceTest.executor": "Run",
-    "Gradle.UserServiceTest.createUser_fail_whenUserExists.executor": "Run",
-    "Gradle.UserServiceTest.createUser_success.executor": "Run",
-    "Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor": "Run",
-    "Gradle.UserServiceTest.executor": "Run",
-    "Gradle.UserServiceTest.updateUser_fail_whenIdMismatch.executor": "Run",
-    "Gradle.UserServiceTest.updateUser_fail_whenNotExists.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/06-211-4/Desktop/NotiD",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/git/NotiD/src/main/java/com/popogonry/Main.java",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.'NotiD.test'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.channel'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'notid.user'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.addAndRemoveUserChannelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.removeUserChannelSet.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryChannelRepositoryTest.removeUserChannelSetData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.addAndGetNotice.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.channelNoticeMappingTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryNoticeRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.addAndGetReply.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.addAndHasNoticeReplyData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.addNoticeReplyData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.hasReplyData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.removeNoticeReplyData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryReplyRepositoryTest.removeReplyData.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.addUserAndGetUserTest2.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemoryUserRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NotiD [:com.popogonry.notid.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NotiD [:com.popogonry.notid.cli.AuthenticationFrame.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NotiD [:com.popogonry.notid.gui.AuthenticationFrame.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.createNotice_fail_when_existSameId.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.createNotice_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.createNotice_정상생성.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.deleteNotice_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_fail_when_wrongChannel.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_fail_when_wrongId.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.NoticeServiceTest.updateNotice_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_fail_whenUserExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.createUser_success.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.deleteUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenIdMismatch.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserServiceTest.updateUser_fail_whenNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/06-211-4/Desktop/NotiD&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/git/NotiD/src/main/java/com/popogonry/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="애플리케이션.Main">
+}</component>
+  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
     <configuration name="AuthenticationFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.popogonry.notid.gui.AuthenticationFrame" />
       <module name="NotiD.main" />
@@ -231,8 +235,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.AuthenticationFrame" />
         <item itemvalue="Gradle.'NotiD.test'에 있는 테스트" />
+        <item itemvalue="애플리케이션.AuthenticationFrame" />
         <item itemvalue="애플리케이션.Main" />
         <item itemvalue="Gradle.ReplyServiceTest" />
         <item itemvalue="Gradle.NoticeServiceTest.deleteNotice_success" />
@@ -278,7 +282,9 @@
       <workItem from="1749710187390" duration="5961000" />
       <workItem from="1749728507953" duration="9868000" />
       <workItem from="1749747597616" duration="3703000" />
-      <workItem from="1749782721774" duration="3880000" />
+      <workItem from="1749782721774" duration="4099000" />
+      <workItem from="1749797957529" duration="122000" />
+      <workItem from="1749798199600" duration="1610000" />
     </task>
     <task id="LOCAL-00001" summary="2025-05-28&#10;&#10;프로젝트 gradle로 변경">
       <option name="closed" value="true" />
@@ -664,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749786733426</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="2025-06-13&#10;&#10;일부 문장 수정">
+      <option name="closed" value="true" />
+      <created>1749786815169</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1749786815169</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-05&#10;&#10;Config 수정" />
     <MESSAGE value="2025-06-10&#10;&#10;CLI 구조 변경, 일부 코드 수정, &#10;Channel 가입 탈퇴 기능 추가" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView 일부 구현" />
     <MESSAGE value="2025-06-10&#10;&#10;ChannelView.updateChannel 구현 및 테스트 완료" />
@@ -707,7 +720,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;공지 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;채널 생성 시, 값이 비어 있어도 넘어가는 오류 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;공지 리스트 출력시, 공지 권한, 공지 공개 시간 조건 추가" />
+    <MESSAGE value="2025-06-13&#10;&#10;일부 문장 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;일부 문장 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
