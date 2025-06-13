@@ -8,6 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;README.md 사진 변경 시도">
+      <change afterPath="$PROJECT_DIR$/attachments/NotiD_User_Flow_Chart_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attachments/NotiD_User_Flow_Chart_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -142,6 +144,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\git\NotiD\attachments" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.popogonry.notid.alarm.repository" />
@@ -298,6 +303,7 @@
       <workItem from="1749798199600" duration="19252000" />
       <workItem from="1749823035927" duration="289000" />
       <workItem from="1749823356436" duration="8000" />
+      <workItem from="1749823576827" duration="339000" />
     </task>
     <task id="LOCAL-00020" summary="2025-06-05&#10;&#10;AuthenticationImpl 수정">
       <option name="closed" value="true" />
