@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;User Flow Chart 변경">
+    <list default="true" id="c6ed611b-0162-4ddd-b226-dfe494dd567c" name="변경" comment="2025-06-13&#10;&#10;README.md 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -147,7 +147,7 @@
       <recent name="com.popogonry.notid.alarm.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
+  <component name="RunManager" selected="Gradle.'NotiD.test'에 있는 테스트">
     <configuration name="AuthenticationFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.popogonry.notid.gui.AuthenticationFrame" />
       <module name="NotiD.main" />
@@ -295,15 +295,7 @@
       <workItem from="1749747597616" duration="3703000" />
       <workItem from="1749782721774" duration="4099000" />
       <workItem from="1749797957529" duration="122000" />
-      <workItem from="1749798199600" duration="18986000" />
-    </task>
-    <task id="LOCAL-00016" summary="2025-06-06&#10;&#10;ReplyServiceTest 구현 및 일부 수정">
-      <option name="closed" value="true" />
-      <created>1749214706816</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1749214706816</updated>
+      <workItem from="1749798199600" duration="19122000" />
     </task>
     <task id="LOCAL-00017" summary="2025-06-05&#10;&#10;Channel 일부 수정">
       <option name="closed" value="true" />
@@ -689,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749822063032</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="2025-06-13&#10;&#10;README.md 수정">
+      <option name="closed" value="true" />
+      <created>1749822464153</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1749822464153</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025-06-12&#10;&#10;NoticeView&#10;공지 수정 기능 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView&#10;답장 리스트 기능 추가" />
     <MESSAGE value="2025-06-12&#10;&#10;NoticeView&#10;공지 삭제 기능 추가" />
     <MESSAGE value="2025-06-13&#10;&#10;회원가입 로그인, 유효성 검사, &quot;&quot; 값 이슈&#10;&#10;해결" />
@@ -732,7 +731,8 @@
     <MESSAGE value="2025-06-13&#10;&#10;채널 생성 시, 가입 신청으로 생성시 채널의 생성자가 채널에 가입 되지 않던 버그 수정" />
     <MESSAGE value="2025-06-13&#10;&#10;코드 정리" />
     <MESSAGE value="2025-06-13&#10;&#10;User Flow Chart 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;User Flow Chart 변경" />
+    <MESSAGE value="2025-06-13&#10;&#10;README.md 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025-06-13&#10;&#10;README.md 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
