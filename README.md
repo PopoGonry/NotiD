@@ -34,8 +34,7 @@ NotiD는 이러한 공지 전달 문제를 채널 기반 통합 시스템으로 
 #### User Flow Chart
 
 [![js](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/board/HNC8X32xepwT4RJmPVn19B/NotiD?t=o8CPHNd0Z5IdXhTW-1)
-
-<img width="8902" alt="Image" src="https://github.com/user-attachments/assets/5eee2729-4fad-4f6d-94bb-55083cc67084" />
+<img width="7843" alt="Image" src="https://github.com/user-attachments/assets/a3448071-b12f-452a-bf8f-11d4f65b207b" />
 
 ### 동작 과정 설명
 
