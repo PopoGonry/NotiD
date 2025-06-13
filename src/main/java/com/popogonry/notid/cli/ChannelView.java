@@ -417,10 +417,18 @@ public class ChannelView {
     public static void createNotice(Channel channel, User user) {
         System.out.println("--- 공지 생성 ---");
 
-        System.out.print("제목: ");
-        String title = scanner.nextLine();
-        System.out.print("내용: ");
-        String content = scanner.nextLine();
+        String title;
+        do {
+            System.out.print("제목: ");
+            title = scanner.nextLine();
+        } while (title.isEmpty());
+
+
+        String content;
+        do {
+            System.out.print("내용: ");
+            content = scanner.nextLine();
+        } while (content.isEmpty());
 
         boolean isReplyAllowed = false;
         String isReplyInput;
